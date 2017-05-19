@@ -1,0 +1,61 @@
+@charset "utf-8";
+/* CSS Document */
+html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;background-color: #B0C4DE;}
+body, button, input, select, textarea{font:16px/1.5 Arial,Hiragino Sans GB;}
+body, div, dl, dt, dd, ul, ol, li,
+h1, h2, h3, h4, h5, h6, form, legend, input, button,textarea, p,th,td{margin:0;padding:0;font-size:100%;}
+h1, h2, h3, h4, h5, h6{font-size:100%;font-weight:normal;}
+fieldset, img{border:none;}
+img{vertical-align:top;}
+ol, ul,menu{list-style:none outside none;}
+table{border-collapse:collapse;border-spacing:0;}
+input, select{vertical-align:middle; background:none;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
+abbr[title], dfn[title] {border-bottom:1px dotted;cursor:help;}
+sub,sup{font-size:80%;line-height:0;position:relative;vertical-align:baseline;}
+sup{top:-0.5em;}
+sub{bottom:-0.25em;}
+
+input,button,select,textarea{outline:none}
+textarea{resize:none}
+menu{ margin:0; padding:0}
+a{text-decoration:none;}
+article,aside,footer,header,nav,section{display:block}
+a:active,a:hover{outline-width:0}abbr[title]{border-bottom:0;text-decoration:underline;text-decoration:underline dotted}
+b,strong{font-weight:inherit}b,strong{font-weight:bolder}
+code,kbd,samp{font-family:monospace,monospace;font-size:1em}
+dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sub{bottom:-0.25em}sup{top:-0.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}
+svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}
+button,input{overflow:visible}button,select{text-transform:none}button,html [type="button"],[type="reset"],[type="submit"]{-webkit-appearance:button}
+button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{border-style:none;padding:0}
+button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring{outline:1px dotted ButtonText}
+fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:.35em .625em .75em}a{text-decoration: none;}
+legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}
+textarea{overflow:auto}[type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}
+[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto}[type="search"]{-webkit-appearance:textfield;outline-offset:-2px}
+[type="search"]::-webkit-search-cancel-button,[type="search"]::-webkit-search-decoration{-webkit-appearance:none}
+::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}
+template{display:none}[hidden]{display:none}
+.clearfix:after {content:"\20"; display:block; height:0; clear:both; visibility:hidden; }
+
+
+/*手机端采用750PX作图，但是CSS采用375PX设置*/
+
+a{display: block;color: inherit}
+/*按钮*/
+.btn-row {
+  padding: 0.625rem 1.25rem;
+}
+.ta-btn {
+  text-align: center;
+  font-size: 20px;
+  background-color: #289494;
+  width: 100%;
+  border-radius: 4px;
+  margin: 0 auto;
+  padding: 10px 0;
+  color: #ffffff;
+  font-weight: bold;
+  vertical-align: middle;
+}
