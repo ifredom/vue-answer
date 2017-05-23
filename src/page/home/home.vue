@@ -9,7 +9,10 @@
           <swiper></swiper>
 
           <div class="view-cell">
-            <a class="navigate-right"><img src="../../image/adavator/person1.png">关注</a>
+            <a class="navigate-right"><img src="../../image/adavator/person1.png">最佳留言：论牛奶的吸取方法？</a>
+          </div>
+          <div class="view-cell">
+            <a class="navigate-right"><img src="../../image/adavator/person1.png">最差留言：论牛奶的实际成分？</a>
           </div>
 
           <ul class="ta-list count">
@@ -18,16 +21,16 @@
                 <div class="title">关心我：<span v-text="hc_all"></span></div>
                 <div class="info">
                   <div class="normal"><span v-text="hc_zc"></span><span>获赞</span></div>
-                  <div class="notice"><span v-text="hc_gz"></span><span>被关注</span></div>
+                  <div class="notice"><span v-text="hc_gz"></span><span>被表白</span></div>
                 </div>
               </div>
             </li>
             <li class="ta-row">
               <div class="ta-row-body">
-                <div class="title">7日近况：<span v-text="hc7_all"></span></div>
+                <div class="title">讨厌我：<span v-text="hc7_all"></span></div>
                 <div class="info">
-                  <div class="normal"><span v-text="hc7_zc"></span><span>获赞</span></div>
-                  <div class="notice"><span v-text="hc7_gz"></span><span>被关注</span></div>
+                  <div class="normal"><span v-text="hc7_zc"></span><span>敲一榔头</span></div>
+                  <div class="notice"><span v-text="hc7_gz"></span><span>摔屎砸脸</span></div>
                 </div>
               </div>
             </li>
@@ -36,7 +39,10 @@
           <section class="infolist">
             <p>最新动态</p>
             <div class="getresult noresult">
-              暂无记录  [页面登录了-{{count}}次]
+              <ul>
+                <li>进进出出 [{{count}}]次</li>
+                <li>界面UI已无力吐槽·_` </li>
+              </ul>
             </div>
           </section>
 
@@ -139,6 +145,12 @@ import swiper from '@/components/swiper'
     .infolist .noresult{
       padding-bottom: 15px;
     }
-  .getresult{padding: 15px;}
+    .infolist ul li:nth-of-type(2n+1){
+      color: orange;
+    }
+    .infolist ul li:nth-of-type(2n){
+      color: pink;
+    }
+    .getresult{padding: 15px;}
 
 </style>

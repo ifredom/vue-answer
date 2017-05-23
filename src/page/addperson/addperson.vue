@@ -1,27 +1,27 @@
 <template>
     <div>
-        <vHead fixed titles="添加人员">
+        <vHead fixed titles="添加萌物">
             <div class="ta-left" slot="back" @click="back">
               <span class="icon iconfont icon-back" ></span>
             </div>
         </vHead>
         <section class="input-group">
             <div class="input-row">
-              <label>公司</label>
-              <input type="text" id="company" placeholder="请选择公司" readonly="readonly" v-model="company">
+              <label>品种</label>
+              <input type="text" id="company" placeholder="猫？狗？或者..." readonly="readonly" v-model="type">
               <a class="mui-navigate-right"></a>
             </div>
             <div class="input-row">
-              <label>身份证号</label>
-              <input id="idcard" type="text" placeholder="身份证号" maxlength="18" v-model="idcard"></label>
-              <div type="button" class="mui-btn icon-scan"><span>扫证件</span></div>
+              <label>尺寸</label>
+              <input id="apart" type="text" placeholder="喜欢就好" maxlength="18" v-model="apart">
+              <div type="button" class="mui-btn icon-scan"><span>乱入</span></div>
             </div>
             <div class="input-row">
-              <label>姓名</label>
-              <input type="text" id="name" placeholder="姓名" v-model="username">
+              <label>名字</label>
+              <input type="text" id="name" placeholder="名字" v-model="username">
             </div>
             <div class="input-row">
-              <label>手机号</label>
+              <label>联系一下</label>
               <input type="tel" id="tel" placeholder="手机号" maxlength="11" v-model="phone">
             </div>
             <div class="input-row">
@@ -31,9 +31,8 @@
             </div>
         </section>
         <section class="tips">
-            <p>※添加后系统将向该人员发起授权请求，获得授权后方可进行核查</p>
             <div class="btn-row">
-              <div class="ta-btn">添加到人员列表</div>
+              <div class="ta-btn">添加到萌物大家庭</div>
             </div>
         </section>
     </div>
@@ -46,10 +45,10 @@
       export default {
           data() {
               return  {
-                company: "",
-                companyId: "",
-                companyHangye:"",
-                idcard:"",
+                type: "",
+                typeId: "",
+                typeHangye:"",
+                apart:"",
                 username:"",
                 phone:"",
                 department:"",
@@ -107,7 +106,7 @@
     text-align: center;
     border: 0px;
     padding: 0;
-    background-color: #289494;
+    background-color:	#8B4513;
     border-radius: 6px;
     color: #ffffff;
     height: 32px;

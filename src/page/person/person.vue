@@ -1,10 +1,10 @@
 <template>
   <section class="container">
-    <heads titles="趣闻">
+    <heads titles="趣读">
       <headitem  path="/addperson"  position="left"></headitem>
-      <headitem  path="/addperson"  position="right"></headitem>
     </heads>
-    person
+    <p>找点什么装在趣读里面呢？？</p>
+    <p>装13我是接受的</p>
     <vFoot></vFoot>
   </section>
 </template>

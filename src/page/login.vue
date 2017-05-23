@@ -16,7 +16,6 @@
       <div class="crl-input-row">
         <input type="button" class="crl-button" @click="login" tapmode="tap-active" value="登录"/>
       </div>
-      测试：页面登录次数{{ count }}
     </div>
 </template>
 
@@ -56,7 +55,7 @@
       },
       mounted(){
           this.$store.dispatch('increment') // 测试vuex,增加一次登录计数 count
-          console.log(this.$store.state.count)
+          console.log("登录次数"+this.$store.state.count)
       }
   }
 
