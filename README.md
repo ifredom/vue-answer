@@ -17,6 +17,9 @@
     *  到了这一步，项目结构在不断改进过程中已经棒棒的了，基本可以完成任何后续操作。☺
     *  使用cordova编译出可在手机上运行的android,ios APP *
 
+### 展示
+  ![image](https://github.com/ifredom/vue-answer/tree/master/test/testsrc/1.png)
+  ![image](https://github.com/ifredom/vue-answer/tree/master/test/testsrc/2.png)
 ### 技术前提
         vue(熟练) + vuex(一般) + axios(一般)
         ES6（一般）
