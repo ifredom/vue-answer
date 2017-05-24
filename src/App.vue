@@ -3,7 +3,7 @@
 </template>
 
 <script>
-  import "./style/common.css"
+
 
   export default {
       data(){

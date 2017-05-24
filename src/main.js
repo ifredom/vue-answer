@@ -6,6 +6,8 @@ import router from '@/router/router'
 import Vuex from 'vuex'
 import store from '@/vuex/store'
 
+import "./style/common.css"
+import "./style/ngprogress/ngprogress.css"
 Vue.use(Vuex)
 
 Vue.config.productionTip = true
