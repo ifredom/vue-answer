@@ -8,4 +8,5 @@ test/e2e/reports
 selenium-debug.log
 rsa
 .idea
+.editorconfig
 src/style/font/
