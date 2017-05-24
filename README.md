@@ -1,8 +1,10 @@
 ## vue-answer是什么？
-    从零开始，使用Vue2.0制作一款有逼格的手机应用。
-    旨在练习并全程演示SPA诞生过程，学习其中遇到的各种坑点。
-
+    * 手把手演示，如何使用vue2.0制作一款有美美的mobile app。
 ### 结果
+    * make a self-learning system(SLS)
+    * UI我尽力...
+    * 结构保证稳
+### 过程
     *  了解项目如何创建以及搭建对应结构。
         - 初始化项目
         - 搭建基础router
@@ -31,9 +33,12 @@
     3. npm v3.10.10
 
 ### 使用方法：
+    // 安装运行所需依赖
     npm install
-### 开发运行：
+
+    // go，动起来
     npm run dev
+
 ### 上线编译：
     npm run build
 
