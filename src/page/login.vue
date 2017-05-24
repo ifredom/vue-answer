@@ -1,3 +1,4 @@
+<script src="../api/api.js"></script>
 <template>
     <div class="ta-form">
       <div class="ta-banner"><img src="../image/logo.jpg" alt="logo"></div>
