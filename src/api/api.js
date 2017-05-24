@@ -8,6 +8,7 @@ function middlePromiseFun(url, params, method="get"){
       axios({
           method: method,
           url: url,
+          timeout: 3000,
           data: Qs.stringify(params)//若不加，则开发模式proxy代理情况下无法传递参数
       }).then(response => {
           NProgress.done()

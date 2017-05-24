@@ -1,8 +1,9 @@
 <template>
   <div>
-          <!--<transition :name="transitionName">-->
+        <!--转场动画，打开即可-->
+          <transition :name="transitionName">
             <router-view class="child-view"></router-view>
-          <!--</transition>-->
+          </transition>
   </div>
 </template>
 
