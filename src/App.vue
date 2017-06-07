@@ -3,8 +3,6 @@
 </template>
 
 <script>
-
-
   export default {
       data(){
       	  return{
@@ -19,11 +17,7 @@
               this.transitionName = 'slide-left'
           }
           this.$router.isBack = false
-//          console.log(to.path)
           next()
-      },
-      components:{
-
       }
   }
 </script>
@@ -46,7 +40,6 @@
   .container{
     background-color: #efeff4;
   }
-
   .child-view {
     position: absolute;
     width:100%;
@@ -62,10 +55,4 @@
     -webkit-transform: translate(-50px, 0);
     transform: translate(-50px, 0);
   }
-  /*.header {*/
-    /*position:absolute;*/
-    /*height:44px;*/
-    /*background:inherit;*/
-    /*width:100%*/
-  /*}*/
 </style>

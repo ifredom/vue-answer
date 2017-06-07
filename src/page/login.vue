@@ -11,8 +11,8 @@
         <input type="password" id="pwd" class="crl-input" v-model="loginRule.password" auto-complete="off" placeholder="密码"/>
       </div>
       <div class="crl-text-row">
-        <div class="text-forget" onclick="goto_forget()">忘记密码?</div>
-        <div class="pass-sms-login" onclick="goto_sms_login()">新用户注册</div>
+        <div class="text-forget" @click="goForget">忘记密码?</div>
+        <div class="pass-sms-login" @click="goSmsLogin">新用户注册</div>
       </div>
       <div class="crl-input-row">
         <input type="button" class="crl-button" @click="login" tapmode="tap-active" value="登录"/>
@@ -44,14 +44,22 @@
                 password: this.loginRule.password
               }
               //登录
-              requestLogin('',params,"post").then((res) => {
-                console.log(res)
-              }).catch(error=>{
-                console.log(error)
+              requestLogin(params).then((ret) => {
+                  if(ret.status==200){// ret就是服务器返回的东东，根据ret做出对应的反应
+                      console.log(res)
+                  }else{
+                      console.log(error)
+                  }
               });
 
-              //登陆后跳转
+              //登陆后跳转，本来应该放在上面的ret.status==200中，不过显然地址不存在，所以在这里强行跳转
               this.$router.push({ path: '/home' });
+          },
+          goForget(){
+          	  console.log("进入忘记密码页面")
+          },
+          goSmsLogin(){
+              console.log("进入短信登录页面")
           }
       },
       mounted(){
