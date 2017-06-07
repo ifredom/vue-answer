@@ -1,19 +1,10 @@
 
 <template>
     <section>
-        <headBar titles="早读课" path="['/addperson']" >
-          <headitem  slot="left" path="/addperson"  position="left"></headitem>
-          <headitem  slot="right" path="/message"  position="right"></headitem>
-        </headBar>
+        <search>
+        </search>
 
           <swiper></swiper>
-
-          <div class="view-cell">
-            <a class="navigate-right"><img src="../../image/adavator/person1.png">最佳留言：论牛奶的吸取方法？</a>
-          </div>
-          <div class="view-cell">
-            <a class="navigate-right"><img src="../../image/adavator/person1.png">最差留言：论牛奶的实际成分？</a>
-          </div>
 
           <ul class="ta-list count">
             <li class="ta-row" >
@@ -54,10 +45,11 @@
 <script>
   import { mapState,mapActions } from 'vuex'
 
-import headBar from "@/components/common/header"
-import headitem from "@/components/common/headeritem"
-import vFoot from "@/components/common/footer"
-import swiper from '@/components/swiper'
+  import headBar from "@/components/common/header"
+  import headitem from "@/components/common/headeritem"
+  import vFoot from "@/components/common/footer"
+  import search from '@/components/search/search'
+  import swiper from '@/components/swiper'
 
 
     export default {
@@ -80,10 +72,11 @@ import swiper from '@/components/swiper'
             }
         }),
         components:{
+            search,
             swiper,
             headBar,
             headitem,
-             vFoot
+            vFoot
         },
         methods:{
 

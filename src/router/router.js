@@ -4,7 +4,8 @@ import My from '@/page/my/my'
 import Person from '@/page/person/person'
 import Home from '@/page/home/home'
 import Addperson from '@/page/addperson/addperson'
-import PageTransition from '../components/pagetransition'
+import PageTransition from '@/components/pagetransition'
+import Searchmain from '@/components/search/searchmain'
 import Login from '@/page/login'
 
 import App from '../App'
@@ -24,7 +25,7 @@ export default new Router({
           children:[
             {
               path: '/',
-              redirect:'/login'
+              redirect:'/login'//默认路由，直接重定向到地址 /login
             },
             {
               path: '/login',
@@ -48,6 +49,11 @@ export default new Router({
               path: '/addperson',
               name: 'addperson',
               component: Addperson
+            },
+            {
+              path: '/search',
+              name: 'search',
+              component: Searchmain
             }
 
           ]

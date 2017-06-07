@@ -17,6 +17,7 @@ sup{top:-0.5em;}
 sub{bottom:-0.25em;}
 
 input,button,select,textarea{outline:none}
+input{border: none;}
 textarea{resize:none}
 menu{ margin:0; padding:0}
 a{text-decoration:none;}
