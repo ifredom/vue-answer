@@ -28,11 +28,11 @@
           </ul>
 
           <section class="infolist">
-            <p>最新动态</p>
+            <p>大家都在搜什么？</p>
             <div class="getresult noresult">
               <ul>
-                <li>进进出出 [{{count}}]次</li>
-                <li>界面UI已无力吐槽·_` </li>
+                <li>如果好朋友的女友总是对我说那种话怎么办  [已提问{{count}}次]</li>
+                <li>answer界面是水射击的？·_` [已提问{{count}}次]</li>
               </ul>
             </div>
           </section>
@@ -137,6 +137,9 @@
     }
     .infolist .noresult{
       padding-bottom: 15px;
+    }
+    .infolist ul li{
+      margin-bottom:3px;
     }
     .infolist ul li:nth-of-type(2n+1){
       color: orange;
