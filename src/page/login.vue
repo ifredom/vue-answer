@@ -51,9 +51,9 @@
                       console.log(error)
                   }
               });
-
               //登陆后跳转，本来应该放在上面的ret.status==200中，不过显然地址不存在，所以在这里强行跳转
               this.$router.push({ path: '/home' });
+              this.$store.dispatch('increment') // 测试vuex,登录一次，增加count计数
           },
           goForget(){
           	  console.log("进入忘记密码页面")
@@ -61,10 +61,6 @@
           goSmsLogin(){
               console.log("进入短信登录页面")
           }
-      },
-      mounted(){
-          this.$store.dispatch('increment') // 测试vuex,增加一次登录计数 count
-          console.log("登录次数"+this.$store.state.count)
       }
   }
 

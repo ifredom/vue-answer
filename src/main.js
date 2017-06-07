@@ -5,11 +5,12 @@ import App from '@/App'
 import router from '@/router/router'
 import Vuex from 'vuex'
 import store from '@/vuex/store'
+import VueResource from 'vue-resource'
 
 import "./style/common.css"
 import "./style/ngprogress/ngprogress.css"
 Vue.use(Vuex)
-
+Vue.use(VueResource);
 Vue.config.productionTip = true
 
 // router.beforeEach((to, from, next) => {//跳转页面前检测是否登录
