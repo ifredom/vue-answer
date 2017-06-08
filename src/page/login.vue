@@ -1,4 +1,3 @@
-<script src="../api/api.js"></script>
 <template>
     <div class="ta-form">
       <div class="ta-banner"><img src="../image/logo.jpg" alt="logo"></div>
@@ -51,15 +50,16 @@
                       console.log(error)
                   }
               });
-              //登陆后跳转，本来应该放在上面的ret.status==200中，不过显然地址不存在，所以在这里强行跳转
+              // TODO 登陆后跳转，本来应该放在上面的ret.status==200中，不过显然地址不存在会报错，所以在这里强行跳转
               this.$router.push({ path: '/home' });
-              this.$store.dispatch('increment') // 测试vuex,登录一次，增加count计数
+              // TODO 测试vuex,登录一次，增加count计数
+              this.$store.dispatch('increment')
           },
           goForget(){
           	  console.log("进入忘记密码页面")
           },
           goSmsLogin(){
-              console.log("进入短信登录页面")
+            console.log("进入短信登录页面")
           }
       }
   }
