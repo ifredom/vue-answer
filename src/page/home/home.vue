@@ -1,14 +1,12 @@
 
 <template>
     <section>
-        <search>
-        </search>
-
-          <swiper></swiper>
+        <search></search>
+        <swiper></swiper>
 
           <ul class="ta-list count">
             <li class="ta-row" >
-              <div class="ta-row-body">ount
+              <div class="ta-row-body">
                 <div class="title">关心我：<span v-text="countLis.careCount"></span></div>
                 <div class="info">
                   <div class="normal"><span v-text="countLis.praiseCount"></span><span>获赞</span></div>
@@ -31,8 +29,8 @@
             <p>大家都在搜什么？</p>
             <div class="getresult noresult">
               <ul>
-                <li>如果好朋友的女友总是对我说那种话怎么办  [已提问{{count}}次]</li>
-                <li>answer界面是水射击的？·_` [已提问{{count}}次]</li>
+                <li>如果好朋友的女友总是对我说那种话怎么办 ? [已登陆次数{{loginCount}}次]</li>
+                <li>{{loginTitle}}</li>
               </ul>
             </div>
           </section>
@@ -63,14 +61,13 @@
                     knockHammerCount:0,
                     hateCount:0,
                   },
+
                   earliestResult:false
               }
           },
           computed:mapState({
-              count: state=> state.count,
-              selfcount () {
-                return this.$store.state.count
-              }
+              loginCount: state=> state.loginCount,
+              loginTitle: state=> state.title,
           }),
           components:{
               search,
@@ -83,7 +80,7 @@
 
           },
           mounted(){
-              console.log(this.$store.state.count)
+              console.log(this.$store.state.loginCount)
           }
 
       }

@@ -1,5 +1,4 @@
 @charset "utf-8";
-/* CSS Document */
 html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;background-color: #B0C4DE;}
 body, button, input, select, textarea{font:16px/1.5 Arial,Hiragino Sans GB;}
 body, div, dl, dt, dd, ul, ol, li,
@@ -15,7 +14,6 @@ abbr[title], dfn[title] {border-bottom:1px dotted;cursor:help;}
 sub,sup{font-size:80%;line-height:0;position:relative;vertical-align:baseline;}
 sup{top:-0.5em;}
 sub{bottom:-0.25em;}
-
 input,button,select,textarea{outline:none}
 input{border: none;}
 textarea{resize:none}

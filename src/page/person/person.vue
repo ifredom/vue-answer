@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <section class="container" v-cloak>
     <heads titles="趣读">
       <headitem  path="/addperson"  position="left"></headitem>
     </heads>
@@ -24,5 +24,5 @@
   }
 </script>
 <style>
-
+  [v-cloak]{display: none;}
 </style>

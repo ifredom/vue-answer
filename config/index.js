@@ -29,7 +29,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': { //匹配所有以/api开始的路径
-        target: 'http://example/',
+        target: 'https://node-douban-api.herokuapp.com/movie',
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''

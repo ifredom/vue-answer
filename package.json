@@ -11,7 +11,9 @@
     "test": "npm run e2e"
   },
   "dependencies": {
+    "express": "^4.15.3",
     "nprogress": "^0.2.0",
+    "superagent": "^3.5.2",
     "vue": "^2.2.2",
     "vue-router": "^2.2.0",
     "vuex": "^2.3.1"

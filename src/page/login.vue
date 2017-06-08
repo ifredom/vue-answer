@@ -10,8 +10,8 @@
         <input type="password" id="pwd" class="crl-input" v-model="loginRule.password" auto-complete="off" placeholder="密码"/>
       </div>
       <div class="crl-text-row">
-        <div class="text-forget" @click="goForget">忘记密码?</div>
-        <div class="pass-sms-login" @click="goSmsLogin">新用户注册</div>
+        <div class="text-forget" @click="otherLogin">其他方式?</div>
+        <div class="pass-sms-login" @click="goSmsLogin">注册个</div>
       </div>
       <div class="crl-input-row">
         <input type="button" class="crl-button" @click="login" tapmode="tap-active" value="登录"/>
@@ -21,14 +21,15 @@
 
 <script>
   import { mapState,mapActions } from 'vuex';
-  import { requestLogin } from '@/api/api'
+  import { getMovies } from '@/api/api'
+  import axios from 'axios'
   export default {
       data() {
           return {
             logining: false,
             loginRule: {
               account: 'admin',
-              password: '123456'
+              password: ''
             },
           };
       },
@@ -37,29 +38,28 @@
       }),
       methods:{
           login(){
-
-          	  var params = {
-          	  	user: this.loginRule.account,
-                password: this.loginRule.password
+              var playload = {
+                  start:0,
+                  count:20
               }
-              //登录
-              requestLogin(params).then((ret) => {
-                  if(ret.status==200){// ret就是服务器返回的东东，根据ret做出对应的反应
-                      console.log(res)
-                  }else{
-                      console.log(error)
-                  }
+              // TODO 由于并没有一个登陆接口可以测试，于是我在这里使用了豆瓣电影的一个开放api进行请求。
+              // 此接口地址为豆瓣电影开放api，是获取包含正在上映榜单和即将上映榜单的电影信息
+              // 请求成功，则假想为登陆成功。请求失败，则打印出信息
+              getMovies(playload,'get').then((ret) => {
+                  //成功后跳转
+                  this.$router.push({ path: '/home' });
+
+                  this.$store.dispatch('increment') //登录一次，增加 loginCount 计数
+                  this.$store.dispatch('requestLogin',ret)//登陆成功的信息，可以做点什么
               });
-              // TODO 登陆后跳转，本来应该放在上面的ret.status==200中，不过显然地址不存在会报错，所以在这里强行跳转
-              this.$router.push({ path: '/home' });
-              // TODO 测试vuex,登录一次，增加count计数
-              this.$store.dispatch('increment')
+
+
           },
-          goForget(){
-          	  console.log("进入忘记密码页面")
+          otherLogin(){
+          	  alert("其他登录方式页面，还未出生哦")
           },
           goSmsLogin(){
-            console.log("进入短信登录页面")
+              alert("短信登录页面，还未出生哦")
           }
       }
   }
