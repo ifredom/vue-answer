@@ -8,20 +8,20 @@
 
           <ul class="ta-list count">
             <li class="ta-row" >
-              <div class="ta-row-body">
-                <div class="title">关心我：<span v-text="hc_all"></span></div>
+              <div class="ta-row-body">ount
+                <div class="title">关心我：<span v-text="countLis.careCount"></span></div>
                 <div class="info">
-                  <div class="normal"><span v-text="hc_zc"></span><span>获赞</span></div>
-                  <div class="notice"><span v-text="hc_gz"></span><span>被表白</span></div>
+                  <div class="normal"><span v-text="countLis.praiseCount"></span><span>获赞</span></div>
+                  <div class="notice"><span v-text="countLis.confessionCount"></span><span>被表白</span></div>
                 </div>
               </div>
             </li>
             <li class="ta-row">
               <div class="ta-row-body">
-                <div class="title">讨厌我：<span v-text="hc7_all"></span></div>
+                <div class="title">讨厌我：<span v-text="countLis.hateCount"></span></div>
                 <div class="info">
-                  <div class="normal"><span v-text="hc7_zc"></span><span>敲一榔头</span></div>
-                  <div class="notice"><span v-text="hc7_gz"></span><span>摔屎砸脸</span></div>
+                  <div class="normal"><span v-text="countLis.knockHammerCount"></span><span>敲一榔头</span></div>
+                  <div class="notice"><span v-text="countLis.hitfaceCount"></span><span>摔屎砸脸</span></div>
                 </div>
               </div>
             </li>
@@ -51,41 +51,42 @@
   import search from '@/components/search/search'
   import swiper from '@/components/swiper'
 
+      export default {
+          data() {
+              return {
+                  isIndex : true,
+                  countLis:{
+                    careCount:0,
+                    praiseCount:2,
+                    confessionCount:3,
+                    hitfaceCount:4,
+                    knockHammerCount:0,
+                    hateCount:0,
+                  },
+                  earliestResult:false
+              }
+          },
+          computed:mapState({
+              count: state=> state.count,
+              selfcount () {
+                return this.$store.state.count
+              }
+          }),
+          components:{
+              search,
+              swiper,
+              headBar,
+              headitem,
+              vFoot
+          },
+          methods:{
 
-    export default {
-        data() {
-            return {
-                isIndex : true,
-                hc_gz:0,
-                hc_zc:0,
-                hc_all:0,
-                hc7_gz:0,
-                hc7_zc:0,
-                hc7_all:0,
-                earliestResult:false
-            }
-        },
-        computed:mapState({
-            count: state=> state.count,
-            selfcount () {
-              return this.$store.state.count
-            }
-        }),
-        components:{
-            search,
-            swiper,
-            headBar,
-            headitem,
-            vFoot
-        },
-        methods:{
+          },
+          mounted(){
+              console.log(this.$store.state.count)
+          }
 
-        },
-        mounted(){
-            console.log(this.$store.state.count)
-        }
-
-    }
+      }
 </script>
 
 <style>
