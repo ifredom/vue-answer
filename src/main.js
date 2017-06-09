@@ -1,19 +1,30 @@
-// The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import App from '@/App'
-import router from '@/router/router'
+import VueRouter from 'vue-router'
 import Vuex from 'vuex'
-import store from '@/vuex/store'
 import VueResource from 'vue-resource'
+import ga from 'vue-ga'
+
+import App from '@/App'
+import store from '@/vuex/store'
+import routes from '@/router/router'
 
 import "./style/common.css"
 import "./style/ngprogress/ngprogress.css"
+
+Vue.use(VueRouter)
 Vue.use(Vuex)
 Vue.use(VueResource);
+
 Vue.config.productionTip = true
 
-// router.beforeEach((to, from, next) => {//跳转页面前检测是否登录
+const router = new VueRouter({
+  routes
+})
+ga(router, 'UA-XXXXX-Y')
+
+
+// router.beforeEach((to, from, next) => {// 跳转页面前，检测是否登录（token）
 //   if (to.path == '/login') {
 //     sessionStorage.removeItem('user');
 //   }

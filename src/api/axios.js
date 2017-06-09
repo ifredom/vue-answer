@@ -1,6 +1,8 @@
 /**
  * Created by denept on 17/2/16.
  * http配置
+ * axios拦截是为了进行token检测。有的页面要求是token，所以通过路由控制，
+ * 有的地方仅仅是在数据请求时需要验证token，所以有了拦截器
  */
 
 import axios from 'axios'

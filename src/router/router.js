@@ -1,5 +1,5 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+/* only page components*/
+import App from '@/App'
 import My from '@/page/my/my'
 import Person from '@/page/person/person'
 import Home from '@/page/home/home'
@@ -8,12 +8,7 @@ import PageTransition from '@/components/pagetransition'
 import Searchmain from '@/components/search/searchmain'
 import Login from '@/page/login'
 
-import App from '../App'
-
-Vue.use(Router)
-
-export default new Router({
-  routes: [
+const router = [
     {
       path: '/',
       component: App,
@@ -62,4 +57,5 @@ export default new Router({
       ]
     }
   ]
-})
+
+export default router

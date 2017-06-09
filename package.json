@@ -2,7 +2,8 @@
   "name": "answer",
   "version": "1.0.1",
   "description": "use vue2 make a niu 13 app",
-  "author": "ifredom",
+  "author": "ifredom <1950735817@qq.com>",
+  "homepage": "https://github.com/ifredom/vue-answer",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -15,6 +16,7 @@
     "nprogress": "^0.2.0",
     "superagent": "^3.5.2",
     "vue": "^2.2.2",
+    "vue-ga": "^1.0.0",
     "vue-router": "^2.2.0",
     "vuex": "^2.3.1"
   },
