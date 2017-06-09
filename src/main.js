@@ -21,8 +21,6 @@ Vue.config.productionTip = true
 const router = new VueRouter({
   routes
 })
-ga(router, 'UA-XXXXX-Y')
-
 
 // router.beforeEach((to, from, next) => {// 跳转页面前，检测是否登录（token）
 //   if (to.path == '/login') {
@@ -44,3 +42,8 @@ new Vue({
   template: '<App/>',
   components: { App }
 })
+
+//此统计ID后期将会删除，此处测试使用
+ga(router, 'UA-100770375-1')
+// ga('send', 'test-pageview')
+

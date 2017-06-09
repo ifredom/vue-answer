@@ -5,7 +5,7 @@ import NProgress from 'nprogress';
 // 每一个地址前都需要/api来进行反向代理的识别
 let base = '/api';
 
-function middlePromiseFun(url, params, type="post"){
+function middlePromiseFun(url, params={}, type="post"){
   return   new Promise((resolve, reject) => {
       NProgress.start()
       axios({
@@ -18,20 +18,16 @@ function middlePromiseFun(url, params, type="post"){
           resolve(response.data)
       }, err => {
           NProgress.done()
-          console.log(err)
           reject(err)
-      }).catch(error => {
-          console.log(error)
-          reject(error)
       })
   })
 }
 
-export const requestLogin = (params, type) => {
-  return middlePromiseFun(`${base}/self ajax address`,params,type)
+export const requestLogin = (params) => {
+  return middlePromiseFun(`${base}/self ajax address`)
 }
-export const getMovies = (params, type) => {
-  return middlePromiseFun(`${base}/in_theaters`,params,type)
+export const getMovies = (params) => {
+  return middlePromiseFun(`${base}/in_theaters`, params, "get")
 }
 
 
