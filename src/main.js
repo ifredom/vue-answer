@@ -44,6 +44,6 @@ new Vue({
 })
 
 //此统计ID后期将会删除，此处测试使用
-ga(router, 'UA-100770375-1')
+// ga(router, 'UA-100770375-1')
 // ga('send', 'test-pageview')
 

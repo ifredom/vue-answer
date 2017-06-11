@@ -2,7 +2,6 @@ var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
-var projectRoot = path.resolve(__dirname, '../')
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }

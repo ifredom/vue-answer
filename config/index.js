@@ -5,8 +5,13 @@ module.exports = {
   build: {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
+    // webpack输出的目标文件夹路径
     assetsRoot: path.resolve(__dirname, '../dist'),
+    // webpack编译输出的二级文件夹
     assetsSubDirectory: 'static',
+    // webpack编译输出的发布路径
+    // => 将 build 的路径前缀修改为 ' ./ '（原本为 ' / '），是因为打包之后，
+    // 外部引入 js 和 css 文件时，如果路径以 ' / ' 开头，在本地是无法找到对应文件的（服务器上没问题）
     assetsPublicPath: './',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
@@ -22,8 +27,10 @@ module.exports = {
     bundleAnalyzerReport: process.env.npm_config_report
   },
   dev: {
+    // webpack的编译环境
     env: require('./dev.env'),
-    port: 8887,
+    // 编译输入的index.html文件
+    port: 8080,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',

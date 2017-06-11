@@ -28,7 +28,7 @@ module.exports = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
-      inject: true
+      inject: true //引入html文件的JS文件位置，true表示底部
     }),
     new FriendlyErrorsPlugin()
   ]
