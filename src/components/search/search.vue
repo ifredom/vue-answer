@@ -19,21 +19,23 @@
     }
 </script>
 <style>
-  .ta-search{padding: 8px;}
-  .ta-search label{
-      margin-right: 2%;
-      width: 30%;
-      font-style:italic;
-      font-size: 20px;
-  }
-  .ta-search input {
-    display: inline-block;
-    position: relative;
-    padding-left: 10px;
-    width: 68%;
-    height: 42px;
-    text-align: left;
-    background-color: #fff;
-    border-radius: 4px;
-  }
+
+    .ta-search{padding: 8px;}
+    .ta-search label{
+        margin-right: 2%;
+        width: 30%;
+        font-style:italic;
+        font-size: 20px;
+	    color: #fff;
+    }
+    .ta-search input {
+	    display: inline-block;
+	    position: relative;
+	    padding-left: 10px;
+	    width: 68%;
+	    height: 42px;
+	    text-align: left;
+	    background-color: #fff;
+        border-radius: 4px;
+    }
 </style>

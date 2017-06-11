@@ -1,5 +1,5 @@
 @charset "utf-8";
-html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;background-color: #B0C4DE;}
+html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;background-color: #222222;}
 body, button, input, select, textarea{font:16px/1.5 Arial,Hiragino Sans GB;}
 body, div, dl, dt, dd, ul, ol, li,
 h1, h2, h3, h4, h5, h6, form, legend, input, button,textarea, p,th,td{margin:0;padding:0;font-size:100%;}
@@ -40,7 +40,13 @@ template{display:none}[hidden]{display:none}
 
 
 /*手机端采用750PX作图，但是CSS采用375PX设置*/
-
+*{ box-sizing: border-box;}
+input[type=button],
+input[type=submit],
+input[type=file],
+button {
+    cursor: pointer; -webkit-appearance: none;
+}
 a{display: block;color: inherit}
 /*按钮*/
 .btn-row {
