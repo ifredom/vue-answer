@@ -1,10 +1,10 @@
 <template>
   <section class="container" v-cloak>
     <heads titles="趣读">
-      <headitem  path="/addperson"  position="left"></headitem>
+      <headitem  slot="right" path="/addperson"  position="left">添加</headitem>
     </heads>
-    <p>找点什么装在趣读里面呢？？</p>
-    <p>装13我是接受的</p>
+    <p>找点什么装在趣读里呢？？</p>
+    <p>没有就先装点13吧</p>
     <vFoot></vFoot>
   </section>
 </template>

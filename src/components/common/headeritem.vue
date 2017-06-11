@@ -1,6 +1,6 @@
 <template>
   <div class="header-button" >
-    <router-link class="ta-header-button" :class="positionClass" :to="toPath" >
+    <router-link class="ta-header-button" :class="positionClass" :to="path" >
       <img :src="imgUrl" alt="" />
     </router-link>
   </div>
@@ -17,11 +17,6 @@
     computed:{
       positionClass(){
       	return "ta-"+this.position
-      },
-      toPath(){
-      	return {
-      		path:this.path
-        }
       },
       imgUrl(){//使用JS生成资源路径
         return "./static"+this.path+".png"

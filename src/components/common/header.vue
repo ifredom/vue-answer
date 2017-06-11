@@ -47,7 +47,7 @@
     position: relative;
     height: 2.8125rem;
     line-height: 2.8125rem;
-    background-color: 	#C0C0C0;
+    background-color: #8B814C;
     text-align: center;
     color:#fff;
   }

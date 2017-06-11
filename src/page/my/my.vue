@@ -1,6 +1,6 @@
 <template>
     <section class="container">
-      爱我还不抱抱我
+      空空如也，等你来
       <vFoot></vFoot>
     </section>
 </template>

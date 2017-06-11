@@ -1,5 +1,5 @@
 @charset "utf-8";
-html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;background-color: #222222;}
+html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;background-color: rgba(176,196,222,0.5);}
 body, button, input, select, textarea{font:16px/1.5 Arial,Hiragino Sans GB;}
 body, div, dl, dt, dd, ul, ol, li,
 h1, h2, h3, h4, h5, h6, form, legend, input, button,textarea, p,th,td{margin:0;padding:0;font-size:100%;}
