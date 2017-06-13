@@ -35,9 +35,6 @@
               </ul>
             </div>
           </section>
-
-        <vFoot></vFoot>
-
     </section>
 </template>
 
@@ -46,7 +43,6 @@
 
   import headBar from "@/components/common/header"
   import headitem from "@/components/common/headeritem"
-  import vFoot from "@/components/common/footer"
   import search from '@/components/search/search'
   import swiper from '@/components/swiper'
 
@@ -74,8 +70,7 @@
               search,
               swiper,
               headBar,
-              headitem,
-              vFoot
+              headitem
           },
           methods:{
 

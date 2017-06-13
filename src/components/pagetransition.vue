@@ -4,13 +4,12 @@
           <transition :name="transitionName">
             <router-view class="child-view"></router-view>
           </transition>
+          <comFoot></comFoot>
   </div>
 </template>
 
 <script>
-  import vHead from '../components/common/header'
-  import vHeaditem from '../components/common/headeritem'
-  import vFoot from "@/components/common/footer"
+  import comFoot from "@/components/common/footer"
 
   export default {
     data () {
@@ -28,38 +27,12 @@
         this.transitionName = 'slide-left'
       }
       this.$router.isBack = false
-//      console.log(to.path)
       this.toPath = to.path
       this.formPath = from.path
       next()
     },
-    computed:{
-      _title(){
-        let to ='';
-        switch(this.toPath){
-          case'/':
-            to = '实名盾管理版';
-            break;
-          case'/home':
-            to = '实名盾管理版';
-            break;
-          case'/person':
-            to = '人员';
-            break;
-          case'/my':
-            to = '我的';
-            break;
-          default:
-            to = '实名盾管理版';
-            break;
-        }
-        return  to
-      }
-    },
     components:{
-      vHead,
-      vHeaditem,
-      vFoot
+      comFoot
     }
   }
 </script>
@@ -79,11 +52,5 @@
     opacity: 0;
     -webkit-transform: translate(-50px, 0);
     transform: translate(-50px, 0);
-  }
-  .header {
-    position:absolute;
-    height:44px;
-    background:inherit;
-    width:100%
   }
 </style>

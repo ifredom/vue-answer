@@ -5,21 +5,19 @@
     </heads>
     <p>找点什么装在趣读里呢？？</p>
     <p>没有就先装点13吧</p>
-    <vFoot></vFoot>
+
   </section>
 </template>
 <script type="text/ecmascript-6">
   import heads from '@/components/common/header'
   import headitem from '@/components/common/headeritem'
-  import vFoot from "@/components/common/footer"
   export default {
       data(){
         return {}
       },
       components:{
         heads,
-        headitem,
-        vFoot
+        headitem
       }
   }
 </script>

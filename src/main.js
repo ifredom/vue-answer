@@ -5,6 +5,9 @@ import Vuex from 'vuex'
 import VueResource from 'vue-resource'
 import ga from 'vue-ga'
 
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
+
 import App from '@/App'
 import store from '@/vuex/store'
 import routes from '@/router/router'
@@ -15,7 +18,7 @@ import "./style/ngprogress/ngprogress.css"
 Vue.use(VueRouter)
 Vue.use(Vuex)
 Vue.use(VueResource);
-
+Vue.use(MintUI)
 Vue.config.productionTip = true
 
 const router = new VueRouter({
