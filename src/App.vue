@@ -1,16 +1,30 @@
 <template>
-        <router-view></router-view>
+  <div>
+    <transition :name="transitionName">
+        <router-view  class="child-view"></router-view>
+    </transition>
+    <comFoot v-if="isShowFooter"></comFoot>
+  </div>
 </template>
 
 <script>
+  import comFoot from "@/components/common/footer"
   export default {
       data(){
       	  return{
-
+            transitionName: 'slide-left',
+            isShowFooter:false
           }
       },
       beforeRouteUpdate (to, from, next) {
           let isBack = this.$router.isBack
+
+          if(to.path=="/search"||to.path=="/login"){
+          	this.isShowFooter = false
+          }else{
+            this.isShowFooter = true
+          }
+
           if (isBack) {
               this.transitionName = 'slide-right'
           } else {
@@ -18,31 +32,18 @@
           }
           this.$router.isBack = false
           next()
+      },
+      components:{
+        comFoot
       }
   }
 </script>
 
 <style>
-  .animtaion-fade-enter-active, .animtaion-fade-leave-active {
-    transition: opacity .3s;
-  }
-  .animtaion-fade-enter, .animtaion-fade-leave-active {
-    opacity: 0;
-  }
-  #app {
-      font-family: 'Avenir', Helvetica, Arial, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      text-align: center;
-      color: #2c3e50;
-      font-size:15px;
-  }
-  .container{
-    background-color: #efeff4;
-  }
   .child-view {
     position: absolute;
     width:100%;
+    height: 100%;
     transition: all .8s cubic-bezier(.55,0,.1,1);
   }
   .slide-left-enter, .slide-right-leave-active {

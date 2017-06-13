@@ -63,8 +63,7 @@
               }
           },
           computed:mapState({
-              loginCount: state=> state.loginCount,
-              loginTitle: state=> state.title,
+              loginCount: state=> state.loginCount
           }),
           components:{
               search,
