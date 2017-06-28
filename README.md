@@ -26,6 +26,8 @@
 ### 展示
   ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/1.png)
   ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/2.png)
+### 下载安装
+  ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/ifredom-answoe-code.png)
 ### 技术前提
         vue(熟练) + vuex(一般) + axios(一般)
         ES6（一般）
