@@ -20,13 +20,17 @@
 </script>
 <style>
 
-    .ta-search{padding: 8px;}
+    .ta-search{
+        padding: 8px;
+        background-color: rgba(176,196,222,0.5);
+    }
     .ta-search label{
         margin-right: 2%;
         width: 30%;
         font-style:italic;
         font-size: 20px;
-	    color: #fff;
+	    color: #333;
+        
     }
     .ta-search input {
 	    display: inline-block;

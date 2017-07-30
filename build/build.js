@@ -9,6 +9,7 @@ var chalk = require('chalk')
 var webpack = require('webpack')
 var config = require('../config')
 var webpackConfig = require('./webpack.prod.conf')
+var shell = require('shelljs')
 
 var spinner = ora('building for production...')
 spinner.start()
@@ -31,5 +32,16 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
       '  Tip: built files are meant to be served over an HTTP server.\n' +
       '  Opening index.html over file:// won\'t work.\n'
     ))
+
+    var cppath = path.resolve(__dirname, '../widget')
+    var bb = ora('正在处理 复制到 ' + cppath + ' 文件夹...\n\n').start()
+
+
+    rm(path.join(cppath, 'static'), err => {
+        if (err) throw console.warn(err)
+        shell.cp('-Rf', path.join(config.build.assetsRoot, '/*'), cppath);
+        console.log(chalk.cyan('复制完成'))
+        bb.stop()
+    })
   })
 })

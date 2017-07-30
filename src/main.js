@@ -2,27 +2,30 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Vuex from 'vuex'
-import VueResource from 'vue-resource'
-import ga from 'vue-ga'
-
-import MintUI from 'mint-ui'
-import 'mint-ui/lib/style.css'
-
 import App from '@/App'
 import store from '@/vuex/store'
 import routes from '@/router/router'
 
+// 框架
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
+
+// 工具
+import './util/rem'
+import FastClick from 'fastclick'
+import ga from 'vue-ga'
+// 样式
 import "./style/common.css"
+import "./style/iconfont/iconfont.css"
 import "./style/ngprogress/ngprogress.css"
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
-Vue.use(VueResource);
 Vue.use(MintUI)
 Vue.config.productionTip = true
 
 const router = new VueRouter({
-  routes
+    routes
 })
 
 // router.beforeEach((to, from, next) => {// 跳转页面前，检测是否登录（token）
@@ -39,11 +42,11 @@ const router = new VueRouter({
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  store,
-  template: '<App/>',
-  components: { App }
+    el: '#app',
+    router,
+    store,
+    template: '<App/>',
+    components: { App }
 })
 
 //此统计ID后期将会删除，此处测试使用
