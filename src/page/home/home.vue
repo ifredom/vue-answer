@@ -3,10 +3,13 @@
         <search></search>
         <!--<swiper></swiper>-->
         <ul class="content">
-            <li>掃一掃</li>
+            <li @click="scan">
+                掃二維碼
+            </li>
             <li>分享</li>
-            <li></li>
+            <li>占位中</li>
         </ul>
+        <div v-text="scanResult"></div>
         <v-footer></v-footer>
     </section>
 </template>
@@ -22,17 +25,7 @@
       export default {
           data() {
               return {
-                  isIndex : true,
-                  countLis:{
-                    careCount:0,
-                    praiseCount:2,
-                    confessionCount:3,
-                    hitfaceCount:4,
-                    knockHammerCount:0,
-                    hateCount:0,
-                  },
-
-                  earliestResult:false
+                  scanResult:'22222'
               }
           },
           computed:mapState({
@@ -44,7 +37,21 @@
               'v-footer' : Footer
           },
           methods:{
+              scan(){
+                  let self = this ;
+                  console.log("開始調用手機 掃描二維碼")
+                  if(NODE_ENV=="development"){
+                      alert("掃描功能，衹能build之後通過手機調用")
+                  }else{
+                    Scan().then((ret)=>{
+                        if(ret){
+                            alert("ret.content")
+                            self.scanResult = ret.content
+                        }
+                    })
+                  }
 
+              }
           },
           mounted(){
               console.log(this.$store.state.loginCount)
@@ -58,12 +65,14 @@
         display:flex;
         justify-content: space-between;
         align-items: center;
+        padding: 0.64rem;
     }
     .content li {
         width: 32%;
         height: 2.67rem;
         line-height: 2.67rem;
         background-color:#d1d1d1;
+        border-radius: 4px;
         align-items: center;
         text-align: center;
     }

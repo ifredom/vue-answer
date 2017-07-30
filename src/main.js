@@ -27,7 +27,11 @@ Vue.config.productionTip = true
 const router = new VueRouter({
     routes
 })
-
+if (process.env.NODE_ENV == 'development') {
+    window.NODE_ENV = 'development' // [开发环境]
+} else {
+    window.NODE_ENV = 'production' // [真机或发布环境] 
+}
 // router.beforeEach((to, from, next) => {// 跳转页面前，检测是否登录（token）
 //   if (to.path == '/login') {
 //     sessionStorage.removeItem('user');
