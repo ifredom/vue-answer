@@ -1,6 +1,6 @@
 <template>
     <div class="banner">
-        <img src="../image/banner/banner.jpg" alt="轮播图">
+        <img src="./../../image/banner/banner.jpg" alt="轮播图">
     </div>
 </template>
 <script type="text/javascript">
