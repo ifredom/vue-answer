@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>custom Event</title>
+
+</head>
+<style lang="">
+  .div1 {
+    background-color: red;
+    margin: 10px;
+  }
+
+  .div2 {
+    background-color: yellow;
+  }
+
+</style>
+
+<body>
+  <div class="div1">11111</div>
+  <div class="div2">222</div>
+</body>
+
+<script>
+  var buildevent = new Event('build');
+
+  var div1 = document.querySelector(".div1")
+  var div2 = document.querySelector(".div2")
+  // Listen for the event.
+
+  div2.addEventListener('click', function (e) {
+    // click div2 ,dispatch the event bind of div1
+    console.log("22")
+    div1.dispatchEvent(buildevent);
+    
+  }, false);
+
+  div1.addEventListener('build', function (e) {
+      alert("build-event has being listened!")
+  }, false);
+
+</script>
+
+</html>

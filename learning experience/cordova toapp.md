@@ -9,3 +9,6 @@ Failed to get absolute path to installed module
 
 1.重新安装  cordova
 2.查看可用平台  cordova platform ls
+
+查看现在的cordova-andorid版本
+C:\Users\Administrator\.cordova\lib\npm_cache\cordova-android
