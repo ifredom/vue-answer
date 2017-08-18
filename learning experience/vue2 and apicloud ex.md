@@ -4,7 +4,7 @@
 
 ## 其中的坑
 
-1. 调试涉及apicloud模块，也就时原生功能的时候不太方便。
+**1. 调试涉及apicloud模块，也就时原生功能的时候不太方便。**
 
 * 通过vue-cli构建项目，可以在浏览器中通过设置proxy反向代理后， 直接与后台通信调试。
 * 但是涉及app的一些功能，比如读取手机相册，扫描二维码，定位，数据统计等功能时，必须build之后，通过手机真机同步然后进行调试。
@@ -63,7 +63,7 @@
 
 ******
 
-2.页面缓存是个问题
+**2.页面缓存是个问题**
 
 * 进入A页面后，再进入B页面，再返回A页面，A应该被缓存。同时可以设置返回A时，刷新A
 
@@ -73,7 +73,7 @@
 
 ******
 
-3.ios移动手势
+**3.ios移动手势**
 
 * 解决办法：先instal，再main.js中引用一下就行
 
@@ -93,11 +93,10 @@
 
 ******
 
-4.页面适配问题
+**4.页面适配问题**
 
 * 解决办法： 在mian.js中引入下面这个函数即可
 
-``
     (function(doc, win) {
         var docEl = doc.documentElement,
             resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
@@ -111,11 +110,9 @@
         doc.addEventListener('DOMContentLoaded', recalc, false);
     })(document, window);
 
-``
-
 ******
 
-5.取消移动端点击事件的300ms延迟
+**5.取消移动端点击事件的300ms延迟**
     解决办法： 先安装，然后main.js 写入以下内容
 
     import FastClick from 'fastclick' //快速点击
@@ -127,7 +124,7 @@
 
 ******
 
-6.数据请求，fetch或者称之为ajax，一封装好
+**6.数据请求，fetch或者称之为ajax，已封装好**
 
     文件名：api.js
 
