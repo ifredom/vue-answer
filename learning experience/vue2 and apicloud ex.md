@@ -1,11 +1,10 @@
-## 项目实践
+# 项目实践
 
-vue2  + vue-router  + vuex + apicloud   制作手机app
-
+    vue2  + vue-router  + vuex + apicloud   制作手机app
 
 ## 其中的坑
 
-1. 调试涉及apicloud模块，也就时原生功能的时候不太方便。
+###1. 调试涉及apicloud模块，也就时原生功能的时候不太方便。
 
     通过vue-cli构建项目，可以在浏览器中通过设置proxy反向代理后， 直接与后台通信调试。
     但是涉及app的一些功能，比如读取手机相册，扫描二维码，定位，数据统计等功能时，必须build之后，通过手机真机同步然后进行调试。
@@ -13,7 +12,8 @@ vue2  + vue-router  + vuex + apicloud   制作手机app
 
     文件名：build.js
 
- ` 
+ `
+
     require('./check-versions')()
     process.env.NODE_ENV = 'production'
 
@@ -60,13 +60,14 @@ vue2  + vue-router  + vuex + apicloud   制作手机app
         })
     })
 `
-2. 页面缓存是个问题
+###2.页面缓存是个问题
     进入A页面后，再进入B页面，再返回A页面，A应该被缓存。同时可以设置返回A时，刷新A
     使用keep-alive时一个解决办法，但是不好用。
     解决办法：使用vue-navigation，github搜索即可
 
-3. ios移动手势
+###3.ios移动手势
     解决办法：先instal，再main.js中引用一下就行
+`
     import Tocca from 'tocca' // 移动手势
     Vue.use(Tocca);
             if ('addEventListener' in document) {
@@ -75,11 +76,11 @@ vue2  + vue-router  + vuex + apicloud   制作手机app
                     self.$router.go(-1)
                 });
             }
-
-4. 页面适配问题
+`
+###4. 页面适配问题
 
     解决办法： 在mian.js中引入下面这个函数即可 
-
+`
     (function(doc, win) {
         var docEl = doc.documentElement,
             resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
@@ -92,22 +93,21 @@ vue2  + vue-router  + vuex + apicloud   制作手机app
         win.addEventListener(resizeEvt, recalc, false);
         doc.addEventListener('DOMContentLoaded', recalc, false);
     })(document, window);
-
-5. 取消移动端点击事件的300ms延迟
+`
+###5. 取消移动端点击事件的300ms延迟
     解决办法： 先安装，然后main.js 写入以下内容
-
+`
     import FastClick from 'fastclick' //快速点击
     if ('addEventListener' in document) { //取消点击300ms延迟
         document.addEventListener('DOMContentLoaded', function() {
             FastClick.attach(document.body);
         }, false);
     }
-
-
-6. fetch数据请求，或者说是ajax
+`
+###6. fetch数据请求，或者说是ajax
 
     文件名：api.js
-
+`
     import axios from 'axios';
     import Qs from 'qs';
     import NProgress from 'nprogress';
@@ -179,4 +179,5 @@ vue2  + vue-router  + vuex + apicloud   制作手机app
     export const noteLogin = (params, method) => { // 短信登录接口
         return middlePromiseFun(`${base}/validatephone`, params, method)
     }
-    .......其他接口......
+    // .......其他接口......
+`
