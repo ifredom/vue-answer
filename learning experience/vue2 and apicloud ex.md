@@ -78,14 +78,17 @@
 * 解决办法：先instal，再main.js中引用一下就行
 
 ``
-    import Tocca from 'tocca' // 移动手势
+
+    import Tocca from 'tocca';  // 移动手势
     Vue.use(Tocca);
+
     if ('addEventListener' in document) {
         //仅支持 ios 10.1+
         document.addEventListener('swiperight', function(e) {
             self.$router.go(-1)
-         });
-     }
+        });
+    }
+
 ``
 
 ******
@@ -94,6 +97,7 @@
 
 * 解决办法： 在mian.js中引入下面这个函数即可
 
+``
     (function(doc, win) {
         var docEl = doc.documentElement,
             resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
@@ -106,6 +110,10 @@
         win.addEventListener(resizeEvt, recalc, false);
         doc.addEventListener('DOMContentLoaded', recalc, false);
     })(document, window);
+    
+``
+
+******
 
 5.取消移动端点击事件的300ms延迟
     解决办法： 先安装，然后main.js 写入以下内容
