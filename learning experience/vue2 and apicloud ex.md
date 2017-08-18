@@ -6,9 +6,9 @@
 
 1. 调试涉及apicloud模块，也就时原生功能的时候不太方便。
 
-    通过vue-cli构建项目，可以在浏览器中通过设置proxy反向代理后， 直接与后台通信调试。
-    但是涉及app的一些功能，比如读取手机相册，扫描二维码，定位，数据统计等功能时，必须build之后，通过手机真机同步然后进行调试。
-    解决办法:npm run build时 将inde.html 和 static文件夹复制到widget中，可以减少手动复制的繁琐环节。代码如下,可直接替换vue-cli生成的build.js文件
+* 通过vue-cli构建项目，可以在浏览器中通过设置proxy反向代理后， 直接与后台通信调试。
+* 但是涉及app的一些功能，比如读取手机相册，扫描二维码，定位，数据统计等功能时，必须build之后，通过手机真机同步然后进行调试。
+* 解决办法:npm run build时 将inde.html 和 static文件夹复制到widget中，可以减少手动复制的繁琐环节。代码如下,可直接替换vue-cli生成的build.js文件
 
     文件名：build.js
 
@@ -60,27 +60,38 @@
         })
     })
 `
+
+******
+
 2.页面缓存是个问题
-    进入A页面后，再进入B页面，再返回A页面，A应该被缓存。同时可以设置返回A时，刷新A
-    使用keep-alive时一个解决办法，但是不好用。
-    解决办法：使用vue-navigation，github搜索即可
+
+* 进入A页面后，再进入B页面，再返回A页面，A应该被缓存。同时可以设置返回A时，刷新A
+
+* 使用keep-alive时一个解决办法，但是不好用。
+
+* 解决办法：使用vue-navigation，github搜索即可
+
+
+******
 
 3.ios移动手势
-    解决办法：先instal，再main.js中引用一下就行
 
-`
+* 解决办法：先instal，再main.js中引用一下就行
+
     import Tocca from 'tocca' // 移动手势
     Vue.use(Tocca);
-            if ('addEventListener' in document) {
-                //仅支持 ios 10.1+
-                document.addEventListener('swiperight', function(e) {
-                    self.$router.go(-1)
-                });
-            }
-`
-4. 页面适配问题
+    if ('addEventListener' in document) {
+        //仅支持 ios 10.1+
+        document.addEventListener('swiperight', function(e) {
+            self.$router.go(-1)
+         });
+     }
 
-    解决办法： 在mian.js中引入下面这个函数即可
+******
+
+4.页面适配问题
+
+* 解决办法： 在mian.js中引入下面这个函数即可
 
 `
     (function(doc, win) {
@@ -107,7 +118,9 @@
         }, false);
     }
 `
-6.数据请求，fetch或者称之为ajax
+******
+
+6.数据请求，fetch或者称之为ajax，一封装好
 
     文件名：api.js
 
