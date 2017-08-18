@@ -93,7 +93,6 @@
 
 * 解决办法： 在mian.js中引入下面这个函数即可
 
-`
     (function(doc, win) {
         var docEl = doc.documentElement,
             resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
@@ -106,18 +105,17 @@
         win.addEventListener(resizeEvt, recalc, false);
         doc.addEventListener('DOMContentLoaded', recalc, false);
     })(document, window);
-`
 
 5.取消移动端点击事件的300ms延迟
     解决办法： 先安装，然后main.js 写入以下内容
-`
+
     import FastClick from 'fastclick' //快速点击
     if ('addEventListener' in document) { //取消点击300ms延迟
         document.addEventListener('DOMContentLoaded', function() {
             FastClick.attach(document.body);
         }, false);
     }
-`
+
 ******
 
 6.数据请求，fetch或者称之为ajax，一封装好
