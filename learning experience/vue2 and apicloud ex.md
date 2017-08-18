@@ -71,13 +71,13 @@
 
 * 解决办法：使用vue-navigation，github搜索即可
 
-
 ******
 
 3.ios移动手势
 
 * 解决办法：先instal，再main.js中引用一下就行
 
+``
     import Tocca from 'tocca' // 移动手势
     Vue.use(Tocca);
     if ('addEventListener' in document) {
@@ -86,6 +86,7 @@
             self.$router.go(-1)
          });
      }
+``
 
 ******
 
