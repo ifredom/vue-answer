@@ -1,11 +1,16 @@
 ## what's vue-answer？
-    * Answer -- ask what you ask, ask what you need.  (答案-找你所问，问你所需)
-    * In Answer, you can find the standard authority solution. (在答案，你可以找到标准权威的解决方案)
-    * In Answer, you can easily find friends who have been in the same predicament. (在答案，你可以轻易找到曾经历相同困境的朋友)
-    * Answer, your knowledge solutions treasure, all the people on the street. (答案，你的知识解决方案宝库，披荆斩棘的同路人)
+    * Answer -- ask what you ask, ask what you need. 
+        (答案-找你所问，问你所需)
+    * In Answer, you can find the standard authority solution.
+        (在答案，你可以找到标准权威的解决方案)
+    * In Answer, you can easily find friends who have been in the same predicament. 
+        (在答案，你可以轻易找到曾经历相同困境的朋友)
+    * Answer, your knowledge solutions treasure, all the people on the street.
+        (答案，你的知识解决方案宝库，披荆斩棘的同路人)
 
 ### target
-    * Committed to providing vertical domain standard solutions for developers ( 致力于为开发者提供垂直领域标准解决方案 )
+    * Committed to providing vertical domain standard solutions for developers 
+        ( 致力于为开发者提供垂直领域标准解决方案 )
 
 ### UI exhibition
   ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/1.png)
