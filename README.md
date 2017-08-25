@@ -8,19 +8,28 @@
     * Answer, your knowledge solutions treasure, all the people on the street.
         (答案，你的知识解决方案宝库，披荆斩棘的同路人)
 
+----
+
 ### target
     * Committed to providing vertical domain standard solutions for developers 
         ( 致力于为开发者提供垂直领域标准解决方案 )
+
+----
 
 ### UI exhibition
   ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/1.png)
   ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/2.png)
 ### download and install on mobile
   ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/ifredom-answoe-code.png)
+
+  ----
 ### how to use ?
     npm install
 
     npm run dev
+
+----
+
 ### project structure
     .
     -- build                            // 项目构建相关代码
