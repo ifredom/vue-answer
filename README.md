@@ -1,34 +1,22 @@
-## vue-answer是什么？
-    * 答案（answer）--找你所问，问你所需
-    * 在答案，你可以找到任何你需要的解决办法
-    * 在答案，你可以轻易找到曾经历相同困境的朋友
-    * 答案，你的知识解决方案宝库，披荆斩棘的同路人
+## what's vue-answer？
+    * Answer -- ask what you ask, ask what you need.  (答案-找你所问，问你所需)
+    * In Answer, you can find the standard authority solution. (在答案，你可以找到标准权威的解决方案)
+    * In Answer, you can easily find friends who have been in the same predicament. (在答案，你可以轻易找到曾经历相同困境的朋友)
+    * Answer, your knowledge solutions treasure, all the people on the street. (答案，你的知识解决方案宝库，披荆斩棘的同路人)
 
-### 结果
-    * 手把手演示，如何制作一款有点创意，有点逼格的手机应用。
-    * UI界面我尽力
-    * 用户体验会虚谁？
+### target
+    * Committed to providing vertical domain standard solutions for developers ( 致力于为开发者提供垂直领域标准解决方案 )
 
-### 展示
+### UI exhibition
   ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/1.png)
   ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/2.png)
-### 下载安装
+### download and install on mobile
   ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/ifredom-answoe-code.png)
-### 使用方法：
-    // 安装依赖
+### how to use ?
     npm install
 
-    // 运行
     npm run dev
-### 上线编译：
-    npm run build
-    // 生成的widget文件夹放在你的手机APP中即可正常访问
-
-### development progress log
-    平时开发时积累的经验逗记录在learning experience文件夹内。
-    其中：
-    vue2 and apicloud ex.md是使用vue全家桶+apicloud打包所遇到的整个流程比较麻烦的难点心得。你值得一看
-### 项目结构
+### project structure
     .
     -- build                            // 项目构建相关代码
     |   |-- build.js                     // 生产环境构建代码
