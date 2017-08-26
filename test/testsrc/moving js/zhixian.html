@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        overflow: hidden;
+    }
+    #circle{
+        position: absolute;
+        left: 50px;
+        top: 50px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 1.0);
+    }
+    </style>
+    <body>
+    <div id="circle"> </div>
+    </body>
+    <script>
+        // 匀速直线运动
+        var dot = document.getElementById("circle")
+        var fizze = 10;
+
+        console.log(window.innerWidth)
+        var timer = setInterval(function(){
+            fizze+=1.3
+            if(document.documentElement.clientWidth-dot.offsetLeft>100){
+                dot.style.left = fizze+'px'
+                // dot.style.top = fizze+'px'
+                console.log(dot.offsetLeft)
+            }else{
+                clearInterval(timer)
+            }
+
+        }, 1)
+
+
+    </script>
+</html>
