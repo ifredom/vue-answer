@@ -202,3 +202,10 @@
     }
     // .......其他接口......
 `
+
+**6.移动端部分手机兼容型profill**
+    报错：Uncaught Error: [vuex] vuex requires a Promise polyfill in this browser.
+    安装
+        npm install es6-promise --save
+    全局引入  main.js
+    import 'es6-promise/auto'
