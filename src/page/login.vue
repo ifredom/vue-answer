@@ -32,7 +32,8 @@
 
 <script>
 import { mapState } from 'vuex';
-import { getMovies } from '@/api/api'
+import { Login } from '@/api/api'
+
 
 export default {
     data() {
@@ -53,7 +54,10 @@ export default {
                 start: 0,
                 count: 20
             }
-
+            Login().then(ret=>{
+                console.log(ret)
+                this.$router.push('home')
+            })
             // TODO 由于并没有一个登陆接口可以测试，于是我在这里使用了豆瓣电影的一个开放api进行请求。
             // 此接口地址为豆瓣电影开放api，是获取包含正在上映榜单和即将上映榜单的电影信息
             // 请求成功，则假想为登陆成功。请求失败，则打印出信息

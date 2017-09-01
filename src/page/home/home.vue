@@ -40,13 +40,7 @@ export default {
     },
     methods: {
         testAxios() {
-            axios.get('http://www.easy-mock.com/mock/59a8d6c14006183e48ef9caa/example/user')
-                .then(function(response) {
-                    console.log(response);
-                })
-                .catch(function(error) {
-                    console.log(error);
-                });
+
         },
         scan() {
             let self = this;

@@ -14,7 +14,7 @@ const router = [
         children: [
             {
                 path: '/',
-                redirect: '/home'//默认路由，直接重定向到地址 /login
+                redirect: '/login'//默认路由，直接重定向到地址 /login
             },
             {
                 path: '/login',
