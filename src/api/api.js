@@ -5,9 +5,9 @@ import NProgress from 'nprogress';
 // 每一个地址前都需要/api来进行反向代理的识别
 let base = ""
 if (process.env.NODE_ENV == 'development') {
-    base = "/api" // [开发环境]
+    base = "http://www.easy-mock.com/mock/59a8d6c14006183e48ef9caa/answer" // [开发环境]
 } else {
-    base = "https://node-douban-api.herokuapp.com/movie" // [开发apicloud原生相关功能] 或 [发布环境]
+    base = "http://www.easy-mock.com/mock/59a8d6c14006183e48ef9caa/answer" //  [发布环境]
 }
 
 function formatParams(params) {
@@ -39,10 +39,10 @@ function middlePromiseFun(url, params={}, type="post"){
 
 export { base };
 
-export const requestLogin = (params) => {
-  return middlePromiseFun(`${base}/self ajax address`)
+export const Login = (params) => {  // 登陆接口
+  return middlePromiseFun(`${base}/login`)
 }
-export const getMovies = (params) => {
+export const getMovies = (params) => { //获取电影接口
   return middlePromiseFun(`${base}/in_theaters`, params, "get")
 }
 

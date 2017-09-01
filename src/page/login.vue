@@ -53,14 +53,10 @@ export default {
                 start: 0,
                 count: 20
             }
+
             // TODO 由于并没有一个登陆接口可以测试，于是我在这里使用了豆瓣电影的一个开放api进行请求。
             // 此接口地址为豆瓣电影开放api，是获取包含正在上映榜单和即将上映榜单的电影信息
             // 请求成功，则假想为登陆成功。请求失败，则打印出信息
-            getMovies(playload).then((ret) => {
-
-                this.$store.dispatch('increment') //登录一次，增加 loginCount 计数
-                this.$store.dispatch('requestLogin', ret)//登陆成功的信息，可以做点什么
-            });
 
             //成功后跳转
             this.$router.push({ path: '/home' });

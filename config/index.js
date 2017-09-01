@@ -30,7 +30,7 @@ module.exports = {
     // webpack的编译环境
     env: require('./dev.env'),
     // 编译输入的index.html文件
-    port: 8080,
+    port: 8868,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
