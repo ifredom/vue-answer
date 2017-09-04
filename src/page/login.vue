@@ -6,7 +6,7 @@
             <span class="nameExprie">[找你所需]</span>
         </div>
         <div class="crl-input-row">
-            <input type="text" id="uname" class="crl-input" v-model="loginRule.account" autocapitalize="off" auto-complete="off" placeholder="手机号/邮箱"
+            <input type="text" id="uname" class="crl-input" v-model="loginRule.username" autocapitalize="off" auto-complete="off" placeholder="手机号/邮箱"
             />
             <label>username:</label>
         </div>
@@ -31,35 +31,40 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import { getMovies } from '@/api/api'
-
+import { mapGetters, mapActions } from 'vuex';
+import {Toast} from 'mint-ui'
+import {Login} from '@/api'
 export default {
     data() {
         return {
             logining: false,
             loginRule: {
-                account: 'ifredom',
+                username: 'ifredom',
                 password: ''
             },
         };
     },
-    computed: mapState({
-        count: state => state.count
-    }),
+    computed:{
+        ...mapGetters([
+			'getCount'
+		])
+    },
     methods: {
         login() {
-            const playload = {
-                start: 0,
-                count: 20
+            let payload ={
+                username: this.loginRule.username,
+                password:''
             }
-
-            // TODO 由于并没有一个登陆接口可以测试，于是我在这里使用了豆瓣电影的一个开放api进行请求。
-            // 此接口地址为豆瓣电影开放api，是获取包含正在上映榜单和即将上映榜单的电影信息
-            // 请求成功，则假想为登陆成功。请求失败，则打印出信息
-
-            //成功后跳转
-            this.$router.push({ path: '/home' });
+            Login(payload).then((response) => {
+                console.log(response);
+                if(response.statusCode==='200'){
+                    console.log( this.$router)
+                    this.$router.push({ path: "/home" })
+                    this.$store.dispatch('logonState',true)
+                }else{
+                    Toast('登录失败')
+                }
+            })
         },
         otherLogin() {
             alert("其他登录方式，还未出生哦")

@@ -1,7 +1,3 @@
-
-export const increment = ({commit}) => {
-  commit('INCREMENT')
-}
-export const requestLogin = ({commit},payload) => {
-  commit('REQUESTLOGIN',payload)
+export const logonState = ({ commit }, payload) => {
+    commit('LOGINSTATE', payload)
 }
