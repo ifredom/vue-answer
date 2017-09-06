@@ -41,7 +41,7 @@ export default {
     },
     computed:{
         ...mapGetters([
-			'getCount'
+			'logonState'
 		])
     },
     components: {
@@ -53,7 +53,7 @@ export default {
 
     },
     mounted() {
-        console.log(this.$store.state.loginCount)
+        console.log(this.$store.state.logonState)
     }
 
 }
