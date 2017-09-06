@@ -12,10 +12,9 @@
        return {
 
        }
-
    },
    components: {
-        'v-footer' : Footer
+        'v-footer': Footer
    }
  }
 </script>

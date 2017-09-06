@@ -1,55 +1,57 @@
 <template>
     <header class="ta-header" :class="{ 'ta-fixed': fixed,'otherStyle':otherStyle }">
         <div class="is-left" :class="positionClass" @click="$router.back()">
-          <slot name="back"></slot>
-          <slot name="left"></slot>
+            <slot name="back"></slot>
+            <slot name="left"></slot>
         </div>
         <div class="ta-header-text is-center">{{title}}</div>
 
         <div class="ta-right is-right" @click="goto">
-          <slot name="right" ></slot>
+            <slot name="right"></slot>
         </div>
 
     </header>
 </template>
 <script type="text/javascript">
-import  {statusbarappearance} from '@/apicloud/statusbarappearance'
-  export default{
-    props:{
-      title:{
-          default: "Answer",
-          type: String
-      },
-      path:{
-        type: String
-      },
-      position:{
-        default: "left",
-        type: String
-      },
-      fixed: Boolean,
-      otherStyle:{
-        type: Boolean
-      },
-      specialmethod: Boolean //专用于头部右侧文字，点击有特殊用途
+import {statusbarappearance} from '@/apicloud/statusbarappearance'
+export default {
+    props: {
+        title: {
+            default: 'Answer',
+            type: String
+        },
+        path: {
+            type: String
+        },
+        position: {
+            default: 'left',
+            type: String
+        },
+        fixed: Boolean,
+        otherStyle: {
+            type: Boolean
+        },
+        specialmethod: Boolean // 专用于头部右侧文字，点击有特殊用途
     },
-    computed:{
-      positionClass(){
-        return "ta-"+this.position
+    computed: {
+      positionClass() {
+        const className = `'ta-' + ${this.position}`
+        return className
       }
     },
-    methods:{
-      goto(){
-        if(!this.specialmethod){
-          this.$router.push({path:this.path})
+    methods: {
+        goto() {
+            if (!this.specialmethod) {
+                this.$router.push({path: this.path})
+            }
         }
-      }
     },
-    mounted(){
-      NODE_ENV=="production"?statusbarappearance():'';
-      
+    mounted() {
+        /* eslint-disable */
+        NODE_ENV === 'production' ? statusbarappearance() : ''
+
     }
-  }
+}
 </script>
 
 <style scoped lang="stylus">

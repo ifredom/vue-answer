@@ -7,13 +7,13 @@
 <script type="text/ecmascript-6">
     export default {
         data() {
-            return  {
+            return {
 
             }
         },
-        methods:{
-            toSearchMain(){
-                this.$router.push({ path: '/search' });
+        methods: {
+            toSearchMain() {
+                this.$router.push({path: '/search'});
             }
         }
     }

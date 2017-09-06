@@ -47,7 +47,8 @@
                 this.tipsArr = response.data.subjects
                 console.log(response.data.subjects)
 
-              }, function(response) {
+              },
+              function(response) {
                 // 这里是处理错误的回调
                 console.log(response)
               });

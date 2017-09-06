@@ -7,18 +7,17 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import Footer from '@/components/common/footer'
- export default {
-   data() {
-       return {
+    import Footer from '@/components/common/footer'
+    export default {
+        data() {
+            return {
 
-       }
-
-   },
-   components: {
-'v-footer' : Footer
-   }
- }
+            };
+        },
+        components: {
+            'v-footer': Footer
+        }
+    }
 </script>
 
 <style scoped lang="stylus">

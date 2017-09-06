@@ -4,16 +4,16 @@
     </div>
 </template>
 <script type="text/javascript">
-    export default{
-        data(){
-            return{
+export default{
+    data() {
+        return {
 
-            }
         }
     }
+}
 </script>
 
-<style>
+<style scoped>
 .banner{
   width: 100%;
 }
