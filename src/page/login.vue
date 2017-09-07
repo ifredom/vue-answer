@@ -126,6 +126,7 @@ export default {
         box-shadow: inset 0 1px 1px #f0eff5;
         color: #fff;
         -webkit-appearance: none;
+        user-select: text;
         -webkit-user-select: text;
         padding: 10px 10px;
         margin-bottom: 15px;
