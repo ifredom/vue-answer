@@ -1,7 +1,7 @@
 <template>
   <div class="ta-search">
       <label>Answer</label>
-      <input type="text" placeholder="这里就是类似搜索的地方啦" readonly @click="toSearchMain">
+      <input type="text" placeholder="搜索标准答案" readonly @click="toSearchMain">
   </div>
 </template>
 <script type="text/ecmascript-6">
@@ -13,7 +13,7 @@
         },
         methods: {
             toSearchMain() {
-                this.$router.push({path: '/search'});
+                this.$router.push({path: '/search'})
             }
         }
     }
@@ -21,7 +21,7 @@
 <style>
 
     .ta-search{
-        padding: 8px;
+        padding: 6px;
         background-color: rgba(176,196,222,0.5);
     }
     .ta-search label{
@@ -37,7 +37,7 @@
 	    position: relative;
 	    padding-left: 10px;
 	    width: 68%;
-	    height: 42px;
+	    height: 40px;
 	    text-align: left;
 	    background-color: #fff;
         border-radius: 4px;

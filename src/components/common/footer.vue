@@ -1,7 +1,7 @@
 <template>
     <footer class="tabbar">
         <ul class="tabbar-box">
-            <li class="tabbar-item" v-for="item in list">
+            <li class="tabbar-item" v-for="(item,index) in list" :key="index+'lm'">
                 <router-link :class="{ active: item.path == $route.path }" :to="item.path">
                     <span class="icon iconfont" :class="item.icon"></span>
                     <span class="tab-label">{{item.title}}</span>
@@ -23,7 +23,7 @@
             {
               title: '发现',
               path: '/find',
-              icon: 'icon-find'
+              icon: 'icon-caidanlan_faxian'
             },
             {
               title: '糖果',

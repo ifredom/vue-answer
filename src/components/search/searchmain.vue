@@ -64,7 +64,7 @@
     margin: 0 auto;
     padding-left: 10px;
     width: 100%;
-    height: 42px;
+    height: 40px;
     text-align: left;
     background-color: #fff;
     border-radius: 4px;
