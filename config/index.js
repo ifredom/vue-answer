@@ -30,16 +30,16 @@ module.exports = {
     // webpack的编译环境
     env: require('./dev.env'),
     // 编译输入的index.html文件
-    port: 8868,
+    port: 8869,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/api': { //匹配所有以/api开始的路径
-        target: 'https://node-douban-api.herokuapp.com/movie',
+      '/sss': { //匹配所有以/api开始的路径
+        target: ' http://www.easy-mock.com/mock/59a8d6c14006183e48ef9caa/answer',
         changeOrigin: true,
         pathRewrite: {
-          '^/api': ''
+          '^/sss': ''
         }
         // filter: function (pathname, req) {//精确定义，哪些页面需要被代理
         //   return pathname.match('^/api') && req.method === 'POST'

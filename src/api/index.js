@@ -4,6 +4,7 @@ import NProgress from 'nprogress'
 
 // 每一个地址前都需要/api来进行反向代理的识别
 let base = ''
+let baiduApi = 'http://apis.baidu.com/tianyiweather/basicforecast/weatherapi'
 if (process.env.NODE_ENV === 'development') {
     base = 'http://www.easy-mock.com/mock/59a8d6c14006183e48ef9caa/answer' // [开发环境]
 } else {
@@ -44,6 +45,6 @@ export {
 export const Login = (params) => { // 登陆接口
     return middlePromiseFun(`${base}/login`)
 }
-export const GetMovies = (params) => { // 获取电影接口
-    return middlePromiseFun(`${base}/in_theaters`, params, 'get')
+export const tianqi = (params) => { // 百度识别身份证
+    return middlePromiseFun(baiduApi, params, 'post')
 }

@@ -30,6 +30,7 @@
                 </figure>
             </section>
         </section>
+        <div @click="orc"> test</div>
         <v-footer></v-footer>
     </section>
 </template>
@@ -40,7 +41,7 @@ import { mapGetters, mapActions } from 'vuex'
 import vFooter from '@/components/common/footer'
 import search from '@/components/search/search'
 import swiper from '@/components/swiper/swiper'
-import { Login } from '@/api'
+import { Login, tianqi } from '@/api'
 
 export default {
     data() {
@@ -56,6 +57,17 @@ export default {
         ...mapGetters([
             'logonState'
         ])
+    },
+    methods:{
+        orc(){
+            const params = {
+                apikey:'1a2e343642ebe7d8052d9555ed78003a',
+                area:'area'
+            }
+            tianqi(params).then(ret=>{
+                console.log(JSON.stringify(ret))
+            })
+        }
     },
     components: {
         search,

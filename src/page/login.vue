@@ -34,6 +34,8 @@
 import { mapGetters, mapActions } from 'vuex';
 import {Toast} from 'mint-ui'
 import {Login} from '@/api'
+import axios from 'axios'
+import Qs from 'qs'
 export default {
     data() {
         return {
@@ -59,8 +61,8 @@ export default {
                 console.log(response);
                 if(response.statusCode==='200'){
                     console.log( this.$router)
-                    this.$router.push({ path: "/home" })
-                    this.$store.dispatch('logonState',true)
+                    // this.$router.push({ path: '/home' })
+                    // this.$store.dispatch('logonState',true)
                 }else{
                     Toast('登录失败')
                 }
