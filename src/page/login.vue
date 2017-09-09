@@ -42,7 +42,7 @@ export default {
             logining: false,
             loginRule: {
                 username: 'ifredom',
-                password: ''
+                password: '111111'
             },
         };
     },
@@ -55,11 +55,11 @@ export default {
         login() {
             let payload ={
                 username: this.loginRule.username,
-                password:''
+                password:this.loginRule.password
             }
             Login(payload).then((response) => {
                 console.log(response);
-                if(response.statusCode==='200'){
+                if(response.statusCode=='200'){
                     console.log( this.$router)
                     this.$router.push({ path: '/home' })
                     this.$store.dispatch('logonState',true)

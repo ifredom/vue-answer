@@ -5,6 +5,7 @@ import Vuex from 'vuex'
 import App from '@/App'
 import store from '@/vuex/store'
 import routes from '@/router/router'
+import VueResource from 'vue-resource'
 // 框架
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
@@ -22,6 +23,7 @@ import "./style/ngprogress/ngprogress.css"
 Vue.use(VueRouter)
 Vue.use(Vuex)
 Vue.use(MintUI)
+Vue.use(VueResource)
 
 Vue.config.productionTip = true
 Vue.prototype.Iscroll = Iscroll

@@ -1,62 +1,67 @@
 <template>
   <div class="ta-container">
-    <vHead fixed titles="搜索答案">
+    <vHead titles="搜索答案">
       <div class="ta-left" slot="back" @click="back">
-        <span class="icon iconfont icon-back" ></span>
+        <span class="icon iconfont icon-baxin" ></span>
       </div>
     </vHead>
     <input type="text" class="ta-search-input" placeholder="搜索answer"  ref="searchui" v-model="context" @keyup="getData($event)" @keydown="changeIndex($event)" @focus="focusUI" @blur="blurUI">
-    <ul v-show="tipsArr.length!=0">
-      <li v-for="(value,index) in tipsArr">
+    <ul class="search-content" v-show="tipsArr.length!=0">
+      <li v-for="(value,index) in tipsArr" :key="'serch'+index">
         {{ value.title }}
       </li>
     </ul>
   </div>
 </template>
 <script type="text/ecmascript-6">
-  import vHead from '@/components/common/header'
-
-      export default {
-          data() {
-              return  {
-                context:'',
-                tipsArr:[]
-              }
-          },
-          methods:{
-              back(){
-                  this.$router.go(-1)
-              },
-              focusUI(){
-                  this.$refs.searchui.style.width="80%"
-              },
-              blurUI(){
+    import vHead from '@/components/common/header'
+    export default {
+        data() {
+            return  {
+            context:'',
+            tipsArr:[]
+            }
+        },
+        methods:{
+            back(){
+                this.$router.go(-1)
+            },
+            focusUI(){
+                this.$refs.searchui.style.width="80%"
+            },
+            blurUI(){
                 this.$refs.searchui.style.width="100%"
-              }
-          },
-          components:{
-              vHead
-          },
-          mounted(){
-              this.$http.jsonp('https://api.douban.com/v2/movie/top250?count=10', {}, {
-                headers: {
-                },
-                emulateJSON: true
-              }).then(function(response) {
-                // 这里是处理正确的回调
-                this.tipsArr = response.data.subjects
-                console.log(response.data.subjects)
+            },
+            getData(e){
 
-              },
-              function(response) {
-                // 这里是处理错误的回调
-                console.log(response)
-              });
-          }
+            },
+            changeIndex(e){
 
-      }
+            }
+        },
+        components:{
+            vHead
+        },
+        mounted(){
+            this.$http.jsonp('https://api.douban.com/v2/movie/top250?count=10', {}, {
+            headers: {
+            },
+            emulateJSON: true
+            }).then(function(response) {
+            // 这里是处理正确的回调
+            this.tipsArr = response.data.subjects
+            console.log(response.data.subjects)
+
+            },
+            function(response) {
+            // 这里是处理错误的回调
+            console.log(response)
+            });
+        }
+
+    }
 </script>
-<style>
+<style scoped>
   body{background-color: #fff;box-sizing: border-box;}
   input.ta-search-input{
     display: block;
@@ -68,6 +73,7 @@
     text-align: left;
     background-color: #fff;
     border-radius: 4px;
+    transition: all 0.6;
   }
   /*search*/
   .search-widget {
@@ -128,5 +134,13 @@
     font-size: 15px;
     margin-top: 10px;
   }
-
+  .search-content{
+    padding:0.5rem;
+  }
+  .search-content li{
+    line-height: 1.2rem;
+    height: 1.2rem;
+    padding: 0.2rem 0;
+    color:orange;
+  }
 </style>

@@ -59,7 +59,7 @@ export default {
   .ta-header{
     position: relative;
     height: 45px;
-    background-color: #104e97;
+    background-color: #5B5B5B;
     box-shadow:0 0 0 0 #b2b2b2;
     text-align: center;
     color:#fff;

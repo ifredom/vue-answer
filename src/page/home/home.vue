@@ -51,7 +51,10 @@ export default {
             cardList: [
                 { username: '傲慢的php', lang: 'PHP', conver: 'php为什么是世界上最好的语言？', content: '1995年6月8日，机智的小伙儿拉斯姆斯·勒多夫将PHP/FI公开发布，这位说：世界是PHP的.' },
                 { username: '热闹的fd', lang: 'javascript', conver: '灵活又矫健的javascipt？', content: '1995年，当时在网景公司就职的布兰登·艾克花了10天时间写了这个编程语言，此时web开发者的内心是...' },
-                { username: '冷静的java', lang: 'java', conver: '尔统统是rb', content: '且看下回分解了~~' },
+                { username: '区块链', lang: 'java', conver: '尔统统是rb', content: '且看下回分解了~~' },
+                { username: '牛逼的phthon', lang: 'java', conver: '尔统统是rb', content: '且看下回分解了~~' },
+                { username: '激进的go', lang: 'java', conver: '尔统统是rb', content: '且看下回分解了~~' },
+                { username: '冷静的java', lang: 'java', conver: '尔统统是rb', content: '且看下回分解了~~' }
             ]
         }
     },

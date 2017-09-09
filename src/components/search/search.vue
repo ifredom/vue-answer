@@ -6,11 +6,6 @@
 </template>
 <script type="text/ecmascript-6">
     export default {
-        data() {
-            return {
-
-            }
-        },
         methods: {
             toSearchMain() {
                 this.$router.push({path: '/search'})
@@ -18,8 +13,7 @@
         }
     }
 </script>
-<style>
-
+<style scoped>
     .ta-search{
         padding: 6px;
         background-color: rgba(176,196,222,0.5);
