@@ -61,8 +61,8 @@ export default {
                 console.log(response);
                 if(response.statusCode==='200'){
                     console.log( this.$router)
-                    // this.$router.push({ path: '/home' })
-                    // this.$store.dispatch('logonState',true)
+                    this.$router.push({ path: '/home' })
+                    this.$store.dispatch('logonState',true)
                 }else{
                     Toast('登录失败')
                 }

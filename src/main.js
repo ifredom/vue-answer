@@ -13,6 +13,7 @@ import FastClick from 'fastclick'
 import NProgress from 'nprogress'
 import '@/util/rem' //适配
 import ga from 'vue-ga'
+import Iscroll from 'iscroll'
 // 样式
 import "./style/common.css"
 import "./style/iconfont/iconfont.css"
@@ -21,7 +22,9 @@ import "./style/ngprogress/ngprogress.css"
 Vue.use(VueRouter)
 Vue.use(Vuex)
 Vue.use(MintUI)
+
 Vue.config.productionTip = true
+Vue.prototype.Iscroll = Iscroll
 
 const router = new VueRouter({
     routes

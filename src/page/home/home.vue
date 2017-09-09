@@ -31,6 +31,8 @@
             </section>
         </section>
         <div @click="orc"> test</div>
+
+
         <v-footer></v-footer>
     </section>
 </template>
