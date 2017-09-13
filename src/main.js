@@ -5,6 +5,7 @@ import Vuex from 'vuex'
 import App from '@/App'
 import store from '@/vuex/store'
 import routes from '@/router/router'
+import VueResource from 'vue-resource'
 // 框架
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
@@ -13,6 +14,7 @@ import FastClick from 'fastclick'
 import NProgress from 'nprogress'
 import '@/util/rem' //适配
 import ga from 'vue-ga'
+import Iscroll from 'iscroll'
 // 样式
 import "./style/common.css"
 import "./style/iconfont/iconfont.css"
@@ -21,7 +23,10 @@ import "./style/ngprogress/ngprogress.css"
 Vue.use(VueRouter)
 Vue.use(Vuex)
 Vue.use(MintUI)
+Vue.use(VueResource)
+
 Vue.config.productionTip = true
+Vue.prototype.Iscroll = Iscroll
 
 const router = new VueRouter({
     routes
