@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="region"></div>
+    <script type="text/javascript">
+        //  questionCreator renderInput render choiceQuestionCreator inputQuestionCreator
+
+        function questionCreator(spec,my){
+            var that = {}
+            my = my || {}
+            my.label = spec.label
+
+            my.render=function(){
+                var questionWrapper = document.createElement('div')
+                questionWrapper.className = 'quesion'
+
+                var questionLabel = document.createElement('label')
+                questionWrapper.className = 'quesion-label'
+                var label = document.createTextNode(question.label)
+                questionLabel.appendChild(label)
+
+                var answer = my.renderInput()
+
+                questionWrapper.appendChild(questionLabel)
+                questionWrapper.appendChild(answer)
+                return questionWrapper
+            }
+            return that
+        }
+        function choiceQuestionCreator(spec){
+            var my = {},
+                that = questionCreator(spec.my)
+
+            my.renderInput = function() {
+                var input = document.createElement('select')
+                var len = spec.choices.length
+                for(let i = 0; i < len; i++){
+                    var option = document.createElement('option')
+                    option.text = spec.choices[i]
+                    option.value = spec.choices[i]
+                    input.appendChild(option)
+                }
+                return input
+            }
+            return that
+        }
+        var questions = [
+            choiceQuestionCreator({
+            label: 'Have you used tobacco products within the last 30 days?',
+            choices: ['Yes', 'No']
+        }),
+            inputQuestionCreator({
+            label: 'What medications are you currently using?'
+        })
+            ];
+
+        var questionRegion = document.getElementById('questions');
+
+        view.render(questionRegion, questions);
+    </script>
+</body>
+</html>

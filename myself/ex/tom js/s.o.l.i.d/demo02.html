@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="region"></div>
+    <script type="text/javascript">
+        // 问题类型
+        var AnswerType ={
+            Choice: 0,
+            Input: 1
+        }
+        // 问题实体
+        function question(label, answerType, choices){
+            return{
+                label,
+                answerType,
+                choices
+            }
+        }
+        var view = (function(){
+            function renderQuestion(target, question){
+                var questionWrapper = document.createElement('div')
+                questionWrapper.className = 'quesion'
+
+                var questionLabel = document.createElement('label')
+                questionWrapper.className = 'quesion-label'
+
+                var label = document.createTextNode(question.label)
+                questionLabel.appendChild(label)
+
+                var answer = document.createElement('div')
+                answer.className = 'question-input'
+                
+                if(question.answerType === AnswerType.Choice){
+                    var input = document.createElement('select')
+                    var len = question.choices.length
+
+                    for(let i = 0; i < len; i++){
+                        var option = document.createElement('option')
+                        option.text = question.choices[i]
+                        option.value = question.choices[i]
+                        input.appendChild(option)
+                    }
+                }else if(question.answerType === AnswerType.Input){
+                    var input = document.createElement('input')
+                    input.type = 'text'
+                }
+
+                answer.appendChild(input)
+                questionWrapper.appendChild(questionLabel)
+                questionWrapper.appendChild(answer)
+                target.appendChild(questionWrapper)
+
+            }
+            return {
+                render(target,question){
+                    for(let i =0; i<question.length; i++){
+                        renderQuestion(target, question[i])
+                    }
+                }
+            }
+
+        })()
+
+
+        const questionList = [
+            question('ask first question?',AnswerType.Choice,['yes', 'no']),
+            question('ask first question?',AnswerType.Input),
+            question('ask first question?',AnswerType.Input),
+        ]
+        var region = document.getElementById('region')
+        view.render(region, questionList)
+    </script>
+</body>
+</html>
