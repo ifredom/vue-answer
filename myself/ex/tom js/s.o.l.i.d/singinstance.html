@@ -1,0 +1,87 @@
+﻿<html>
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+      <p>
+        作者：tom
+        链接：http://www.cnblogs.com/TomXu/archive/2012/02/20/2352817.html
+        // 图片延迟加载
+      </p>
+      <script type="text/javascript">
+        var imgFunc = (function() {
+            var imgNode = document.createElement('img');
+            document.body.appendChild(imgNode);
+            return {
+                setSrc: function(src) {
+                    imgNode.src = src;
+                }
+            }
+        })();
+        var proxyImage = (function() {
+            var img = new Image();
+            img.onload = function() {
+                imgFunc.setSrc(this.src);
+            }
+            return {
+                setSrc: function(src) {
+                  imgFunc.setSrc('./image/3.png');
+
+                  setTimeout(function(){
+                    img.src = src;
+                  },2000)
+
+                }
+            }
+        })();
+        proxyImage.setSrc('./image/all.png');
+
+
+        // 单例实际应用场景示例
+        var SingletonTester = (function () {
+
+            //参数：传递给单例的一个参数集合
+            function Singleton(args) {
+
+                //设置args变量为接收的参数或者为空（如果没有提供的话）
+                var args = args || {};
+                //设置name参数
+                this.name = 'SingletonTester';
+                //设置pointX的值
+                this.pointX = args.pointX || 6; //从接收的参数里获取，或者设置为默认值
+                //设置pointY的值
+                this.pointY = args.pointY || 10;
+                console.log(args)
+            }
+
+            //实例容器
+            var instance;
+
+            var _static = {
+                name: 'SingletonTester',
+
+                //获取实例的方法
+                //返回Singleton的实例
+                getInstance: function (args) {
+                    if (instance === undefined) {
+                        instance = new Singleton(args);
+                    }
+                    return instance;
+                }
+            };
+            return _static;
+        })();
+
+        var singletonTest = SingletonTester.getInstance({ pointX: 15,pointY:100 });
+        var singletonTest2 = SingletonTester.getInstance();
+
+        console.log(singletonTest);
+        console.log(singletonTest.pointX); // 输出 5
+        console.log(singletonTest2);
+        console.log(singletonTest2.pointX); // 输出 5
+
+        console.log(singletonTest2 === singletonTest); // true
+      </script>
+  </body>
+</html>
+
