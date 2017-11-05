@@ -1,32 +1,36 @@
 ## what's vue-answer？
-    * Answer -- ask what you ask, ask what you need. 
-        (答案-找你所问，问你所需)
-    * In Answer, you can find the standard authority solution.
-        (在答案，你可以找到标准权威的解决方案)
-    * In Answer, you can easily find friends who have been in the same predicament. 
-        (在答案，你可以轻易找到曾经历相同困境的朋友)
-    * Answer, your knowledge solutions treasure, all the people on the street.
-        (答案，你的知识解决方案宝库，披荆斩棘的同路人)
-
+    这是大数据的时代，也是一个信息爆炸的时代，如此海量的信息汪洋，每一个人应该如何去选择，去接受，去吸收？
+    (This is the era of big data, but also an era of information explosion, such a huge amount of information Wang, how should everyone choose to accept, to absorb?)
+    
+    这也是Answer想解决的问题。
+    (That's what Answer wants to solve.)
 ----
 
 ### target
-    * Committed to providing vertical domain standard solutions for developers 
-        ( 致力于为开发者提供垂直领域标准解决方案 )
+    * 答案-寻找你自己的信息
+      (Answer -- Find your own information)
+
+    * In Answer, Guide to information acquisition, all the people on the street.
+      (在答案,为你推介获取正确信息的指南，也作为你披荆斩棘的引路人)
+
+    * In Answer, you can easily find friends who have been in the same predicament.  all the people on the street
+      (在答案，你可以轻易找到曾经历相同困境的朋友,披荆斩棘的同伴)
 
 ----
+### how to use ?
+    npm install
 
+    npm run dev
+
+----
 ### UI exhibition
   ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/1.png)
   ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/2.png)
 ### download and install on mobile
   ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/ifredom-answoe-code.png)
 
-  ----
-### how to use ?
-    npm install
 
-    npm run dev
+
 
 ----
 

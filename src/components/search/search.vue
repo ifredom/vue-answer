@@ -1,11 +1,17 @@
 <template>
-  <div class="ta-search">
+  <div class="ta-search" :class="{'fixed':fixed}">
       <label>Answer</label>
       <input type="text" placeholder="搜索标准答案" readonly @click="toSearchMain">
   </div>
 </template>
 <script type="text/ecmascript-6">
     export default {
+        props:{
+            fixed:{
+                type:Boolean,
+                default:true
+            }
+        },
         methods: {
             toSearchMain() {
                 this.$router.push({path: '/search'})
@@ -16,7 +22,14 @@
 <style scoped>
     .ta-search{
         padding: 6px;
+        width: 100%;
         background-color: rgba(176,196,222,0.5);
+    }
+    .ta-search.fixed{
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 1;
     }
     .ta-search label{
         margin-right: 2%;
