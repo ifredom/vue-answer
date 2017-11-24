@@ -81,6 +81,39 @@
         console.log(singletonTest2.pointX); // 输出 5
 
         console.log(singletonTest2 === singletonTest); // true
+
+
+        // self-make test single-module
+        var singlePattern = (function(){
+
+
+            function Singleton(args) {
+                var args = args||{}
+                this.name = 'singlePatternModule'
+                this.proxyX = args.proxyX || 0
+                this.proxyY = args.proxyY || 1
+            }
+
+            //实例容器
+            var instance;
+
+            return {
+                otherArgs:'otherArgs',
+                getInstance(args){
+                    if(!instance){
+                        instance = new Singleton(args)
+                    }
+                    return instance
+                }
+            }
+        })()
+
+        var test1 = singlePattern.getInstance({proxyX:10})
+        var test2 = singlePattern.getInstance()
+        console.log(test1)
+        console.log(test2)
+        console.log(test2 === test1)
+
       </script>
   </body>
 </html>
