@@ -12,6 +12,8 @@ import 'mint-ui/lib/style.css'
 // 工具
 import FastClick from 'fastclick'
 import NProgress from 'nprogress'
+
+
 import '@/util/rem' //适配
 import ga from 'vue-ga'
 // 样式

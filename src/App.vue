@@ -13,7 +13,11 @@
 </script>
 
 <style scoped>
- 
+.child-view.black-bg{
+    background-color: #272822;
+    color:azure;
+}
+     
 .slide-left-enter,
 .slide-right-leave-active {
 	opacity: 0;
