@@ -26,7 +26,7 @@
                 </div>
                 <figure class="card-option">
                     <div class="option-section option-section-left">   
-                        <i class="icon iconfont icon-dianzan"></i>
+                        <i class="icon iconfont icon-dianzan">{{getCount}}</i>
                         <i class="icon iconfont icon-shoucang"></i>
                     </div>
                     <div class="option-section option-section-center">
@@ -38,9 +38,6 @@
                 </figure>
             </section>
         </section>
-        <div @click="orc"> test</div>
-
-
         <v-footer></v-footer>
     </section>
 </template>
@@ -67,8 +64,13 @@ export default {
     },
     computed: {
         ...mapGetters([
-            'logonState'
+            'getCount',
+            'loginState'
         ])
+    },
+    mounted(){
+        console.log( this.getCount )
+        console.log( this.loginState )
     },
     methods:{
         orc(){

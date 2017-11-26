@@ -58,11 +58,11 @@ export default {
                 password:this.loginRule.password
             }
             Login(payload).then((response) => {
-                console.log(response);
+                console.log(response)
                 if(response.statusCode=='200'){
-                    console.log( this.$router)
                     this.$router.push({ path: '/home' })
-                    this.$store.dispatch('logonState',true)
+                    this.$store.dispatch('loginState',true)
+                    this.$store.dispatch('count')
                 }else{
                     Toast('登录失败')
                 }

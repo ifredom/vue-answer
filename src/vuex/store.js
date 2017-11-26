@@ -9,8 +9,9 @@ Vue.use(Vuex)
 
 // 应用初始状态
 const state = {
-    logonState: false,
+    loginState: false,
     title: '',
+    count: 0,
     page: { // 我使用page这个对象来维护所有页面的状态，每一个页面就是一个childPage对象。title为页面的名称，与路由router中的name值一一对应。其他值随意
         childPage: {
             name: 'home',
