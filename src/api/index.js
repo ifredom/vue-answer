@@ -4,6 +4,8 @@ import NProgress from 'nprogress'
 
 // 每一个地址前都需要/api来进行反向代理的识别
 let base = ''
+const mock = 'http://localhost:8869/mock'
+
 let baiduApi = 'http://apis.baidu.com/tianyiweather/basicforecast/weatherapi'
 if (process.env.NODE_ENV === 'development') {
     base = 'http://www.easy-mock.com/mock/59a8d6c14006183e48ef9caa/answer' // [开发环境]
@@ -53,4 +55,8 @@ export const Login = (params) => { // 登陆接口
 }
 export const tianqi = (params) => { // 百度识别身份证
     return middlePromiseFun(baiduApi, params, 'post')
+}
+// 自定义服务端接口mock
+export const MockLogin = (params) => { // 登陆接口
+  return middlePromiseFun(`${mock}/login`, params, 'post')
 }

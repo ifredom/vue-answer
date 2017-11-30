@@ -24,7 +24,7 @@
             <div class="text-signup" @click="otherLogin">New here?Sign up</div>
         </div>
         <div class="line"></div>
-        
+
 
 
     </div>
@@ -33,16 +33,15 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import {Toast} from 'mint-ui'
-import {Login} from '@/api'
-import axios from 'axios'
-import Qs from 'qs'
+import {Login, MockLogin} from '@/api'
+
 export default {
     data() {
         return {
             logining: false,
             loginRule: {
                 username: 'ifredom',
-                password: '111111'
+                password: '123456'
             },
         };
     },
@@ -57,8 +56,8 @@ export default {
                 username: this.loginRule.username,
                 password:this.loginRule.password
             }
-            Login(payload).then((response) => {
-                console.log(response)
+            MockLogin(payload).then((response)=>{
+              console.log(response)
                 if(response.statusCode=='200'){
                     this.$router.push({ path: '/home' })
                     this.$store.dispatch('loginState',true)
@@ -67,6 +66,7 @@ export default {
                     Toast('登录失败')
                 }
             })
+
         },
         otherLogin() {
             alert("其他登录方式，还未出生哦")
@@ -86,7 +86,7 @@ export default {
         background-repeat: no-repeat;
         background-size: 100% 100%;
     }
-    
+
     .ta-logo {
         position: relative;
         min-height: 6.5rem;
@@ -95,7 +95,7 @@ export default {
         padding-top: 3.9125rem;
         padding-bottom: 3.9125rem;
     }
-    
+
     .ta-logo-img {
         position: absolute;
         left: 12%;
@@ -105,7 +105,7 @@ export default {
         border-radius: 50%;
         overflow: hidden;
     }
-    
+
     .ta-logo .mainName {
         display: inline-block;
         margin-right: 5%;
@@ -115,13 +115,13 @@ export default {
         font-size: 34px;
         color: #fff;
     }
-    
+
     .ta-logo .nameExprie {
         display: inline-block;
         font-size: 14px;
         color: #fff;
     }
-    
+
     .crl-input {
         background-color: #fff;
         width: 100%;
@@ -141,7 +141,7 @@ export default {
         outline: none;
         -webkit-tap-highlight-color: transparent;
     }
-    
+
     .crl-button {
         display: block;
         text-align: center;
@@ -154,7 +154,7 @@ export default {
         color: #ffffff;
         font-weight: bold;
     }
-    
+
     .crl-text-row {
         margin: 10px auto;
         width: 100%;
@@ -164,12 +164,12 @@ export default {
         justify-content: center;
         height: 34px;
     }
-    
+
     .crl-input-row {
         position: relative;
         margin-bottom: 2rem;
     }
-    
+
     .crl-input-row label {
         display: block;
         position: absolute;
@@ -180,7 +180,7 @@ export default {
         color: #e2e2e2;
         transition: all 0.7s;
     }
-    
+
     .crl-input-row input {
         display: block;
         margin: 0 auto;
@@ -188,17 +188,17 @@ export default {
         color: #fff;
         transition: all 0.7s;
     }
-    
+
     .crl-input-row input:focus {
         margin-top: 1.2rem;
         margin-bottom: 1.2rem;
     }
-    
+
     .crl-input-row input:focus+label {
         opacity: 1;
         top: -1.8rem;
     }
-    
+
     .line {
         position: absolute;
         left: 10%;
@@ -208,11 +208,11 @@ export default {
         height: 2px;
         background-color: #757474;
     }
-    
+
     .text-forget {
         color: #999999;
     }
-    
+
     .text-signup {
         position: absolute;
         left: 10%;
