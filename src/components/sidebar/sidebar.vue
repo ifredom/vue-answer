@@ -7,38 +7,36 @@
             <img src="https://dn-mhke0kuv.qbox.me/51ec2dae1418f9c88443.png?imageView2/1/w/100/h/100/q/85/interlace/1"
                  alt="">
             <div class="rzstatus" @click="goRZ">
-              <img src="../../image/my/identnow.png" alt="">
+              <img src="../../image/adavator/person1.png" alt="">
             </div>
           </div>
-
-          <div class="bianhao">用户编号 {{bianhao}}</div>
-          <div class="username">{{username}}</div>
+          <div class="username">糖果名：{{username}}</div>
         </section>
-        
+
         <ul class="menu">
-          <mt-cell  @click="hideSidebar" title="个人中心"  to="usercenter">
-            <img slot="icon" src="../../image/my/myinfo.png" width="24" height="24">
+          <mt-cell  @click="hideSidebar" title="我"  to="usercenter">
+            <img slot="icon" src="../../image/adavator/person1.png" width="24" height="24">
           </mt-cell>
-          <mt-cell  @click="hideSidebar" title="交易记录" to="record">
-            <img slot="icon" src="../../image/my/record.png" width="24" height="24">
+          <mt-cell  @click="hideSidebar" title="缘由边界" to="record">
+            <img slot="icon" src="../../image/adavator/person2.png" width="24" height="24">
           </mt-cell>
-          <mt-cell  @click="hideSidebar" title="我的钱包" to="wallet">
-            <img slot="icon" src="../../image/my/wallet.png" width="24" height="24">
+          <mt-cell  @click="hideSidebar" title="爱的深呼吸" to="wallet">
+            <img slot="icon" src="../../image/adavator/person3.png" width="24" height="24">
           </mt-cell>
-          <mt-cell  @click="hideSidebar" title="常用地址" to="addressmanage">
-            <img slot="icon" src="../../image/my/address.png" width="24" height="24">
+          <mt-cell  @click="hideSidebar" title="定制" to="addressmanage">
+            <img slot="icon" src="../../image/adavator/person4.png" width="24" height="24">
           </mt-cell>
           <mt-cell  @click="hideSidebar" title="设置" to="setting">
-            <img slot="icon" src="../../image/my/setting.png" width="24" height="24">
+            <img slot="icon" src="../../image/adavator/person5.png" width="24" height="24">
           </mt-cell>
         </ul>
       </section>
-      
+
       <section class="sidebar_mask"
          v-show="hideSidebar"
          @click="hideSidebar">
       </section>
-      
+
     </div>
   </transition>
 </template>
@@ -76,16 +74,6 @@ export default {
   },
   components:{
     'mt-cell': Cell
-  },
-  created(){
-      let user_info = JSON.parse(localStorage.getItem("user_info"));
-      let token = localStorage.getItem("token");
-
-      this.username = user_info.nikename
-      this.bianhao = user_info.id
-      // this.realname = user_info.realname
-
-    
   }
 }
 </script>
@@ -169,6 +157,6 @@ export default {
           height :1.06rem;
           margin-left : 0.8rem;
           margin-right : 0.746rem;
-  
-  
+
+
 </style>

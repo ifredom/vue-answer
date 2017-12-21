@@ -14,7 +14,8 @@ var proxyMiddleware = require('http-proxy-middleware')
 var webpackConfig = process.env.NODE_ENV === 'testing'
   ? require('./webpack.prod.conf')
   : require('./webpack.dev.conf')
-var myselfMockRouter = require('../server_mock/server')
+var myselfMockRouter = require('../server_mock/router')
+// var myselfMockRouter = require('../server_mock/server')
 
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
@@ -55,7 +56,8 @@ Object.keys(proxyTable).forEach(function (context) {
 app.use(bodyParser.json()); // 加载解析json的中间件。
 app.use(bodyParser.urlencoded({ extended: false })); // 加载解析urlencoded请求体的中间件。
 
-app.use('/mock', myselfMockRouter)
+myselfMockRouter(app)
+// app.use('/mock', myselfMockRouter)
 // handle fallback for HTML5 history API
 app.use(require('connect-history-api-fallback')())
 

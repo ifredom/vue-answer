@@ -12,10 +12,10 @@ const router = [{
   path: '/',
   component: App,
   children: [
-    // {
-    //   path: '/',
-    //   redirect: '/login' //默认路由，直接重定向到地址 /login
-    // },
+    {
+      path: '/',
+      redirect: '/login' //默认路由，直接重定向到地址 /login
+    },
     {
       path: '/login',
       component: Login,

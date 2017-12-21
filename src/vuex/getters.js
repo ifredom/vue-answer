@@ -5,3 +5,6 @@ export const getCount = (state) => {
 export const loginState = (state) => {
     return state.loginState
 }
+export const showSidebar = state => {
+  return state.showSidebar
+}

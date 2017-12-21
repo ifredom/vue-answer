@@ -9,34 +9,35 @@ Vue.use(Vuex)
 
 // 应用初始状态
 const state = {
-    loginState: false,
-    title: '',
-    count: 0,
-    page: { // 我使用page这个对象来维护所有页面的状态，每一个页面就是一个childPage对象。title为页面的名称，与路由router中的name值一一对应。其他值随意
-        childPage: {
-            name: 'home',
-            open: false,
-            other: {
-                anything: "随便写点"
-            }
-        },
-        childPage: {
-            name: 'my',
-            open: false,
-            other: {
-                saysomething: '你好啊',
-                backsomething: "非常好啊"
-            }
-        }
+  loginState: false,
+  title: '',
+  count: 0,
+  showSidebar: false, //侧边栏
+  page: { // 我使用page这个对象来维护所有页面的状态，每一个页面就是一个childPage对象。title为页面的名称，与路由router中的name值一一对应。其他值随意
+    childPage: {
+      name: 'home',
+      open: false,
+      other: {
+        anything: "随便写点"
+      }
+    },
+    childPage: {
+      name: 'my',
+      open: false,
+      other: {
+        saysomething: '你好啊',
+        backsomething: "非常好啊"
+      }
     }
+  }
 
 }
 
 
 // 创建 store 实例
 export default new Vuex.Store({
-    state,
-    mutations,
-    getters,
-    actions
+  state,
+  mutations,
+  getters,
+  actions
 })
