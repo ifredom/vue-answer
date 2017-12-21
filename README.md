@@ -1,14 +1,14 @@
 ## what's vue-answer？
-    这是大数据的时代，也是一个信息爆炸的时代，如此海量的信息汪洋，每一个人应该如何去选择，去接受，去吸收？
+    这是大数据的时代，也是一个信息爆炸的时代，如此海量的信息，一个人应该如何去选择，去接受，去吸收？
     (This is the era of big data, but also an era of information explosion, such a huge amount of information Wang, how should everyone choose to accept, to absorb?)
-    
-    这也是Answer想解决的问题。
+
+    这也是Answer想解决的问题：信息价值
     (That's what Answer wants to solve.)
 ----
 
 ### target
-    * 答案-寻找你自己的信息
-      (Answer -- Find your own information)
+    * 答案-对主流信息进行分类，评价，排行
+      (Answer -- the classification, evaluation, and ranking of the mainstream information)
 
     * In Answer, Guide to information acquisition, all the people on the street.
       (在答案,为你推介获取正确信息的指南，也作为你披荆斩棘的引路人)
@@ -18,19 +18,17 @@
 
 ----
 ### how to use ?
+    // 安装运行所需依赖
     npm install
 
+    // 启动
     npm run dev
-
 ----
 ### UI exhibition
   ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/1.png)
   ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/2.png)
 ### download and install on mobile
   ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/ifredom-answoe-code.png)
-
-
-
 
 ----
 
@@ -50,6 +48,10 @@
     |   |-- index.js                     // 项目一些配置变量（开发环境接口转发将在此配置）
     |   |-- prod.env.js                  // 生产环境变量
     |   |-- test.env.js                  // 测试环境变量
+    |-- myself                           // 平时的小练习
+    |-- server_mock                      // 后台接口数据
+    |   |-- router                       // 接口router管理
+    |   |-- controller                   // 接口控制器
     |-- src                              // 源码目录
     |   |-- api                          // ajxa请求接口地址
     |   |-- components                   // vue 公共组件
