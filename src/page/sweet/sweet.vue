@@ -1,7 +1,7 @@
 <template>
   <div class="page">
 
-      <div @click="openSlide">开启糖果侧边栏</div>
+      <div class="test" @click="openSlide">点我</div>
       <v-sidebar></v-sidebar>
       <v-footer></v-footer>
   </div>
@@ -28,4 +28,17 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.test
+  display flex
+  align-self center
+  justify-content center
+  margin 1rem
+  width 32px
+  height 32px
+  line-height 32px
+  border-radius 50%
+  background-color orange
+  font-size 0.64rem
+
+
 </style>

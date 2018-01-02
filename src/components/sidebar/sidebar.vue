@@ -6,7 +6,7 @@
           <div class="avatar">
             <img src="https://dn-mhke0kuv.qbox.me/51ec2dae1418f9c88443.png?imageView2/1/w/100/h/100/q/85/interlace/1"
                  alt="">
-            <div class="rzstatus" @click="goRZ">
+            <div class="rzstatus" @click="toPage">
               <img src="../../image/adavator/person1.png" alt="">
             </div>
           </div>
@@ -14,19 +14,19 @@
         </section>
 
         <ul class="menu">
-          <mt-cell  @click="hideSidebar" title="我"  to="usercenter">
+          <mt-cell  @click="hideSidebar" title="我"  to="">
             <img slot="icon" src="../../image/adavator/person1.png" width="24" height="24">
           </mt-cell>
-          <mt-cell  @click="hideSidebar" title="缘由边界" to="record">
+          <mt-cell  @click="hideSidebar" title="缘由边界" to="">
             <img slot="icon" src="../../image/adavator/person2.png" width="24" height="24">
           </mt-cell>
-          <mt-cell  @click="hideSidebar" title="爱的深呼吸" to="wallet">
+          <mt-cell  @click="hideSidebar" title="爱的深呼吸" to="">
             <img slot="icon" src="../../image/adavator/person3.png" width="24" height="24">
           </mt-cell>
-          <mt-cell  @click="hideSidebar" title="定制" to="addressmanage">
+          <mt-cell  @click="hideSidebar" title="定制" to="">
             <img slot="icon" src="../../image/adavator/person4.png" width="24" height="24">
           </mt-cell>
-          <mt-cell  @click="hideSidebar" title="设置" to="setting">
+          <mt-cell  @click="hideSidebar" title="设置" to="">
             <img slot="icon" src="../../image/adavator/person5.png" width="24" height="24">
           </mt-cell>
         </ul>
@@ -63,8 +63,8 @@ export default {
     hideSidebar() {
       this.$store.dispatch('setShowSidebar', false)
     },
-    goRZ(){
-      this.$router.push({path:'/smrz'})
+    toPage(){
+      this.$router.push({path:'/xxxx'})
   }
   },
   computed: {

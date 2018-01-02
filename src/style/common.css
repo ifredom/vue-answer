@@ -398,3 +398,14 @@ a {
     font-weight: bold;
     vertical-align: middle;
 }
+.ta-ps-info{
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 800;
+}
+.ta-padding-space{
+  padding: 6px;
+}
+.ta-margin-space{
+  margin: 6px;
+}

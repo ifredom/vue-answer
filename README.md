@@ -27,6 +27,7 @@
 ### UI exhibition
   ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/1.png)
   ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/2.png)
+  ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/3.png)
 ### download and install on mobile
   ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/ifredom-answoe-code.png)
 
