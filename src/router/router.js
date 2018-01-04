@@ -1,7 +1,7 @@
 /* only page components*/
 import App from '@/App'
 
-import Login from '@/page/login'
+const Login = r => require.ensure([], () => r(require('@/page/login')), 'login')
 import Home from '@/page/home/home'
 import Search from '@/components/search/searchmain'
 import Find from '@/page/find/find'

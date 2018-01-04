@@ -20,12 +20,10 @@
         <div class="crl-text-row">
             <div class="text-forget" @click="forgetpassword">Forgot password?</div>
         </div>
+        <div class="line"></div>
         <div class="crl-text-row">
             <div class="text-signup" @click="otherLogin">New here?Sign up</div>
         </div>
-        <div class="line"></div>
-
-
 
     </div>
 </template>
@@ -203,9 +201,6 @@ export default {
     }
 
     .line {
-        position: absolute;
-        left: 10%;
-        bottom: 15%;
         margin: 0 auto;
         width: 80%;
         height: 2px;
@@ -217,9 +212,6 @@ export default {
     }
 
     .text-signup {
-        position: absolute;
-        left: 10%;
-        bottom: 10%;
         width: 80%;
         text-align: center;
         color: #999999;

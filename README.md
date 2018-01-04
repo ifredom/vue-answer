@@ -31,7 +31,8 @@
   ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/4.png)
 ### 下载安装
   ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/ifredom-answoe-code.png)
-  二维码有时效性，如果已失效，那么你可以在download文件夹中找到apk安装包
+
+  二维码有时效性，如果已失效，那么你可以在installpackage文件夹中找到apk安装包
 
 ----
 

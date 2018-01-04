@@ -1,4 +1,3 @@
-// see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
 
 module.exports = {
@@ -10,11 +9,12 @@ module.exports = {
     // webpack编译输出的二级文件夹
     assetsSubDirectory: 'static',
     // webpack编译输出的发布路径
-    // => 将 build 的路径前缀修改为 ' ./ '（原本为 ' / '），是因为打包之后，
-    // 外部引入 js 和 css 文件时，如果路径以 ' / ' 开头，在本地是无法找到对应文件的（服务器上没问题）
+    // => 将 build 的路径前缀修改为 ' ./ '（原本为 ' / '），
+    // '/' 在服务器环境中使用
+    // './' 在本地开发时使用，而build之后的文件是为了app使用，如同本地使用
     assetsPublicPath: './',
     productionSourceMap: true,
-    productionGzip: true,
+    productionGzip: false,  // 打包为app时不能开启
     productionGzipExtensions: ['js', 'css'],
     bundleAnalyzerReport: false
   },
@@ -44,11 +44,6 @@ module.exports = {
         // }
       }
     },
-    // CSS Sourcemaps off by default because relative paths are "buggy"
-    // with this option, according to the CSS-Loader README
-    // (https://github.com/webpack/css-loader#sourcemaps)
-    // In our experience, they generally work as expected,
-    // just be aware of this issue when enabling this option.
     cssSourceMap: true
   }
 }
