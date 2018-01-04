@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "axios": "^0.17.0",
+    "es6-promise": "^4.2.2",
     "fastclick": "^1.0.6",
     "mint-ui": "^2.2.7",
     "nprogress": "^0.2.0",

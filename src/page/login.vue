@@ -1,5 +1,5 @@
 <template>
-    <div class="ta-login ta-form">
+    <div class="page-login ta-login ta-form">
         <div class="ta-logo">
             <img class="ta-logo-img" src="../image/logo.jpg" alt="logo">
             <span class="mainName">Answer</span>
@@ -79,10 +79,13 @@ export default {
 </script>
 
 <style scoped>
+  .page-login{
+    background-color: rgba(0, 0, 0, 0.5)
+  }
     .ta-login {
         width: 100%;
         height: 100%;
-        background-image: url(../image/loginbg.png);
+        background-image: url("../image/loginbg.png");
         background-repeat: no-repeat;
         background-size: 100% 100%;
     }

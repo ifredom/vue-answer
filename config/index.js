@@ -14,18 +14,9 @@ module.exports = {
     // 外部引入 js 和 css 文件时，如果路径以 ' / ' 开头，在本地是无法找到对应文件的（服务器上没问题）
     assetsPublicPath: './',
     productionSourceMap: true,
-    // Gzip off by default as many popular static hosts such as
-    // Surge or Netlify already gzip all static assets for you.
-    // Before setting to `true`, make sure to:
-    // npm install --save-dev compression-webpack-plugin
     productionGzip: true,
     productionGzipExtensions: ['js', 'css'],
-    // Run the build command with an extra argument to
-    // View the bundle analyzer report after build finishes:
-    // `npm run build --report`
-    // Set to `true` or `false` to always turn it on or off
-    // bundleAnalyzerReport: process.env.npm_config_report
-    bundleAnalyzerReport: true
+    bundleAnalyzerReport: false
   },
   dev: {
     // webpack的编译环境

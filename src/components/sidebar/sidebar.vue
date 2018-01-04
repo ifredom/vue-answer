@@ -26,7 +26,7 @@
           <mt-cell  @click="hideSidebar" title="定制" to="">
             <img slot="icon" src="../../image/adavator/person4.png" width="24" height="24">
           </mt-cell>
-          <mt-cell  @click="hideSidebar" title="设置" to="">
+          <mt-cell  @click="signout" title="退出登录" to="">
             <img slot="icon" src="../../image/adavator/person5.png" width="24" height="24">
           </mt-cell>
         </ul>
@@ -65,7 +65,10 @@ export default {
     },
     toPage(){
       this.$router.push({path:'/xxxx'})
-  }
+    },
+    signout(){
+      this.$router.push({path:'/login'})
+    }
   },
   computed: {
     ...mapGetters([

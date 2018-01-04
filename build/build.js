@@ -28,14 +28,9 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
     }) + '\n\n')
 
     console.log(chalk.cyan('  Build complete.\n'))
-    console.log(chalk.yellow(
-      '  Tip: built files are meant to be served over an HTTP server.\n' +
-      '  Opening index.html over file:// won\'t work.\n'
-    ))
 
     var cppath = path.resolve(__dirname, '../widget')
-    var bb = ora('正在处理 复制到 ' + cppath + ' 文件夹...\n\n').start()
-
+    var bb = ora('将build生成的所有内容复制一份到 ' + cppath + ' 文件夹中...\n\n').start()
 
     rm(path.join(cppath, 'static'), err => {
         if (err) throw console.warn(err)

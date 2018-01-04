@@ -1,4 +1,6 @@
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+
+import 'es6-promise/auto' // 兼容库
+
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Vuex from 'vuex'
@@ -36,7 +38,7 @@ const router = new VueRouter({
 if (process.env.NODE_ENV == 'development') {
     window.NODE_ENV = 'development' // [开发环境]
 } else {
-    window.NODE_ENV = 'production' // [真机或发布环境] 
+    window.NODE_ENV = 'production' // [真机或发布环境]
 }
 //取消点击300ms延迟
 if ('addEventListener' in document) {
