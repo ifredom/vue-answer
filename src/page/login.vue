@@ -17,6 +17,8 @@
         <div class="crl-input-row">
             <input type="button" class="crl-button" @click="login" tapmode="tap-active" value="Sign in" />
         </div>
+        <div @click="zhihu">zhihu</div>
+        <div @click="zhihuhot">zhihugot</div>
         <div class="crl-text-row">
             <div class="text-forget" @click="forgetpassword">Forgot password?</div>
         </div>
@@ -24,14 +26,13 @@
         <div class="crl-text-row">
             <div class="text-signup" @click="otherLogin">New here?Sign up</div>
         </div>
-
     </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import {Toast} from 'mint-ui'
-import {Login, MockLogin} from '@/api'
+import {MockLogin} from '@/api'
 
 export default {
     data() {

@@ -42,6 +42,20 @@ module.exports = {
         //   'localhost:3000/api'         : 'http://localhost:8003',  // host + path
         //   '/rest'                      : 'http://localhost:8004'   // path only
         // }
+      },
+      '/zhihu': { //匹配所有以/api开始的路径
+        target: 'https://www.zhihu.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/zhihu': ''
+        }
+      },
+      '/zhihuribao': { //匹配所有以/api开始的路径
+        target: 'https://news-at.zhihu.com/api',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/zhihuribao': ''
+        }
       }
     },
     cssSourceMap: true
