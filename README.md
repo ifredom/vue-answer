@@ -32,15 +32,6 @@
   二维码有时效性，如果已失效，那么你可以在installpackage文件夹中找到apk安装包
 
 ----
-### 技术前提
-
-  vue(熟练) + vuex(一般) + axios(一般)
-
-  ES6（一般）
-
-  webpack（一般）
-
-  nodejs(了解)
 
 ### 开发环境
 
@@ -58,6 +49,34 @@
 
   IOS 7+
 
+## UI开发环境系统构建（storybook）
+
+``` bash
+
+# 构建UI测试框架（参考文档 https://storybook.js.org/basics/guide-vue/）
+npm i @storybook/vue --save-dev
+npm i storybook-router --save-dev
+
+# package.json
+{
+  "scripts": {
+    "storybook": "start-storybook -p 6006 -c .storybook"
+  }
+}
+
+# 添加配置文件支持别名@  .torybook/webpack.config.js
+
+```
+
+## 其他工具
+
+``` bash
+# npm-check是一个检查项目依赖包的工具，非常实用
+# 安装
+npm install  -g npm-check
+# 使用
+npm-check
+```
 ### project structure
     .
     -- build                            // 项目构建相关代码

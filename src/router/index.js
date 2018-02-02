@@ -7,7 +7,6 @@ import Search from '@/components/search/searchmain'
 import Find from '@/page/find/find'
 import Sweet from '@/page/sweet/sweet'
 
-
 const router = [{
   path: '/',
   component: App,

@@ -6,7 +6,7 @@ import VueRouter from 'vue-router'
 import Vuex from 'vuex'
 import App from '@/App'
 import store from '@/vuex/store'
-import routes from '@/router/router'
+import routes from '@/router'
 import VueResource from 'vue-resource'
 // 框架
 import MintUI from 'mint-ui'
