@@ -67,6 +67,23 @@ npm i storybook-router --save-dev
 # 添加配置文件支持别名@  .torybook/webpack.config.js
 
 ```
+## 移动端适配方案构建（Flexible.js）
+
+**有什么好处？**
+**按照750px宽度出图，前端不用计算尺寸，不用管什么rem，直接使用设计稿上的px即可，移动端自动适配**
+
+``` bash
+# 第一步，使用vue-cli初始化一个项目
+vue init webpack test-flexible-layout
+# 第二步，安装依赖，以及适配方案所需包
+npm i postcss-aspect-ratio-mini postcss-px-to-viewport postcss-write-svg postcss-cssnext postcss-viewport-units cssnano --S
+
+npm i cssnano-preset-advanced --save-dev
+# 第三步，改造 .postcssrc.js文件.
+参见该文件，直接copy内容
+
+# ps：格外注意事项 ，所有css文件一律不在入口main.js中引入，使用app根组件引入
+```
 
 ## 其他工具
 

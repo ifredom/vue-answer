@@ -10,18 +10,11 @@ import routes from '@/router'
 import VueResource from 'vue-resource'
 // 框架
 import MintUI from 'mint-ui'
-import 'mint-ui/lib/style.css'
 // 工具
 import FastClick from 'fastclick'
 import NProgress from 'nprogress'
 
-
-import '@/util/rem' //适配
 import ga from 'vue-ga'
-// 样式
-import "./style/common.css"
-import "./style/iconfont/iconfont.css"
-import "./style/ngprogress/ngprogress.css"
 
 Vue.use(VueRouter)
 Vue.use(Vuex)

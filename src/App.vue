@@ -12,12 +12,17 @@
     }
 </script>
 
-<style scoped>
+<style>
+@import 'mint-ui/lib/style.css';
+@import "./style/common.css";
+@import "./style/iconfont/iconfont.css";
+@import "./style/ngprogress/ngprogress.css";
+
 .child-view.black-bg{
     background-color: #272822;
     color:azure;
 }
-     
+
 .slide-left-enter,
 .slide-right-leave-active {
 	opacity: 0;
