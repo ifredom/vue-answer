@@ -84,7 +84,7 @@ npm i cssnano-preset-advanced --save-dev
 
 # ps：格外注意事项 ，所有css文件一律不在入口main.js中引入，使用app根组件引入
 ```
-
+参考：https://www.w3cplus.com/mobile/vw-layout-in-vue.html
 ## 其他工具
 
 ``` bash
