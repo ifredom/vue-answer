@@ -6,7 +6,7 @@
         </div>
         <div class="ta-header-text is-center">{{title}}</div>
 
-        <div class="ta-right is-right" @click="goto">
+        <div class="ta-right is-right" @click="_callback">
             <slot name="right"></slot>
         </div>
 
@@ -31,7 +31,9 @@ export default {
         otherStyle: {
             type: Boolean
         },
-        specialmethod: Boolean // 专用于头部右侧文字，点击有特殊用途
+        selfcallback: {
+            type: Function
+        }
     },
     computed: {
       positionClass() {
@@ -41,8 +43,11 @@ export default {
     },
     methods: {
         goto() {
-            if (!this.specialmethod) {
-                this.$router.push({path: this.path})
+          this.$router.push({path: this.path})
+        },
+        _callback() {
+            if (this.selfcallback && this.selfcallback instanceof Function) {
+                this.selfcallback(...this);
             }
         }
     },
@@ -66,7 +71,7 @@ export default {
     -webkit-box-align: center;
     align-items: center;
     font-family:PingFangSC-Light;
-    
+
   }
   .ta-header .is-right{
     font-size: 0.853rem;

@@ -80,8 +80,10 @@ npm i postcss-aspect-ratio-mini postcss-px-to-viewport postcss-write-svg postcss
 
 npm i cssnano-preset-advanced --save-dev
 # 第三步，改造 .postcssrc.js文件.
-参见该文件，直接copy内容
+参见该文件，直接copy方案二内容
 
+# 第四步，对此适配方案进行兼容性优化
+参见index.html。引入该CDN上的2个js文件，同时在onload中初始化
 # ps：格外注意事项 ，所有css文件一律不在入口main.js中引入，使用app根组件引入
 ```
 参考：https://www.w3cplus.com/mobile/vw-layout-in-vue.html

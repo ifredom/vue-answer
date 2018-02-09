@@ -1,5 +1,14 @@
 <template>
-    <router-view class="child-view"></router-view>
+  <div class="root-view" ref="rootView">
+    <transition :name="transitionName" mode="out-in">
+      <keep-alive>
+        <router-view v-if="$route.meta.keepAlive"></router-view>
+      </keep-alive>
+    </transition>
+    <transition :name="transitionName" mode="out-in">
+      <router-view v-if="!$route.meta.keepAlive"></router-view>
+    </transition>
+  </div>
 </template>
 
 <script type="text/javascript">
