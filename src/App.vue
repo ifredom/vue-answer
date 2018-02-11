@@ -1,96 +1,68 @@
 <template>
-  <div class="root-view" ref="rootView">
-    <transition :name="transitionName" mode="out-in">
-      <keep-alive>
-        <router-view v-if="$route.meta.keepAlive"></router-view>
-      </keep-alive>
-    </transition>
-    <transition :name="transitionName" mode="out-in">
-      <router-view v-if="!$route.meta.keepAlive"></router-view>
-    </transition>
-  </div>
+	<div class="root-view" ref="rootView">
+		<transition :name="transitionName" >
+			<keep-alive>
+				<router-view class="child-view" v-if="$route.meta.keepAlive"></router-view>
+			</keep-alive>
+		</transition>
+		<transition  :name="transitionName" >
+			<router-view class="child-view" :class="transitionName" v-if="!$route.meta.keepAlive"></router-view>
+		</transition>
+	</div>
 </template>
 
 <script type="text/javascript">
-    export default {
-        data(){
-            return{
-                transitionName:'slide-left'
-            }
+export default {
+    data() {
+        return {
+            transitionName: 'router-slid'
+        };
+    },
+    beforeRouteUpdate(to, from, next) {
+        // 如果isBack为true时，证明是用户点击了回退，执行slide-right动画
+        let isBack = this.$router.isBack;
+        console.log(isBack);
+        if (isBack) {
+            this.transitionName = 'slide-right';
+        } else {
+            this.transitionName = 'slide-left';
         }
+        // 做完回退动画后，要设置成前进动画，否则下次打开页面动画将还是回退
+        this.$router.isBack = false;
+        next();
     }
+};
 </script>
 
 <style>
 @import 'mint-ui/lib/style.css';
-@import "./style/common.css";
-@import "./style/iconfont/iconfont.css";
-@import "./style/ngprogress/ngprogress.css";
+@import './style/common.css';
+@import './style/iconfont/iconfont.css';
+@import './style/ngprogress/ngprogress.css';
 
-.child-view.black-bg{
+.child-view.black-bg {
     background-color: #272822;
-    color:azure;
+    color: azure;
 }
 
-.slide-left-enter,
-.slide-right-leave-active {
-	opacity: 0;
-	-webkit-transform: translate(100%, 0);
-	transform: translate(100% 0);
+.router-fade-enter-active,
+.router-fade-leave-active {
+    transition: opacity 0.3s;
+}
+.router-fade-enter,
+.router-fade-leave-active {
+    opacity: 0;
 }
 
-.slide-left-leave-active,
-.slide-right-enter {
-	opacity: 0;
-	-webkit-transform: translate(-100%, 0);
-	transform: translate(-100%x, 0);
+.router-slid-enter-active,
+.router-slid-leave-active {
+    transition: all 0.4s;
 }
 
-
-.slide-left-enter-active {
-	animation: slideLeft .3s;
+.router-slid-enter,
+.router-slid-leave-active {
+    transform: translate3d(2rem, 0, 0);
+    opacity: 0;
 }
 
-.slide-right-enter-active {
-	animation: slideRight .3s;
-}
-@keyframes slideLeft {
-	from {
-		transform: translate3d(100%, 0, 0);
-		visibility: visible;
-	}
-	to {
-		transform: translate3d(0, 0, 0);
-	}
-}
-
-@keyframes slideRight {
-	from {
-		transform: translate3d(-100%, 0, 0);
-		visibility: visible;
-	}
-	to {
-		transform: translate3d(0, 0, 0);
-	}
-}
-
-@-webkit-keyframes slideLeft {
-	from {
-		transform: translate3d(100%, 0, 0);
-		visibility: visible;
-	}
-	to {
-		transform: translate3d(0, 0, 0);
-	}
-}
-
-@-webkit-keyframes slideRight {
-	from {
-		transform: translate3d(-100%, 0, 0);
-		visibility: visible;
-	}
-	to {
-		transform: translate3d(0, 0, 0);
-	}
-}
 </style>

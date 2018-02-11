@@ -2,10 +2,11 @@
 import App from '@/App'
 
 const Login = r => require.ensure([], () => r(require('@/page/login')), 'login')
-import Home from '@/page/home/home'
-import Search from '@/components/search/searchmain'
-import Find from '@/page/find/find'
-import Sweet from '@/page/sweet/sweet'
+const Home = r => require.ensure([], () => r(require('@/page/home/home')), 'home')
+const SearchDetail = r => require.ensure([], () => r(require('@/components/searchdetail/searchdetail')), 'searchdetail')
+const Find = r => require.ensure([], () => r(require('@/page/find/find')), 'find')
+const Sweet = r => require.ensure([], () => r(require('@/page/sweet/sweet')), 'sweet')
+
 
 const router = [{
   path: '/',
@@ -25,7 +26,7 @@ const router = [{
     },
     {
       path: '/search',
-      component: Search
+      component: SearchDetail
     },
     {
       path: '/find',

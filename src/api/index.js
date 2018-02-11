@@ -7,7 +7,8 @@ let mockApi = {
     localWebpackService: 'http://localhost:8869/mock',
     baiduApi: 'http://apis.baidu.com/tianyiweather/basicforecast/weatherapi',
     zhihuApi: '/zhihu',
-    zhihuribaoApiHot: '/zhihuribao'
+    zhihuribaoApiHot: '/zhihuribao',
+    doubanApi: '/douban'
 };
 
 export { base };
@@ -29,6 +30,10 @@ export const MockLogin = params => {
 // 知乎-发现
 export const zhihuExplore = params => {
     return formMiddlePromise(`${mockApi.zhihuApi}/explore`, params, 'get');
+};
+// 知乎-发现
+export const doubanSeach = params => {
+    return formMiddlePromise(`${mockApi.doubanApi}/v2/movie/top250`, params, 'get');
 };
 
 // 知乎-热门消息

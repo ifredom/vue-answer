@@ -19,7 +19,7 @@ module.exports = {
                 }
             },
             '/zhihu': {
-                //匹配所有以/api开始的路径
+                //匹配所有以/zhihu开始的路径
                 target: 'https://www.zhihu.com',
                 changeOrigin: true,
                 pathRewrite: {
@@ -27,11 +27,19 @@ module.exports = {
                 }
             },
             '/zhihuribao': {
-                //匹配所有以/api开始的路径
+                //匹配所有以/zhihuribao开始的路径
                 target: 'https://news-at.zhihu.com/api',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/zhihuribao': ''
+                }
+            },
+            '/douban': {
+                //匹配所有以/douban开始的路径
+                target: 'https://api.douban.com/',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/douban': ''
                 }
             }
         },

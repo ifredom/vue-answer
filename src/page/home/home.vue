@@ -1,6 +1,6 @@
 <template>
   <section>
-    <search></search>
+    <ta-search></ta-search>
     <section class="container">
       <section class="card" v-for="(item,index) in cardList" :key="'card'+index">
         <figure class="card-title">
@@ -47,7 +47,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import taFooter from '@/components/common/footer';
-import search from '@/components/search/search';
+import taSearch from '@/components/search/search';
 import taTimecountdown from '@/components/timecountdown/timecountdown';
 import loading from '@/components/common/loading';
 import { tianqi } from '@/api';
@@ -125,7 +125,7 @@ export default {
         }
     },
     components: {
-        search,
+        taSearch,
         taFooter,
         loading
     }

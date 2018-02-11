@@ -15,7 +15,11 @@ import NProgress from 'nprogress';
 import './util/rem';
 
 import ga from 'vue-ga';
-
+// 增强原方法，好处是旧的业务模块不需要任何变动
+VueRouter.prototype.go = function() {
+    this.isBack = true;
+    window.history.go(-1);
+};
 Vue.use(VueRouter);
 Vue.use(Vuex);
 Vue.use(MintUI);
@@ -43,25 +47,14 @@ if ('addEventListener' in document) {
         false
     );
 }
-// 全局转场加载进度动画
-// router.beforeEach((to, from, next) => {
-//     NProgress.start();
-//     next()
-// })
+
 /* eslint-disable no-new */
-// new Vue({
-//     el: '#app',
-//     router,
-//     store,
-//     template: '<App/>',
-//     components: { App }
-// });
 new Vue({
     router,
     store,
     render: h => h(App)
 }).$mount('#app');
 
-//此统计ID后期将会删除，此处测试使用
+//此谷歌统计ID唯一,此处测试使用
 // ga(router, 'UA-100770375-1')
 // ga('send', 'test-pageview')
