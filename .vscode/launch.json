@@ -11,15 +11,13 @@
             "cwd": "${workspaceRoot}",
             "preLaunchTask": null,
             "runtimeExecutable": null,
-            "runtimeArgs": [
-                "--nolazy"
-            ],
+            "runtimeArgs": ["--nolazy"],
             "env": {
                 "NODE_ENV": "development"
             },
-            "externalConsole": false,
+            "console": "internalConsole",
             "sourceMaps": false,
-            "outDir": null
+            "outFiles": []
         },
         {
             "name": "附加",
@@ -29,7 +27,7 @@
             "address": "localhost",
             "restart": false,
             "sourceMaps": false,
-            "outDir": null,
+            "outFiles": []
             "localRoot": "${workspaceRoot}",
             "remoteRoot": null
         },
@@ -40,7 +38,7 @@
             "processId": "${command.PickProcess}",
             "port": 5858,
             "sourceMaps": false,
-            "outDir": null
+            "outFiles": []
         }
     ]
 }

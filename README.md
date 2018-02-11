@@ -19,6 +19,21 @@
     // 启动
     npm run dev
 
+    # 其他-打包成产品
+    npm run build
+
+    # 构建产品并运行查看npm包分析报告
+    npm run build --report
+
+    # 运行 unit 测试
+    npm run unit
+
+    # 运行 e2e 测试
+    npm run e2e
+
+    # 运行所有测试用例
+    npm test
+
 ----
 
 ### UI exhibition

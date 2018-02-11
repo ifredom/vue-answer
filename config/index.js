@@ -1,19 +1,21 @@
-var path = require('path')
+'use strict';
+// 模板版本: 1.3.1
+// 查看文档 http://vuejs-templates.github.io/webpack
+
+const path = require('path');
 
 module.exports = {
     dev: {
-        // webpack的编译环境
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
-        env: require('./dev.env'),
         proxyTable: {
-            '/sss': {
+            '/proxyapi': {
                 //匹配所有以/api开始的路径
                 target:
                     ' http://www.easy-mock.com/mock/59a8d6c14006183e48ef9caa/answer',
                 changeOrigin: true,
                 pathRewrite: {
-                    '^/sss': ''
+                    '^/proxyapi': ''
                 }
             },
             '/zhihu': {
@@ -33,16 +35,18 @@ module.exports = {
                 }
             }
         },
-        // 编译输入的index.html文件
+        host: 'localhost',
         port: 8869,
-        autoOpenBrowser: true,
-        errorOverlay: true,
-        notifyOnErrors: true,
-        devtool: 'cheap-module-eval-source-map', // cheap-module-eval-source-map is faster for development
+        autoOpenBrowser: false,
+        errorOverlay: true, // 是否开启报错提示
+        notifyOnErrors: true, // 是否开启错误消息通知，类似qq通知
+        poll: false, // 在NFS文件系统中可能不能起作用，到时无法查看到文件的变化情况，默认true
+        devtool: 'cheap-module-eval-source-map',
+        cacheBusting: true,
         cssSourceMap: true
     },
+
     build: {
-        env: require('./prod.env'),
         index: path.resolve(__dirname, '../dist/index.html'),
         // webpack输出的目标文件夹路径
         assetsRoot: path.resolve(__dirname, '../dist'),
@@ -57,6 +61,6 @@ module.exports = {
         devtool: '#source-map', // 或者使用#eval-source-map
         productionGzip: false, // 打包为app时不能开启
         productionGzipExtensions: ['js', 'css'],
-        bundleAnalyzerReport: false
+        bundleAnalyzerReport: process.env.npm_config_report
     }
 };

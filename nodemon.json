@@ -1,0 +1,16 @@
+{
+    "restartable": "rs",
+    "verbose": true,
+    "ignore": [
+        ".git",
+        ".svn",
+        "node_modules/**/node_modules"
+    ],
+    "env": {
+        "NODE_ENV": "development"
+    },
+    "execMap": {
+        "": "node",
+        "js": "node --harmony"
+    }
+}
