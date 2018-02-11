@@ -14,7 +14,7 @@ module.exports = {
         browser: true,
         node: true
     },
-    // extends: 'eslint:recommended', // 可选项： "airbnb" , eslint:recommended
+    // extends: 'eslint:recommended', //  可选项： "airbnb" , eslint:recommended
     rules: {
         /**
          * Strict mode
