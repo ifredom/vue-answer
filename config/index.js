@@ -45,7 +45,6 @@ module.exports = {
         cacheBusting: true,
         cssSourceMap: true
     },
-
     build: {
         index: path.resolve(__dirname, '../dist/index.html'),
         // webpack输出的目标文件夹路径
