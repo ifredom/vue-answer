@@ -40,6 +40,13 @@ export default {
 @import './style/iconfont/iconfont.css';
 @import './style/ngprogress/ngprogress.css';
 
+.child-view,
+.root-view{
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    z-index: 1;
+}
 .child-view.black-bg {
     background-color: #272822;
     color: azure;

@@ -2,14 +2,14 @@
   <div class="page">
 
       <div class="test" @click="openSlide">点我</div>
-      <div class="content zhizhu-content" ref="content" @click="zhihu">获取知乎编辑推介</div>
+      <div class="content zhizhu-content" ref="content" @click="getZhihuData">获取知乎编辑推介</div>
       <ul class="zhihu-title"></ul>
       <v-sidebar></v-sidebar>
       <v-footer></v-footer>
   </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
 import { mapGetters, mapActions } from "vuex";
 import { zhihuExplore } from "@/api";
 import vSidebar from "@/components/sidebar/sidebar";
@@ -22,8 +22,9 @@ export default {
     openSlide(){
       this.$store.dispatch('setShowSidebar', true)
     },
-    zhihu(){
+    getZhihuData(){
       zhihuExplore().then(ret=>{
+        console.log(ret)
         if(ret){
           this.setZhihuContent(ret)
         }

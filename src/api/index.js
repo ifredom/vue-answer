@@ -5,7 +5,6 @@ let base = 'http://www.easy-mock.com/mock/59a8d6c14006183e48ef9caa/answer';
 
 let mockApi = {
     localWebpackService: 'http://localhost:8869/mock',
-    baiduApi: 'http://apis.baidu.com/tianyiweather/basicforecast/weatherapi',
     zhihuApi: '/zhihu',
     zhihuribaoApiHot: '/zhihuribao',
     doubanApi: '/douban'
@@ -13,10 +12,6 @@ let mockApi = {
 
 export { base };
 
-// 百度识别身份证
-export const tianqi = params => {
-    return formMiddlePromise(mockApi.baiduApi, params, 'post');
-};
 
 // mock接口-登录
 export const MockLogin = params => {
@@ -31,7 +26,7 @@ export const MockLogin = params => {
 export const zhihuExplore = params => {
     return formMiddlePromise(`${mockApi.zhihuApi}/explore`, params, 'get');
 };
-// 知乎-发现
+// 豆瓣-用于搜索
 export const doubanSeach = params => {
     return formMiddlePromise(`${mockApi.doubanApi}/v2/movie/top250`, params, 'get');
 };

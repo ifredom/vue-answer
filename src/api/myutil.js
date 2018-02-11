@@ -7,7 +7,7 @@ export const formatFileParams = data => {
   var formData = new FormData(); // FormData 对象
   var params = {};
 
-  if (!data.hasOwnProperty('values')) {
+  if (data&&!data.hasOwnProperty('values')) {
     params['values'] = Object.assign({}, data);
   } else {
     params['values'] = Object.assign({}, data.values);
@@ -32,7 +32,7 @@ export const formatFileParams = data => {
   return formData;
 };
 
-export default function formMiddlePromise(url, params, method = 'post') {
+export default function formMiddlePromise(url, params={}, method = 'post') {
   params = formatFileParams(params);
   method = method.toUpperCase();
   return new Promise((resolve, reject) => {

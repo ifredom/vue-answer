@@ -50,7 +50,7 @@ import taFooter from '@/components/common/footer';
 import taSearch from '@/components/search/search';
 import taTimecountdown from '@/components/timecountdown/timecountdown';
 import loading from '@/components/common/loading';
-import { tianqi } from '@/api';
+
 
 export default {
     data() {
@@ -113,17 +113,7 @@ export default {
         console.log(this.getCount);
         console.log(this.loginState);
     },
-    methods: {
-        orc() {
-            const params = {
-                apikey: '1a2e343642ebe7d8052d9555ed78003a',
-                area: 'area'
-            };
-            tianqi(params).then(ret => {
-                console.log(JSON.stringify(ret));
-            });
-        }
-    },
+
     components: {
         taSearch,
         taFooter,
