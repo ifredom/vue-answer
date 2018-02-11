@@ -36,7 +36,6 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
         }
 
         console.log(chalk.cyan('  Build complete.\n'));
-
         var cppath = path.resolve(__dirname, '../widget');
         var bb = ora(
             '开始复制，将build生成内容复制一份到 ' + cppath + ' 文件夹中...\n\n'
