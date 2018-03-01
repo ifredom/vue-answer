@@ -360,7 +360,10 @@ template {
     clear: both;
     visibility: hidden;
 }
-
+/*兼容IE8*/
+.clearfix {
+    zoom: 1;
+}
 
 /*手机端采用750PX作图，但是CSS采用375PX设置*/
 
