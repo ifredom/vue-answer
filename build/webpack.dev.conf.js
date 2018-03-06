@@ -9,7 +9,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const portfinder = require('portfinder');
-var bodyParser = require('body-parser');
 const HOST = process.env.HOST;
 const PORT = process.env.PORT && Number(process.env.PORT);
 
@@ -55,8 +54,6 @@ const devWebpackConfig = merge(baseWebpackConfig, {
             poll: config.dev.poll
         },
         before(app) {
-            app.use(bodyParser.json()); // 加载解析json的中间件。
-            app.use(bodyParser.urlencoded({ extended: false })); // 加载解析urlencoded（form表单）请求体的中间件。
             // 使用webpack-dev-server作为服务器提供数据
             localWebpackServerMock(app);
         }

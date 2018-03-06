@@ -30,7 +30,6 @@ export default {
         commit,
         state
     }, useTime) {
-        console.log('用户用时：' + useTime);
         commit(types.SET_USERTIME, useTime);
     }
 };

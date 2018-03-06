@@ -9,14 +9,29 @@ let mockApi = {
     zhihuribaoApiHot: '/zhihuribao',
     doubanApi: '/douban'
 };
-
-export { base };
-
+let localApiBranch = {
+    login: 'login',
+    homelist: 'homelist'
+}
+export {
+    base
+};
+export {
+    localApiBranch
+};
 
 // mock接口-登录
 export const MockLogin = params => {
     return formMiddlePromise(
-        `${mockApi.localWebpackService}/login`,
+        `${mockApi.localWebpackService}/${localApiBranch.login}`,
+        params,
+        'post'
+    );
+};
+// mock接口-登录
+export const MockHomeList = params => {
+    return formMiddlePromise(
+        `${mockApi.localWebpackService}/${localApiBranch.homelist}`,
         params,
         'post'
     );

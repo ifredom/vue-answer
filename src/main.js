@@ -15,7 +15,7 @@ import NProgress from 'nprogress';
 import './util/rem';
 
 import ga from 'vue-ga';
-// 增强原方法，好处是旧的业务模块不需要任何变动
+// 增强原方法，好处是旧的go方法不受影响
 VueRouter.prototype.go = function() {
     this.isBack = true;
     window.history.go(-1);

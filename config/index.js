@@ -45,7 +45,7 @@ module.exports = {
         },
         host: 'localhost',
         port: 8869,
-        autoOpenBrowser: false,
+        autoOpenBrowser: true,
         errorOverlay: true, // 是否开启报错提示
         notifyOnErrors: true, // 是否开启错误消息通知，类似qq通知
         poll: false, // 在NFS文件系统中可能不能起作用，到时无法查看到文件的变化情况，默认true

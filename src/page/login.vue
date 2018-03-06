@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapActions,mapMutations } from 'vuex';
 import { Toast } from 'mint-ui';
 import { MockLogin } from '@/api';
 
@@ -41,21 +41,17 @@ export default {
             }
         };
     },
-    computed: {
-        ...mapGetters(['getCount'])
-    },
     methods: {
         login() {
-            let payload = {
+            let params = {
                 username: this.loginRule.username,
                 password: this.loginRule.password
             };
-            MockLogin(payload).then(response => {
+            MockLogin(params).then(response => {
                 console.log(response);
                 if (response.statusCode == '200') {
                     this.$router.push({ path: '/home' });
                     this.$store.dispatch('loginState', true);
-                    this.$store.dispatch('count');
                 } else {
                     Toast('登录失败');
                 }
@@ -71,144 +67,149 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="stylus">
 .page-login {
     background-color: rgba(0, 0, 0, 0.5);
 }
+
 .ta-login {
     width: 100%;
     height: 100%;
     background-image: url('../image/loginbg.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
-}
 
-.ta-logo {
-    position: relative;
-    min-height: 6.5rem;
-    text-align: left;
-    padding-left: 12%;
-    padding-top: 3.9125rem;
-    padding-bottom: 3.9125rem;
-}
+    .ta-logo {
+        position: relative;
+        min-height: 6.5rem;
+        text-align: left;
+        padding-left: 12%;
+        padding-top: 3.9125rem;
+        padding-bottom: 3.9125rem;
 
-.ta-logo-img {
-    position: absolute;
-    left: 12%;
-    top: 3.9125rem;
-    height: 3.5rem;
-    width: 3.5rem;
-    border-radius: 50%;
-    overflow: hidden;
-}
+        .ta-logo-img {
+            position: absolute;
+            left: 12%;
+            top: 3.9125rem;
+            height: 3.5rem;
+            width: 3.5rem;
+            border-radius: 50%;
+            overflow: hidden;
+        }
 
-.ta-logo .mainName {
-    display: inline-block;
-    margin-right: 5%;
-    margin-left: 3.7rem;
-    width: 30%;
-    font-style: italic;
-    font-size: 34px;
-    color: #fff;
-}
+        .mainName {
+            display: inline-block;
+            margin-right: 5%;
+            margin-left: 3.7rem;
+            width: 30%;
+            font-style: italic;
+            font-size: 34px;
+            color: #fff;
+        }
 
-.ta-logo .nameExprie {
-    display: inline-block;
-    font-size: 14px;
-    color: #fff;
-}
+        .nameExprie {
+            display: inline-block;
+            font-size: 14px;
+            color: #fff;
+        }
+    }
 
-.crl-input {
-    background-color: #fff;
-    width: 100%;
-    box-shadow: inset 0 1px 1px #f0eff5;
-    color: #fff;
-    -webkit-appearance: none;
-    user-select: text;
-    -webkit-user-select: text;
-    padding: 10px 10px;
-    margin-bottom: 15px;
-    line-height: 21px;
-    background-color: rgba(191, 191, 191, 0.5);
-    opacity: 0.5;
-    border: none;
-    border-radius: 4px;
-    border-bottom: 1px solid #ccc;
-    outline: none;
-    -webkit-tap-highlight-color: transparent;
-}
+    .crl-input {
+        background-color: #fff;
+        width: 100%;
+        box-shadow: inset 0 1px 1px #f0eff5;
+        color: #fff;
+        -webkit-appearance: none;
+        user-select: text;
+        -webkit-user-select: text;
+        padding: 10px 10px;
+        margin-bottom: 15px;
+        line-height: 21px;
+        background-color: rgba(191, 191, 191, 0.5);
+        opacity: 0.5;
+        border: none;
+        border-radius: 4px;
+        border-bottom: 1px solid #ccc;
+        outline: none;
+        -webkit-tap-highlight-color: transparent;
+    }
 
-.crl-button {
-    display: block;
-    text-align: center;
-    font-size: 20px;
-    background-color: #eacb20;
-    width: 100%;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 0;
-    color: #ffffff;
-    font-weight: bold;
-}
+    .crl-button {
+        display: block;
+        text-align: center;
+        font-size: 20px;
+        background-color: #eacb20;
+        width: 100%;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 0;
+        color: #ffffff;
+        font-weight: bold;
+    }
 
-.crl-text-row {
-    margin: 10px auto;
-    width: 100%;
-    display: flex;
-    display: -webkit-box;
-    box-sizing: border-box;
-    justify-content: center;
-    height: 34px;
-}
+    .crl-text-row {
+        margin: 10px auto;
+        width: 100%;
+        display: flex;
+        display: -webkit-box;
+        box-sizing: border-box;
+        justify-content: center;
+        height: 34px;
+    }
 
-.crl-input-row {
-    position: relative;
-    margin-bottom: 2rem;
-}
+    .crl-input-row {
+        position: relative;
+        margin-bottom: 2rem;
+    }
 
-.crl-input-row label {
-    display: block;
-    position: absolute;
-    left: 1rem;
-    top: 0;
-    opacity: 0;
-    margin-left: 10%;
-    color: #e2e2e2;
-    transition: all 0.7s;
-}
+    .crl-input-row {
+        label {
+            display: block;
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            opacity: 0;
+            margin-left: 10%;
+            color: #e2e2e2;
+            transition: all 0.7s;
+        }
 
-.crl-input-row input {
-    display: block;
-    margin: 0 auto;
-    width: 76%;
-    color: #fff;
-    transition: all 0.7s;
-}
+        input {
+            display: block;
+            margin: 0 auto;
+            width: 76%;
+            color: #fff;
+            transition: all 0.7s;
+        }
+    }
 
-.crl-input-row input:focus {
-    margin-top: 1.2rem;
-    margin-bottom: 1.2rem;
-}
+    .crl-input-row {
+        input:focus {
+            margin-top: 1.2rem;
+            margin-bottom: 1.2rem;
+        }
 
-.crl-input-row input:focus + label {
-    opacity: 1;
-    top: -1.8rem;
-}
+        input:focus + label {
+            opacity: 1;
+            top: -1.8rem;
+        }
+    }
 
-.line {
-    margin: 0 auto;
-    width: 80%;
-    height: 2px;
-    background-color: #757474;
-}
+    .line {
+        margin: 0 auto;
+        width: 80%;
+        height: 2px;
+        background-color: #757474;
+    }
 
-.text-forget {
-    color: #999999;
-}
+    .text-forget {
+        color: #999999;
+    }
 
-.text-signup {
-    width: 80%;
-    text-align: center;
-    color: #999999;
+    .text-signup {
+        width: 80%;
+        text-align: center;
+        color: #999999;
+    }
 }
 </style>
