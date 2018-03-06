@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { mapActions,mapMutations } from 'vuex';
+import { mapActions,mapMutations, mapState } from 'vuex';
 import { Toast } from 'mint-ui';
 import { MockLogin } from '@/api';
 
@@ -41,7 +41,11 @@ export default {
             }
         };
     },
+    computed:{
+
+    },
     methods: {
+        ...mapActions(['set_login_state']),
         login() {
             let params = {
                 username: this.loginRule.username,
@@ -50,8 +54,8 @@ export default {
             MockLogin(params).then(response => {
                 console.log(response);
                 if (response.statusCode == '200') {
+                    this.set_login_state(true)
                     this.$router.push({ path: '/home' });
-                    this.$store.dispatch('loginState', true);
                 } else {
                     Toast('登录失败');
                 }

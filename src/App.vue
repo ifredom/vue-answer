@@ -39,6 +39,7 @@ export default {
 @import './style/common.css';
 @import './style/iconfont/iconfont.css';
 @import './style/ngprogress/ngprogress.css';
+@import './style/util/animate.min.css';
 
 .child-view,
 .root-view{

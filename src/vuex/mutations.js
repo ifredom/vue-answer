@@ -22,4 +22,10 @@ export default {
     [types.SET_USERTIME](state, useTime) {
         state.useTime = useTime;
     },
+    [types.RECORD_HOME_LIST](state, data) {
+        state.homelist = data;
+    },
+    [types.ADD_ZAN_NUM](state, index) {
+        state.homelist[index].zan += 1;
+    },
 };

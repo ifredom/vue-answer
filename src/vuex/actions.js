@@ -1,7 +1,9 @@
 import * as types from './mutation-types.js';
 
 export default {
-    get_local_userinfo({ commit }) {
+    get_local_userinfo({
+        commit
+    }) {
         if (localStorage.getItem('user_info')) {
             commit(
                 types.LOCAL_USER_INFO,
@@ -9,12 +11,10 @@ export default {
             );
         }
     },
-    loginState({
-        commit,
-        state
+    set_login_state({
+        commit
     }, loginState) {
         commit(types.LOGINSTATE, loginState)
-        commit(types.COUNT)
     },
     count({
         commit
@@ -31,5 +31,15 @@ export default {
         state
     }, useTime) {
         commit(types.SET_USERTIME, useTime);
+    },
+    record_home_list({
+        commit
+    }, listData) {
+        commit(types.RECORD_HOME_LIST, listData);
+    },
+    add_zan_num({
+        commit
+    }, index) {
+        commit(types.ADD_ZAN_NUM, index);
     }
 };

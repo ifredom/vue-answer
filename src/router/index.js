@@ -31,7 +31,8 @@ const router = [
             },
             {
                 path: '/home',
-                component: Home
+                component: Home,
+                meta: { keepAlive: true }
             },
             {
                 path: '/search',
@@ -39,7 +40,8 @@ const router = [
             },
             {
                 path: '/find',
-                component: Find
+                component: Find,
+                meta: { keepAlive: true }
             },
             {
                 path: '/sweet',

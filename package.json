@@ -19,6 +19,7 @@
     "axios": "^0.17.1",
     "es6-promise": "^4.2.4",
     "fastclick": "^1.0.6",
+    "jquery": "^3.3.1",
     "mint-ui": "^2.2.13",
     "nprogress": "^0.2.0",
     "qs": "^6.5.1",

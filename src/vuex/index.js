@@ -14,7 +14,8 @@ const state = {
   count: 0,
   showSidebar: false, //侧边栏
   allTime: 3600, // 答题总时长
-  useTime: 0 // 答题总用时
+  useTime: 0, // 答题总用时
+  homelist: [] // 首页列表
 }
 
 export {
