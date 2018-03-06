@@ -1,15 +1,25 @@
-const LOGINSTATE = 'LOGINSTATE'
-const COUNT = 'COUNT'
-const COM_SHOW_SIDE_BAR = 'COM_SHOW_SIDE_BAR'
+import * as types from './mutation-types.js';
+import {
+    state as defState
+} from './index';
 // 使用 ES2015 风格的计算属性命名功能来使用一个常量作为函数名
 export default {
-    [LOGINSTATE](state, payload) { //登陆状态
+    [types.LOCAL_USER_INFO](state, user_info) {
+        state.user_info = user_info;
+    },
+    [types.LOGINSTATE](state, payload) { //登陆状态
         state.logonState = payload ? payload : false
     },
-    [COUNT](state, payload) { //登陆状态
+    [types.COUNT](state, payload) { //登陆状态
         state.count++
     },
-    [COM_SHOW_SIDE_BAR](state, payload) {
-      state.showSidebar = payload
+    [types.COM_SHOW_SIDE_BAR](state, payload) {
+        state.showSidebar = payload
     },
-}
+    /*
+  记录做题时间
+   */
+    [types.SET_USERTIME](state, useTime) {
+        state.useTime = useTime;
+    },
+};

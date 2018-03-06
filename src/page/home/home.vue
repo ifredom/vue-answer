@@ -1,51 +1,53 @@
 <template>
-  <section>
-    <ta-search></ta-search>
-    <section class="container">
-      <section class="card" v-for="(item,index) in cardList" :key="'card'+index">
-        <figure class="card-title">
-          <div class="left">
-            <p>{{item.username}}</p>
-          </div>
-          <div class="center">
-            <img src="./../../image/adavator/person1.png" width="24" height="24" />
-            <img src="./../../image/adavator/person2.png" width="24" height="24" />
-            <img src="./../../image/adavator/person3.png" width="24" height="24" />
-            <img src="./../../image/adavator/person4.png" width="24" height="24" />
-            <img src="./../../image/adavator/person3.png" width="24" height="24" />
-          </div>
-          <div class="right">...</div>
-        </figure>
-        <div class="card-content">
-          <div class="content-title"><img src="./../../image/books/type1.jpg" width="60" height="80" /></div>
-          <div class="content-detail">
-            <span class="content-value">#{{item.conver}}</span>{{item.content}}</div>
-        </div>
-        <figure class="card-option">
-          <div class="option-section option-section-left">
-            <i class="icon iconfont icon-dianzan">
-              <em>{{item.zan}}</em>
-            </i>
-            <i class="icon iconfont icon-shoucang"></i>
-          </div>
-          <div class="option-section option-section-center">
-            <i class="icon iconfont icon-yaowan"></i>
-          </div>
-          <div class="option-section option-section-right">
-            <i class="icon iconfont icon-fenxiang"></i>
-          </div>
-        </figure>
-      </section>
+    <section>
+        <ta-search></ta-search>
+        <section class="container">
+            <section class="card" v-for="(item,index) in cardList" :key="'card'+index">
+                <figure class="card-title">
+                    <div class="left">
+                        <p>{{item.username}}</p>
+                    </div>
+                    <div class="center">
+                        <img src="./../../image/adavator/person2.png" width="24" height="24" />
+                        <img src="./../../image/adavator/person3.png" width="24" height="24" />
+                        <img src="./../../image/adavator/person4.png" width="24" height="24" />
+                        <img src="./../../image/adavator/person3.png" width="24" height="24" />
+                    </div>
+                    <ta-timecountdown ref="timerbtn" autoplay :seconds="allTime-useTime"></ta-timecountdown>
+                    <div class="right">...</div>
+                </figure>
+                <div class="card-content">
+                    <div class="content-title"><img src="./../../image/books/type1.jpg" width="60" height="80" /></div>
+                    <div class="content-detail">
+                        <span class="content-value">#{{item.conver}}</span>{{item.content}}</div>
+                </div>
+
+                <figure class="card-option">
+                    <div class="option-section option-section-left">
+                        <i class="icon iconfont icon-dianzan">
+                            <em>{{item.zan}}</em>
+                        </i>
+                        <i class="icon iconfont icon-shoucang"></i>
+                    </div>
+
+                    <div class="option-section option-section-center">
+                        <i class="icon iconfont icon-yaowan"></i>
+                    </div>
+                    <div class="option-section option-section-right">
+                        <i class="icon iconfont icon-fenxiang"></i>
+                    </div>
+                </figure>
+            </section>
+        </section>
+        <transition name="loading">
+            <loading v-show="showLoading"></loading>
+        </transition>
+        <ta-footer></ta-footer>
     </section>
-    <transition name="loading">
-      <loading v-show="showLoading"></loading>
-    </transition>
-    <ta-footer></ta-footer>
-  </section>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapState } from 'vuex';
 import taFooter from '@/components/common/footer';
 import taSearch from '@/components/search/search';
 import taTimecountdown from '@/components/timecountdown/timecountdown';
@@ -55,7 +57,7 @@ import loading from '@/components/common/loading';
 export default {
     data() {
         return {
-            showLoading:true,
+            showLoading: true,
             cardList: [
                 {
                     username: '知乎',
@@ -107,16 +109,17 @@ export default {
         };
     },
     computed: {
-        ...mapGetters(['getCount', 'loginState'])
+        // ...mapGetters(['getCount', 'loginState']),
+        ...mapState(['allTime', 'useTime', 'loginState'])
     },
     mounted() {
-        console.log(this.getCount);
+        console.log(this.allTime-this.useTime);
         console.log(this.loginState);
     },
-
     components: {
         taSearch,
         taFooter,
+        taTimecountdown,
         loading
     }
 };

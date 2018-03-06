@@ -23,18 +23,20 @@ export default {
     data() {
         return {
             time: 0,
+            formatTime: 0,
+            startText:'s后结束啦',
+            endText:'Time Over',
             _disabled: false
         };
     },
     computed: {
-        ...mapState(['qesTimer', 'useTime','allTime']),
+        ...mapState(['useTime','allTime']),
         text: function() {
-            return this.time > 0 ? this.time + 's后结束啦' : '00:00:00';
+            return this.time > 0 ? this.formatSeconds(this.time) : this.endText;
         }
     },
     mounted() {
-        console.log("加载组件",this.useTime,this.allTime-this.time)
-        if (this.autoplay) { // 用户计时开始后，不再重新加载
+        if (this.autoplay) { // 计时开始后，不再重新加载
             this.start();
         }
     },
@@ -45,6 +47,7 @@ export default {
         },
         start: function() {
             this.time = this.seconds;
+            this.formatTime = this.formatSeconds(this.seconds);
             this.timer();
             this._disabled = true;
         },
@@ -56,43 +59,53 @@ export default {
             this._disabled = val;
         },
         timer: function() {
-            if (this.time > 0) {
-                this.time--;
-                this.set_user_time(this.allTime-this.time)
-                setTimeout(this.timer, 1000);
-            } else {
-                this._disabled = false;
+            if(this.isBeginTimer()){
+              if (this.time > 0) {
+                  this.time--;
+                  this.set_user_time(this.allTime-this.time)
+                  setTimeout(this.timer, 1000);
+
+              } else {
+                  this._disabled = false;
+              }
             }
         },
-        formatTime(timestamp) {
-            let self = this;
-            let nowTime = new Date();
-            let endTime = new Date(timestamp * 1000);
-            let t = endTime.getTime() - nowTime.getTime();
-            if (t > 0) {
-                let day = Math.floor(t / 86400000);
-                let hour = Math.floor((t / 3600000) % 24);
-                let min = Math.floor((t / 60000) % 60);
-                let sec = Math.floor((t / 1000) % 60);
-                hour = hour < 10 ? '0' + hour : hour;
-                min = min < 10 ? '0' + min : min;
-                sec = sec < 10 ? '0' + sec : sec;
-                let format = '';
-                if (day > 0) {
-                    format = `${day}天${hour}小时${min}分${sec}秒`;
+        formatSeconds(value) {
+            var theTime = parseInt(value);// 秒
+            var theTime1 = 0;// 分
+            var theTime2 = 0;// 小时
+            if(theTime > 60) {
+                theTime1 = parseInt(theTime/60);
+                theTime = parseInt(theTime%60);
+                if(theTime1 > 60) {
+                    theTime2 = parseInt(theTime1/60);
+                    theTime1 = parseInt(theTime1%60);
                 }
-                if (day <= 0 && hour > 0) {
-                    format = `${hour}小时${min}分${sec}秒`;
-                }
-                if (day <= 0 && hour <= 0) {
-                    format = `${min}分${sec}秒`;
-                }
-                self.text = format;
-            } else {
-                clearInterval(timer);
-                self.text = self.endText;
-                self._callback();
             }
+            var result = parseInt(theTime);
+            if(theTime >= 0 && theTime<10) {
+                result = '0'+parseInt(theTime);
+            }else{
+                result = parseInt(theTime);
+            }
+            if(theTime1 >= 0&&theTime1<10) {
+                result = '0'+parseInt(theTime1)+':'+result;
+            }else if(theTime1 > 0&&theTime1>=10){
+                result = ''+parseInt(theTime1)+':'+result;
+            }
+            if(theTime2 >= 0 && theTime2<10) {
+                result = '0' + parseInt(theTime2) + ':' + result;
+            }else if(theTime2 > 0 &&theTime2>=10){
+                result = ''+parseInt(theTime2)+':'+result;
+            }
+            return result;
+        },
+        isBeginTimer(){
+          if(this.$route.path === '/home'){
+            return true;
+          }else{
+            return true;
+          }
         },
         _callback() {
             if (this.callback && this.callback instanceof Function) {
@@ -110,7 +123,7 @@ export default {
   height: 1.44rem;
   line-height: 1.44rem;
   text-align: center;
-  color: #fff;
-  font-size: 1.125rem;
+  color: #B2DFEE;
+  font-size: 1rem;
 }
 </style>
