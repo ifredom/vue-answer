@@ -51,7 +51,9 @@ module.exports = {
         poll: false, // 在NFS文件系统中可能不能起作用，到时无法查看到文件的变化情况，默认true
         devtool: 'cheap-module-eval-source-map',
         cacheBusting: true,
-        cssSourceMap: true
+        cssSourceMap: true,
+        useEslint: false,
+        showEslintErrorsInOverlay: false
     },
     build: {
         index: path.resolve(__dirname, '../dist/index.html'),
