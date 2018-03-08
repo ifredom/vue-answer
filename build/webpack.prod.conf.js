@@ -39,10 +39,6 @@ const webpackConfig = merge(baseWebpackConfig, {
             jQuery: 'jquery',
             $: 'jquery'
         }),
-        new webpack.ProvidePlugin({
-            jQuery: 'jquery',
-            $: 'jquery'
-        }),
         new UglifyJsPlugin({
             uglifyOptions: {
                 compress: {
