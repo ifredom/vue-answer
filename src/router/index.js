@@ -1,4 +1,4 @@
-/* only page components*/
+/* only page components */
 import App from '@/App';
 
 const page404 = r => require.ensure([], () => r(require('@/page/404')), '404');
@@ -24,6 +24,12 @@ const Sweet = r =>
   require.ensure([], () => r(require('@/page/sweet/sweet')), 'sweet');
 const Exam = r =>
   require.ensure([], () => r(require('@/page/exam/exam')), 'exam');
+const Test = r =>
+  require.ensure([], () => r(require('@/page/test/test')), 'test');
+const Test1 = r =>
+  require.ensure([], () => r(require('@/page/test/test.detail')), 'test');
+const Test2 = r =>
+  require.ensure([], () => r(require('@/page/test/test.detail.1')), 'test');
 
 export default [
   { path: '*', component: page404 },
@@ -37,41 +43,48 @@ export default [
       },
       {
         path: '/login',
-        name: 'login',
         component: Login
       },
       {
         path: '/home',
-        name: 'home',
         component: Home,
         meta: { keepAlive: true }
       },
       {
         path: '/homedetail',
-        name: 'homedetail',
         component: Homedetail
       },
       {
         path: '/search',
-        name: 'search',
         component: SearchDetail
       },
       {
         path: '/find',
-        name: 'find',
         component: Find,
         meta: { keepAlive: true }
       },
       {
         path: '/sweet',
-        name: 'sweet',
         component: Sweet,
         meta: { keepAlive: true }
       },
       {
         path: '/exam',
-        name: '/exam',
         component: Exam
+      },
+      {
+        path: '/test/:id',
+        component: Test,
+        children: [
+          {
+            path: '/test1',
+            component: Test1
+          },
+          {
+            path: '/test2',
+            component: Test2
+          }
+        ]
       }
     ]
   }

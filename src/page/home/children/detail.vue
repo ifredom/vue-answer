@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div class="home-list-detail">
     <v-Header :title="$route.params.title" back></v-Header>
     <section class="container">
       <h3>{{$route.query.title}}</h3>
@@ -18,7 +18,6 @@ export default {
     return {
 
     }
-
   },
   components: {
     vHeader

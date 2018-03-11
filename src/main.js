@@ -16,7 +16,7 @@ import './util/rem';
 
 import ga from 'vue-ga';
 // 增强原方法，好处是旧的go方法不受影响
-VueRouter.prototype.go = function () {
+VueRouter.prototype.go = function() {
   this.isBack = true;
   window.history.go(-1);
 };
@@ -27,6 +27,14 @@ Vue.use(VueResource);
 
 Vue.config.productionTip = true;
 
+// 返回上一级页面的浏览位置
+const scrollBehavior = (to, from, savedPosition) => {
+  if (savedPosition) {
+    return savedPosition;
+  } else {
+    return { x: 0, y: 0 };
+  }
+};
 const router = new VueRouter({
   base: '/',
   mode: 'hash',
@@ -62,7 +70,7 @@ if (process.env.NODE_ENV == 'development') {
 if ('addEventListener' in document) {
   document.addEventListener(
     'DOMContentLoaded',
-    function () {
+    function() {
       FastClick.attach(document.body);
     },
     false

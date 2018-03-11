@@ -23,6 +23,9 @@
         <div class="crl-text-row">
             <div class="text-signup" @click="otherLogin">New here?Sign up</div>
         </div>
+        <router-link to="/test">TTTTTTTTTTTTTTTTTT</router-link>
+        <router-link to="/test/test1">aaaaaaaaaaaaaaaaa</router-link>
+        <router-link to="/test/test2">BBBBBBBBBBBB</router-link>
     </div>
 </template>
 
