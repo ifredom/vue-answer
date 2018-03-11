@@ -7,7 +7,8 @@ let mockApi = {
     localWebpackService: 'http://localhost:8869/mock',
     zhihuApi: '/zhihu',
     zhihuribaoApiHot: '/zhihuribao',
-    doubanApi: '/douban'
+    doubanApi: '/douban',
+    baidu: '/baidu'
 };
 let localApiBranch = {
     login: 'login',
@@ -44,6 +45,10 @@ export const zhihuExplore = params => {
 // 豆瓣-用于搜索
 export const doubanSeach = params => {
     return formMiddlePromise(`${mockApi.doubanApi}/v2/movie/top250`, params, 'get');
+};
+// 百度-用于搜索
+export const baiduSeach = params => {
+    return formMiddlePromise(`${mockApi.baidu}`, params, 'get');
 };
 
 // 知乎-热门消息

@@ -11,9 +11,6 @@ const SearchDetail = r =>
 const Find = r => require.ensure([], () => r(require('@/page/find/find')), 'find');
 const Sweet = r => require.ensure([], () => r(require('@/page/sweet/sweet')), 'sweet');
 const Exam = r => require.ensure([], () => r(require('@/page/exam/exam')), 'exam');
-const Test = r => require.ensure([], () => r(require('@/page/test/test')), 'test');
-const Test1 = r => require.ensure([], () => r(require('@/page/test/test.detail')), 'test');
-const Test2 = r => require.ensure([], () => r(require('@/page/test/test.detail.1')), 'test');
 
 export default [
   { path: '*', component: page404 },
@@ -55,20 +52,6 @@ export default [
       {
         path: '/exam',
         component: Exam
-      },
-      {
-        path: '/test/:id',
-        component: Test,
-        children: [
-          {
-            path: '/test1',
-            component: Test1
-          },
-          {
-            path: '/test2',
-            component: Test2
-          }
-        ]
       }
     ]
   }

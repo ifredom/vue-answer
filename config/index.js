@@ -40,6 +40,14 @@ module.exports = {
         pathRewrite: {
           '^/douban': ''
         }
+      },
+      '/baidu': {
+        // 匹配所有以/douban开始的路径
+        target: 'https://www.baidu.com/s',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/baidu': ''
+        }
       }
     },
     host: 'localhost',
