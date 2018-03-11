@@ -1,9 +1,6 @@
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
   parserOptions: {
-    // ecmaVersion: 6, // 语言版本es6
-    // sourceType: 'module' // 设置为 "script" (默认) 或 "module"（如果你的代码是 ECMAScript 模块)
     parser: 'babel-eslint'
   },
   globals: {
@@ -21,5 +18,13 @@ module.exports = {
     'plugin:vue/essential',
     // https://github.com/standard/standard/blob/master/docs/RULES-en.md
     'standard'
-  ]
-}
+  ],
+  plugins: ['vue'],
+  rules: {
+    // allow async-await
+    'generator-star-spacing': 'off',
+    // allow debugger during development
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    semi: ['error', 'always']
+  }
+};

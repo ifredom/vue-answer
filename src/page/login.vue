@@ -27,47 +27,45 @@
 </template>
 
 <script>
-import { mapActions,mapMutations, mapState } from 'vuex';
+import { mapActions, mapMutations, mapState } from 'vuex';
 import { Toast } from 'mint-ui';
 import { MockLogin } from '@/api';
 
 export default {
-    data() {
-        return {
-            logining: false,
-            loginRule: {
-                username: 'ifredom',
-                password: '123456'
-            }
-        };
-    },
-    computed:{
-
-    },
-    methods: {
-        ...mapActions(['set_login_state']),
-        login() {
-            let params = {
-                username: this.loginRule.username,
-                password: this.loginRule.password
-            };
-            MockLogin(params).then(response => {
-                console.log(response);
-                if (response.statusCode == '200') {
-                    this.set_login_state(true)
-                    this.$router.push({ path: '/home' });
-                } else {
-                    Toast('登录失败');
-                }
-            });
-        },
-        otherLogin() {
-            alert('其他登录方式，还未出生哦');
-        },
-        forgetpassword() {
-            alert('忘记密码，等你来画');
+  data() {
+    return {
+      logining: false,
+      loginRule: {
+        username: 'ifredom',
+        password: '123456'
+      }
+    };
+  },
+  computed: {},
+  methods: {
+    ...mapActions(['set_login_state']),
+    login() {
+      let params = {
+        username: this.loginRule.username,
+        password: this.loginRule.password
+      };
+      MockLogin(params).then(response => {
+        console.log(response);
+        if (response.statusCode == '200') {
+          this.set_login_state(true);
+          this.$router.push({ path: '/home' });
+        } else {
+          Toast('登录失败');
         }
+      });
+    },
+    otherLogin() {
+      alert('其他登录方式，还未出生哦');
+    },
+    forgetpassword() {
+      alert('忘记密码，等你来画');
     }
+  }
 };
 </script>
 
