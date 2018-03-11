@@ -1,54 +1,46 @@
 <template>
-  <div class="ta-search" :class="{'fixed':fixed}">
-    <div class="ta-search-def" >
-      <label>Answer</label>
-      <input type="text" placeholder="搜索标准答案" readonly @click="toSearchDetail">
+    <div class="ta-search">
+        <div class="ta-search-def">
+            <label>Answer</label>
+            <input type="text" placeholder="搜索标准答案" readonly @click="toSearchDetail">
+        </div>
     </div>
-  </div>
 </template>
 <script type="text/ecmascript-6">
 export default {
-    name:'search',
-    props: {
-        fixed: {
-            type: Boolean,
-            default: true
-        }
-    },
-    methods: {
-        toSearchDetail() {
-            this.$router.push({ path: '/search' });
-        }
+  name: 'search',
+  methods: {
+    toSearchDetail() {
+      this.$router.push({ path: '/search' });
     }
+  }
 };
 </script>
-<style scoped>
+<style scoped lang="stylus">
 .ta-search {
     padding: 6px;
     width: 100%;
-    background-color: rgba(176, 196, 222, 1);
-}
-.ta-search.fixed {
-    position: fixed;
-    top: 0;
-    left: 0;
-    opacity: 1;
-}
-.ta-search-def label {
-    margin-right: 2%;
-    width: 30%;
-    font-style: italic;
-    font-size: 20px;
-    color: #333;
-}
-.ta-search-def input {
-    display: inline-block;
-    position: relative;
-    padding-left: 10px;
-    width: 68%;
-    height: 40px;
-    text-align: left;
-    background-color: #fff;
-    border-radius: 4px;
+    background-color: #c9c3dd;
+
+    .ta-search-def {
+        label {
+            margin-right: 2%;
+            width: 30%;
+            font-style: italic;
+            font-size: 20px;
+            color: inherit;
+        }
+
+        input {
+            display: inline-block;
+            position: relative;
+            padding-left: 10px;
+            width: 68%;
+            height: 40px;
+            text-align: left;
+            background-color: #fff;
+            border-radius: 4px;
+        }
+    }
 }
 </style>

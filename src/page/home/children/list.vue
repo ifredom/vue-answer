@@ -106,7 +106,6 @@ export default {
 .home-list {
   position: relative;
   padding: 0.5rem;
-  // margin-top: 52px;
 
   .card {
     margin-bottom: 0.5rem;

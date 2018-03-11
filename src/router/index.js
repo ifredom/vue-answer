@@ -2,34 +2,18 @@
 import App from '@/App';
 
 const page404 = r => require.ensure([], () => r(require('@/page/404')), '404');
-const Login = r =>
-  require.ensure([], () => r(require('@/page/login')), 'login');
-const Home = r =>
-  require.ensure([], () => r(require('@/page/home/home')), 'home');
-const Homedetail = r =>
-  require.ensure(
-    [],
-    () => r(require('@/page/home/children/detail')),
-    'homedetail'
-  );
+const Login = r => require.ensure([], () => r(require('@/page/login')), 'login');
+const Home = r => require.ensure([], () => r(require('@/page/home/home')), 'home');
+const Homelist = r => require.ensure([], () => r(require('@/page/home/children/list')), 'homelist');
+const Homedetail = r => require.ensure([], () => r(require('@/page/home/children/detail')), 'homedetail');
 const SearchDetail = r =>
-  require.ensure(
-    [],
-    () => r(require('@/components/searchdetail/searchdetail')),
-    'searchdetail'
-  );
-const Find = r =>
-  require.ensure([], () => r(require('@/page/find/find')), 'find');
-const Sweet = r =>
-  require.ensure([], () => r(require('@/page/sweet/sweet')), 'sweet');
-const Exam = r =>
-  require.ensure([], () => r(require('@/page/exam/exam')), 'exam');
-const Test = r =>
-  require.ensure([], () => r(require('@/page/test/test')), 'test');
-const Test1 = r =>
-  require.ensure([], () => r(require('@/page/test/test.detail')), 'test');
-const Test2 = r =>
-  require.ensure([], () => r(require('@/page/test/test.detail.1')), 'test');
+  require.ensure([], () => r(require('@/components/searchdetail/searchdetail')), 'searchdetail');
+const Find = r => require.ensure([], () => r(require('@/page/find/find')), 'find');
+const Sweet = r => require.ensure([], () => r(require('@/page/sweet/sweet')), 'sweet');
+const Exam = r => require.ensure([], () => r(require('@/page/exam/exam')), 'exam');
+const Test = r => require.ensure([], () => r(require('@/page/test/test')), 'test');
+const Test1 = r => require.ensure([], () => r(require('@/page/test/test.detail')), 'test');
+const Test2 = r => require.ensure([], () => r(require('@/page/test/test.detail.1')), 'test');
 
 export default [
   { path: '*', component: page404 },

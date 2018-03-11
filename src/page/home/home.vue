@@ -1,6 +1,6 @@
 <template>
     <main>
-        <ta-search class="marginbot"></ta-search>
+        <ta-search id="searchBar" :class="searchBarFixed == true ? 'isFixed' :''"></ta-search>
         <ta-list></ta-list>
         <ta-footer></ta-footer>
     </main>
@@ -13,7 +13,24 @@ import taFooter from '@/components/common/footer';
 
 export default {
   data() {
-    return {};
+    return {
+      searchBarFixed: false
+    };
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      var offsetTop = document.querySelector('#searchBar').offsetTop;
+
+      if (scrollTop > offsetTop) {
+        this.searchBarFixed = true;
+      } else {
+        this.searchBarFixed = false;
+      }
+    }
   },
   components: {
     taSearch,
@@ -25,6 +42,12 @@ export default {
 
 <style scoped lang="stylus">
 main {
-    padding-top: 52px;
+    .isFixed {
+        position: fixed;
+        background-color: #Fff;
+        color: #a37bad;
+        top: 0;
+        z-index: 999;
+    }
 }
 </style>
