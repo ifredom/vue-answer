@@ -60,6 +60,7 @@ module.exports = {
     cacheBusting: true,
     cssSourceMap: true,
     useEslint: false, // 启用eslint语法检测
+    useTslint: true, // 启用eslint语法检测
     showEslintErrorsInOverlay: false
   },
   build: {
