@@ -19,22 +19,6 @@ const createEslintRule = () => ({
   }
 });
 
-const createTslintRule = () => (
-  {
-    test: /\.ts$/,
-    exclude: /node_modules/,
-    enforce: 'pre',
-    loader: 'tslint-loader'
-  },
-  {
-    test: /\.tsx?$/,
-    loader: 'ts-loader',
-    exclude: /node_modules/,
-    options: {
-      appendTsSuffixTo: [/\.vue$/]
-    }
-  }
-);
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
@@ -58,12 +42,29 @@ module.exports = {
   module: {
     rules: [
       ...(config.dev.useEslint ? [createEslintRule()] : []),
-      ...(config.dev.useTslint ? [createTslintRule()] : []),
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        enforce: 'pre',
+        loader: 'tslint-loader'
+      },
       // 以上
       {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConfig
+      },
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        // loader: 'ts-loader',
+        use: [
+          'babel-loader',
+          {
+            loader: 'ts-loader',
+            options: { appendTsxSuffixTo: [/\.vue$/] }
+          }
+        ]
       },
       {
         test: /\.js$/,
