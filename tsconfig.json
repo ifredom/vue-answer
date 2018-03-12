@@ -3,23 +3,19 @@
   "exclude": ["node_modules"],
   "compilerOptions": {
     "jsx": "preserve",
-    // 与 Vue 的浏览器支持保持一致
     "target": "es5",
-    // 这可以对 `this` 上的数据属性进行更严格的推断
     "strict": true,
-    // 允许从没有设置默认导出的模块中默认导入
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "allowJs": true,
     "module": "esnext",
     "moduleResolution": "node",
-    // 将每个文件作为单独的模块
     "isolatedModules": true,
     "lib": ["dom", "es5", "es6", "es7", "es2015.promise", "scripthost"],
-    // 是否包含可以用于 debug 的 sourceMap
     "sourceMap": true,
     "pretty": true,
     "strictFunctionTypes": false,
+    "strictPropertyInitialization": false,
     "importHelpers": true
   }
 }
