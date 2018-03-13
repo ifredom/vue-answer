@@ -15,7 +15,7 @@
           <mt-cell @click="hideSidebar" title="爱的深呼吸">
             <img slot="icon" src="../../image/adavator/person3.png" width="24" height="24">
           </mt-cell>
-          <mt-cell @click="hideSidebar" title="定制">
+          <mt-cell @click="hideSidebar" title="配置" to="/configure">
             <img slot="icon" src="../../image/adavator/person4.png" width="24" height="24">
           </mt-cell>
           <mt-cell @click="signout" title="退出登录" to="/login">

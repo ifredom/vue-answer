@@ -10,6 +10,7 @@ const SearchDetail = r => require.ensure([], () => r(require('@/components/searc
 const Find = r => require.ensure([], () => r(require('@/page/find/find')), 'find');
 const Sweet = r => require.ensure([], () => r(require('@/page/sweet/sweet')), 'sweet');
 const Exam = r => require.ensure([], () => r(require('@/page/exam/exam')), 'exam');
+const Configure = r => require.ensure([], () => r(require('@/page/configure/configure')), 'configure');
 
 export default [
   { path: '*', component: page404 },
@@ -51,6 +52,10 @@ export default [
       {
         path: '/exam',
         component: Exam
+      },
+      {
+        path: '/configure',
+        component: Configure
       }
     ]
   }
