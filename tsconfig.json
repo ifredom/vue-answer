@@ -3,17 +3,22 @@
   "exclude": ["node_modules"],
   "compilerOptions": {
     "jsx": "preserve",
+    // 与 Vue 的浏览器支持保持一致
     "target": "es5",
+    // 这可以对 `this` 上的数据属性进行更严格的推断
     "strict": true,
     "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
     "allowJs": true,
-    "module": "esnext",
+    "module": "es2015",
+    // "module": "esnext",
     "moduleResolution": "node",
     "isolatedModules": true,
     "lib": ["dom", "es5", "es6", "es7", "es2015.promise", "scripthost"],
     "sourceMap": true,
     "pretty": true,
+    // 启用 vue-class-component 及 vuex-class 需要开启此选项
+    "experimentalDecorators": true,
+    // 启用 vuex-class 需要开启此选项
     "strictFunctionTypes": false,
     "strictPropertyInitialization": false,
     "importHelpers": true

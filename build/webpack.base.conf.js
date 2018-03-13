@@ -51,15 +51,15 @@ module.exports = {
         ]
       },
       {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: vueLoaderConfig
+      },
+      {
         test: /\.ts$/,
         exclude: /node_modules/,
         enforce: 'pre',
         loader: 'tslint-loader'
-      },
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: vueLoaderConfig
       },
       {
         test: /\.js$/,

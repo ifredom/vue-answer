@@ -2,30 +2,23 @@
   <transition :name="tansitionName">
     <div class="sidebar" v-show="showSidebar">
       <section class="sidebar-content">
-        <section class="head">
-          <div class="avatar">
-            <img src="https://dn-mhke0kuv.qbox.me/51ec2dae1418f9c88443.png?imageView2/1/w/100/h/100/q/85/interlace/1" alt="">
-            <div class="rzstatus" @click="toPage">
-              <img src="../../image/adavator/person1.png" alt="">
-            </div>
-          </div>
-          <div class="username">糖果名：{{username}}</div>
-        </section>
+
+        <ta-advator></ta-advator>
 
         <ul class="menu">
-          <mt-cell @click="hideSidebar" title="我" to="">
+          <mt-cell @click="hideSidebar" title="我">
             <img slot="icon" src="../../image/adavator/person1.png" width="24" height="24">
           </mt-cell>
-          <mt-cell @click="hideSidebar" title="缘由边界" to="">
+          <mt-cell @click="hideSidebar" title="缘由边界">
             <img slot="icon" src="../../image/adavator/person2.png" width="24" height="24">
           </mt-cell>
-          <mt-cell @click="hideSidebar" title="爱的深呼吸" to="">
+          <mt-cell @click="hideSidebar" title="爱的深呼吸">
             <img slot="icon" src="../../image/adavator/person3.png" width="24" height="24">
           </mt-cell>
-          <mt-cell @click="hideSidebar" title="定制" to="">
+          <mt-cell @click="hideSidebar" title="定制">
             <img slot="icon" src="../../image/adavator/person4.png" width="24" height="24">
           </mt-cell>
-          <mt-cell @click="signout" title="退出登录" to="">
+          <mt-cell @click="signout" title="退出登录" to="/login">
             <img slot="icon" src="../../image/adavator/person5.png" width="24" height="24">
           </mt-cell>
         </ul>
@@ -39,9 +32,9 @@
 </template>
 
 <script>
-
-import { mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 import { Popup, Cell } from 'mint-ui';
+import taAdvator from '@/components/advator/advator';
 
 export default {
   props: {
@@ -52,37 +45,29 @@ export default {
   },
   data() {
     return {
-      bianhao: '100001',
-      username: 'ifredom'
     }
+  },
+  computed: {
+    ...mapState([
+      'showSidebar'
+    ]),
   },
   methods: {
     hideSidebar() {
       this.$store.dispatch('setShowSidebar', false)
     },
-    toPage() {
-      this.$router.push({ path: '/xxxx' })
-    },
     signout() {
       this.$router.push({ path: '/login' })
     }
   },
-  computed: {
-    ...mapGetters([
-      'showSidebar'
-    ]),
-  },
   components: {
-    'mt-cell': Cell
+    'mt-cell': Cell,
+    taAdvator
   }
 }
 </script>
 
 <style scoped lang="stylus">
-// .fade-enter-active, .fade-leave-active
-// transition: opacity .5s;
-// .fade-enter, .fade-leave-active
-// opacity: 0;
 .fade-enter-active, .fade-leave-active {
   transition: all 0.5s;
 }
@@ -109,47 +94,6 @@ export default {
     height: 100%;
     background: linear-gradient(#f2abb9, #a37bad); /* 标准的语法 */
     color: #000;
-
-    .head {
-      padding-bottom: 1.12rem;
-      text-align: center;
-      font-family: PingFangSC-Regular;
-      font-size: 14px;
-      color: #333333;
-      letter-spacing: 0;
-
-      .avatar {
-        position: relative;
-        margin: 2.13rem auto 0.48rem auto;
-        background: #f2e9d6;
-        border: 1px solid #e2e2e2;
-        width: 4.213rem;
-        height: 4.213rem;
-        border-radius: 100%;
-
-        >img {
-          width: 100%;
-          height: 100%;
-        }
-
-        .rzstatus {
-          position: absolute;
-          bottom: 0;
-          right: -0.693rem;
-          width: 3.2rem;
-          height: 1.12rem;
-          transform: translate(100%, 0);
-
-          img {
-            height: 100%;
-          }
-        }
-      }
-
-      .username {
-        font-size: 0.64rem;
-      }
-    }
 
     .mint-cell:last-child {
       background-image: none;
