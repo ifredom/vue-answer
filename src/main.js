@@ -12,7 +12,7 @@ import MintUI from 'mint-ui';
 // 工具
 import FastClick from 'fastclick';
 import NProgress from 'nprogress';
-import './util/rem';
+import './util/adaption/rem';
 
 import ga from 'vue-ga';
 // 增强原方法，好处是旧的go方法不受影响

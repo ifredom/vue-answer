@@ -1,9 +1,9 @@
 <template>
-    <main>
-        <ta-search id="searchBar" :class="searchBarFixed == true ? (syestemType=='ios'?'tab-box-sticky':'tab-box-fixed') :''"></ta-search>
-        <ta-list></ta-list>
-        <ta-footer></ta-footer>
-    </main>
+  <main>
+    <ta-search id="searchBar" :class="searchBarFixed == true ? (syestemType=='ios'?'tab-box-sticky':'tab-box-fixed') :''"></ta-search>
+    <ta-list></ta-list>
+    <ta-footer></ta-footer>
+  </main>
 </template>
 
 <script>
@@ -55,23 +55,23 @@ export default {
 
 <style scoped lang="stylus">
 main {
-    // 兼容处理 Android
-    .tab-box-fixed {
-        position: fixed;
-        z-index: 5;
-        background-color: #Fff;
-        color: #a37bad;
-    }
+  // 兼容处理 Android
+  .tab-box-fixed {
+    position: fixed;
+    z-index: 5;
+    background-color: #Fff;
+    color: #a37bad;
+  }
 
-    // iOS
-    .tab-box-sticky {
-        position: -webkit-sticky;
-        position: sticky;
-        top: 0;
-        left: 0;
-        z-index: 5;
-        background-color: #Fff;
-        color: #a37bad;
-    }
+  // iOS
+  .tab-box-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background-color: #Fff;
+    color: #a37bad;
+  }
 }
 </style>

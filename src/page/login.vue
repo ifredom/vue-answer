@@ -72,7 +72,7 @@ export default {
 };
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="stylus" rel="stylesheet/stylus">
 .page-login {
     background-color: rgba(0, 0, 0, 0.5);
 }

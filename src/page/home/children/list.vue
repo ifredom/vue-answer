@@ -53,9 +53,11 @@ import taTimecountdown from '@/components/timecountdown/timecountdown';
 export default {
   data() {
     return {
-      cardList: [],
-      dianzanClass: '',
-      showLoading: true
+      cardList: [], // 列表集合数据
+      dianzanClass: '',// 点赞红星class绑定
+      showLoading: true, // 是否显示侧边栏
+      startX: 0,// 滑动距离
+      endX: 0,
     };
   },
   computed: {
@@ -108,10 +110,21 @@ export default {
   padding: 0.5rem;
 
   .card {
+    position: relative;
     margin-bottom: 0.5rem;
     padding: 0.2rem 0.2rem 0.2rem 0.4rem;
     border-radius: 0.6rem;
     border-left: thick solid #dedede;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+  }
+
+  .card[data-type='0'] {
+    transform: translate3d(0, 0, 0);
+  }
+
+  .card[data-type='1'] {
+    transform: translate3d(-2rem, 0, 0);
   }
 
   .card-title {
