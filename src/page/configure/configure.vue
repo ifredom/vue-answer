@@ -4,26 +4,26 @@
     <!-- 滑动加载  https://juejin.im/post/5aa4b688518825557f008aa1 -->
     <div class="content">
       <!-- <transition-group name="swipe" tag="ul"> -->
-        <li class="ta-scroll-wrapper" >
-          <div class="ta-swipe-item" @transitionend="onTransitionEnd" @touchstart="onTouchStart" @touchend="onTouchEnd" @touchmove="onTouchMove" ref="swipeItem">
-            <div class="ta-swipe-inner" @click="skip">
-              <img class="list-img" :src="list[0].imgUrl" alt="">
-              <div class="list-content">
-                <p class="title">{{list[0].title}}</p>
-                <p class="tips">{{list[0].tips}}</p>
-                <p class="time">{{list[0].time}}</p>
-              </div>
+      <li class="ta-scroll-wrapper">
+        <div class="ta-swipe-item" @transitionend="onTransitionEnd" @touchstart="onTouchStart" @touchend="onTouchEnd" @touchmove="onTouchMove" @active="onItemActive" ref="swipeItem">
+          <div class="ta-swipe-inner" @click="skip">
+            <img class="list-img" :src="list[0].imgUrl" alt="">
+            <div class="list-content">
+              <p class="title">{{list[0].title}}</p>
+              <p class="tips">{{list[0].tips}}</p>
+              <p class="time">{{list[0].time}}</p>
             </div>
-            <ul class="ta-swipe-btns">
-              <li class="ta-swipe-btn" v-for="btn in btns" :style="genBtnStyl(btn)" @click="deleteItem" ref="btns" v-text="btn.text" :key="btn.action"></li>
-              <!-- <li class="ta-swipe-btn  delete" @click="deleteItem" ref="btns">删除</li>
-              <li class="ta-swipe-btn  delete" @click="deleteItem" ref="btns">删除</li> -->
-            </ul>
           </div>
-        </li>
+          <ul class="ta-swipe-btns">
+            <li class="ta-swipe-btn" v-for="btn in btns" :style="genBtnStyl(btn)" @click="deleteItem" ref="btns" v-text="btn.text"></li>
+            <!-- <li class="ta-swipe-btn  delete" @click="deleteItem" ref="btns">删除</li>
+              <li class="ta-swipe-btn  delete" @click="deleteItem" ref="btns">删除</li> -->
+          </ul>
+        </div>
+      </li>
       <!-- </transition-group> -->
     </div>
-    <ta-pacman></ta-pacman>
+    <ta-pacman class="pos-bottom"></ta-pacman>
   </div>
 </template>
 
@@ -57,33 +57,42 @@ export default {
     autoShrink: {
       type: Boolean,
       default: false
+    },
+    index: {
+      type: Number,
+      index: -1
+    },
+    btns: {
+      type: Array,
+      default() {
+        return [
+          {
+            action: 'clear',
+            text: '不再关注',
+            color: '#c8c7cd'
+          },
+          {
+            action: 'delete',
+            text: '删除',
+            color: '#ff3a32'
+          }
+        ]
+      }
     }
   },
   data() {
     return {
-      list: [],
-      btns: [
-        {
-          action: 'clear',
-          text: '不再关注',
-          color: '#c8c7cd'
-        },
-        {
-          action: 'delete',
-          text: '删除',
-          color: '#ff3a32'
-        }
-      ]
+      list: [], // 数据
+      x: 0, // translate量
+      state: STATE_SHRINK, // 收缩伸展状态
+      activeIndex: -1 // 当前激活的item列表index
     }
   },
   created() {
     this.list = DATA
-    this.x = 0
-    this.state = STATE_SHRINK
   },
   mounted() {
     this.scrollerStyle = this.$refs.swipeItem.style
-    console.log(this.scrollerStyle)
     this.$nextTick(() => {
       this.refresh()
     })
@@ -92,16 +101,30 @@ export default {
     taPacman
   },
   methods: {
+    onItemActive(index) {
+      if (this.index === this.activeIndex) {
+        return
+      }
+      if (this.activeIndex !== -1) {
+        const activeItem = this.$refs.swipeItem
+        activeItem.shrink()
+      }
+      this.activeIndex = this.index
+    },
     //跳转
     skip() {
     },
     refresh() {
-      this._initCachedBtns()
-      this._calculateBtnsWidth()
+      if (this.btns.length > 0) {
+        this._initCachedBtns()
+        this._calculateBtnsWidth()
+      }
+      this.endTime = 0
     },
     //滑动开始
     onTouchStart(e) {
       console.log("滑动开始")
+      this.onItemActive()
       this.stop()
       this.moved = false
       this.movingDirectionX = 0
@@ -136,6 +159,9 @@ export default {
       let deltaX = point.pageX - this.pointX
       let deltaY = point.pageY - this.pointY
 
+      this.pointX = point.pageX
+      this.pointY = point.pageY
+
       this.distX += deltaX
       this.distY += deltaY
 
@@ -154,7 +180,6 @@ export default {
       this.movingDirectionX = deltaX > 0 ? DIRECTION_RIGHT : deltaX < 0 ? DIRECTION_LEFT : 0
 
       let newX = this.x + deltaX
-
       if (newX > 0) {
         newX = 0
       }
@@ -198,7 +223,7 @@ export default {
       this.state = STATE_SHRINK
       this.$nextTick(() => {
         this.scrollTo(0, easingTime, easeOutQuart)
-        // this._translateBtns(easingTime, easeOutQuart)
+        this._translateBtns(easingTime, easeOutQuart)
       })
     },
     grow() {
@@ -206,7 +231,7 @@ export default {
       const extend = this.x < this.maxScrollX
       let easing = easeOutCubic
       this.scrollTo(this.maxScrollX, easingTime, easing)
-      // this._translateBtns(easingTime, easing, extend)
+      this._translateBtns(easingTime, easing, extend)
     },
     scrollTo(x, time, easing) {
       console.log("scroll滚动")
@@ -251,41 +276,62 @@ export default {
     },
     _getComputedPositionX() {
       let matrix = window.getComputedStyle(this.$refs.swipeItem, null)
-      console.log(matrix[transform])
       matrix = matrix[transform].split(')')[0].split(', ')
       let x = +(matrix[12] || matrix[4])
       return x
     },
+    _translateBtns(time, easing, extend) {
+      if (this.btns.length === 0) {
+        return
+      }
+      const len = this.$refs.btns.length
+      let delta = 0
+      let translate = 0
+      for (let i = 0; i < len; i++) {
+        const btn = this.$refs.btns[i]
+        if (this.state === STATE_GROW) {
+          translate = delta
+        } else {
+          translate = 0
+        }
+        delta += this.cachedBtns[i].width
+        console.log(delta)
+        btn.style[transform] = `translate(${translate}px,0) translateZ(0)`
+        btn.style[transitionProperty] = `all`
+        btn.style[transitionTimingFunction] = easing
+        btn.style[transitionDuration] = `${time}ms`
+        if (extend) {
+          btn.style.width = `${this.cachedBtns[i].width}px`
+        }
+      }
+
+    },
     _initCachedBtns() {
       this.cachedBtns = []
-      console.log(this.$refs.btns)
       for (let i = 0; i < this.$refs.btns.length; i++) {
-        this.cachedBtns.push(
-          getRect(this.$refs.btns[i]).width
-        )
+        this.cachedBtns.push({
+          width: getRect(this.$refs.btns[i]).width
+        })
       }
-      console.log(this.cachedBtns)
     },
     _calculateBtnsWidth() {
       let width = 0
-      width = getRect(this.$refs.btns).width
+      for (let i = 0; i < this.cachedBtns.length; i++) {
+        width += this.cachedBtns[i]
+      }
       this.maxScrollX = -width
       console.log("初始maxScrollX: ", this.maxScrollX)
     },
     _transitionTimingFunction(property = 'easing') {
-      console.log("动画属性")
       this.scrollerStyle[transitionTimingFunction] = property
     },
     _transitionProperty(property = 'transform') {
-      console.log("动画属性")
       this.scrollerStyle[transitionProperty] = property
     },
     _transitionTime(time = 0) {
-      console.log("动画时间")
       this.scrollerStyle[transitionDuration] = `${time}ms`
     },
     _translate(x, useZ) {
-      console.log("偏移量")
       let translateZ = useZ ? ' translateZ(0)' : ''
       this.scrollerStyle[transform] = `translate(${x}px,0)${translateZ}`
       this.x = x
@@ -297,6 +343,7 @@ export default {
   watch: {
     btns() {
       this.$nextTick(() => {
+        console.log("观察btns")
         this.refresh()
       })
     }
@@ -434,5 +481,12 @@ export default {
 .content .delete {
   background-color: #ff4949;
   // transform: translate(6.5rem, 0);
+}
+
+.pos-bottom {
+  position: absolute !important;
+  bottom: 0.4rem;
+  left: 50%;
+  transform: translate(-70%, 0);
 }
 </style>

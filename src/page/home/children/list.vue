@@ -39,9 +39,8 @@
       </figure>
     </section>
 
-    <transition name="loading">
-      <loading v-show="showLoading"></loading>
-    </transition>
+    <loading v-show="showLoading"></loading>
+
   </div>
 </template>
 
