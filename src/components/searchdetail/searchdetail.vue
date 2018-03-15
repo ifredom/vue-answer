@@ -1,8 +1,8 @@
 <template>
     <div class="ta-container">
         <div class="ta-input clearfix">
-            <button class="back-button" @click="$router.go(-1)">
-                <img src="../../image/common/back2.png" alt="">
+            <button class="icon iconfont icon-fanhui1 back-button" @click="$router.go(-1)">
+                <!-- <img src="../../image/common/back2.png" alt=""> -->
             </button>
             <input type="text" class="ta-search-input" placeholder="搜索answer" ref="searchui" v-model="searchKey" @keyup="getData($event)">
         </div>
@@ -16,39 +16,35 @@
     </div>
 </template>
 <script type="text/ecmascript-6">
-import vHeader from '@/components/common/header';
 import { doubanSeach, baiduSeach } from '@/api';
 export default {
-  name: 'searchdetail',
-  data() {
-    return {
-      searchKey: '',
-      searchResult: '',
-      tipsArr: []
-    };
-  },
-  methods: {
-    async initData() {
-      var params = {
-        count: 10
-      };
-      var res = await doubanSeach(params);
-      this.tipsArr = res.subjects;
+    name: 'searchdetail',
+    data() {
+        return {
+            searchKey: '',
+            searchResult: '',
+            tipsArr: []
+        };
     },
-    async getData(event) {
-      if (event.keyCode == 13) {
-        var baiduAPi = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=0&rsv_idx=1&tn=baidu&wd=';
-        var res = await baiduSeach(this.searchKey);
-        window.open(`${baiduAPi}${this.searchKey}`);
-      }
+    methods: {
+        async initData() {
+            var params = {
+                count: 10
+            };
+            var res = await doubanSeach(params);
+            this.tipsArr = res.subjects;
+        },
+        async getData(event) {
+            if (event.keyCode == 13) {
+                var baiduAPi = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=0&rsv_idx=1&tn=baidu&wd=';
+                var res = await baiduSeach(this.searchKey);
+                window.open(`${baiduAPi}${this.searchKey}`);
+            }
+        }
+    },
+    created() {
+        this.initData();
     }
-  },
-  components: {
-    vHeader
-  },
-  mounted() {
-    this.initData();
-  }
 };
 </script>
 <style scoped lang="stylus">
@@ -83,11 +79,7 @@ input.ta-search-input {
     height: 40px;
     border: none;
     background: url() no-repeat 50% 50%;
-}
-
-.back-button img {
-    width: 60%;
-    height: 60%;
+    font-size:1.2rem;
 }
 
 .search-content {
