@@ -11,7 +11,7 @@
     </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
 export default {
     data() {
         return {
@@ -37,7 +37,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="stylus" rel="stylesheet/stylus">
 @import 'mint-ui/lib/style.css';
 @import './style/common.css';
 @import './style/iconfont/iconfont.css';
@@ -84,4 +84,30 @@ export default {
 .toggle-leave-active {
     transform: translateX(100%);
 }
+
+.cube-content
+    position: absolute
+    top: 44px
+    left: 0
+    right: 0
+    bottom: 0
+    overflow: scroll
+    -webkit-overflow-scrolling: touch
+    .cube-list
+      padding-left: 10px
+      .cube-item
+        height: 40px
+        line-height: 40px
+        .link
+          display: block
+          position: relative
+          width: 100%
+          color: #333
+          text-decoration: none
+          outline: 0
+          .cubeic-arrow
+            position: absolute
+            right: 0
+            padding: 0 5px
+            color: #ccc;
 </style>

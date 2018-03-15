@@ -1,6 +1,6 @@
 <template>
     <section class="slidenav marginspace">
-      <div class="nav-item" v-for="(item, index) in slideitem" :key="index+'item'">
+      <div class="nav-item" v-for="(item, index) in navs"  @click="activeItem" :key="index+'item'">
         <a href="">
           <img :src="item.imgpath" width="36" height="36" />
           <span v-text="item.title">小众趣闻榜</span>
@@ -12,13 +12,25 @@
 
 export default {
   props: {
-    slideitem: {
+    navs: {
       type: Array,
       require: true
+    },
+    clickItem:{
+      type:Function
     }
   },
   data() {
     return {};
+  },
+  methods:{
+    activeItem(){
+      if(this.clickItem&&this.clickItem instanceof Function){
+        console.log("点击")
+        this.clickItem.call(...this)
+      }
+
+    }
   }
 };
 </script>
