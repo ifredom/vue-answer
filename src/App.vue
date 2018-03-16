@@ -38,11 +38,7 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-@import 'mint-ui/lib/style.css';
-@import './style/common.css';
-@import './style/iconfont/iconfont.css';
-@import './style/ngprogress/ngprogress.css';
-@import './style/util/animate.min.css';
+@import './style/index.styl';
 
 .child-view,
 .root-view {

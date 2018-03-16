@@ -1,62 +1,41 @@
-/* only page components */
-import App from '@/App';
+import VueRouter from 'vue-router'
+import routes from './routes'
 
-const page404 = r => require.ensure([], () => r(require('@/page/404')), '404');
-const Login = r => require.ensure([], () => r(require('@/page/login')), 'login');
-const Home = r => require.ensure([], () => r(require('@/page/home/home')), 'home');
-const Homelist = r => require.ensure([], () => r(require('@/page/home/children/list')), 'homelist');
-const Homedetail = r => require.ensure([], () => r(require('@/page/home/children/detail')), 'homedetail');
-const SearchDetail = r => require.ensure([], () => r(require('@/components/searchdetail/searchdetail')), 'searchdetail');
-const Find = r => require.ensure([], () => r(require('@/page/find/find')), 'find');
-const Sweet = r => require.ensure([], () => r(require('@/page/sweet/sweet')), 'sweet');
-const Exam = r => require.ensure([], () => r(require('@/page/exam/exam')), 'exam');
-const Configure = r => require.ensure([], () => r(require('@/page/configure/configure')), 'configure');
-
-export default [
-  { path: '*', component: page404 },
-  {
-    path: '/',
-    component: App,
-    children: [
-      {
-        path: '/',
-        redirect: '/login' // 默认路由，直接重定向到地址 /login
-      },
-      {
-        path: '/login',
-        component: Login
-      },
-      {
-        path: '/home',
-        component: Home,
-        meta: { keepAlive: true }
-      },
-      {
-        path: '/homedetail',
-        component: Homedetail
-      },
-      {
-        path: '/search',
-        component: SearchDetail
-      },
-      {
-        path: '/find',
-        component: Find,
-        meta: { keepAlive: true }
-      },
-      {
-        path: '/sweet',
-        component: Sweet,
-        meta: { keepAlive: true }
-      },
-      {
-        path: '/exam',
-        component: Exam
-      },
-      {
-        path: '/configure',
-        component: Configure
-      }
-    ]
+// 返回上一级页面的浏览位置
+const scrollBehavior = (to, from, savedPosition) => {
+  if (savedPosition) {
+    return savedPosition;
+  } else {
+    return { x: 0, y: 0 };
   }
-];
+};
+
+const router = new VueRouter({
+  base: '/',
+  mode: 'hash',
+  routes,
+  scrollBehavior
+});
+
+
+//  判断是否需要登录权限 以及是否登录
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(res => res.meta.requireAuth)) {
+    // 判断是否需要登录权限
+    if (localStorage.getItem('user_info')) {
+      // 判断是否登录
+      next();
+    } else {
+      // 没登录则跳转到登录界面
+      next({
+        path: '/login',
+        query: { redirect: to.fullPath }
+      });
+    }
+  } else {
+    next();
+  }
+});
+
+export default router
+

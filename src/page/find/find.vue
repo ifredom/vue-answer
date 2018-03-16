@@ -32,11 +32,11 @@ export default {
       ]
     };
   },
-  methods:{
-    clickItem(){
+  methods: {
+    clickItem() {
       console.log('click itme')
     },
-    clickOtherItem(){
+    clickOtherItem() {
       console.log('click other itme')
     }
   },
@@ -53,7 +53,15 @@ export default {
   background-color: rgba(210, 184, 151, 0.3);
 
   .red {
-    padding 0.625rem;
+    padding: 0.625rem;
+  }
+
+  .ta-padding-space {
+    padding: 6px;
+  }
+
+  .ta-margin-space {
+    margin: 6px;
   }
 }
 </style>
