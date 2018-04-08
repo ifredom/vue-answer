@@ -6,12 +6,10 @@
   "homepage": "https://github.com/ifredom/vue-answer",
   "private": true,
   "scripts": {
-    "dev":
-      "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "webpack": "webpack",
     "start": "npm run dev",
-    "unit":
-      "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
+    "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "build": "node build/build.js",
@@ -24,6 +22,8 @@
     "es6-promise": "^4.2.4",
     "fastclick": "^1.0.6",
     "jquery": "^3.3.1",
+    "js-base64": "^2.4.3",
+    "js-md5": "^0.7.3",
     "lodash": "^4.17.5",
     "mint-ui": "^2.2.13",
     "nprogress": "^0.2.0",
@@ -31,10 +31,10 @@
     "vue": "^2.5.2",
     "vue-class-component": "^6.2.0",
     "vue-ga": "^1.0.0",
+    "vue-lazyload": "^1.2.2",
     "vue-property-decorator": "^6.0.0",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",
-    "vue-lazyload": "^1.2.2",
     "vuex-class": "^0.3.0",
     "we-vue": "^1.6.2",
     "weui-distpicker": "^0.1.1"
@@ -136,7 +136,13 @@
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
   },
-  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
   "license": "MIT",
-  "keywords": ["ifredom"]
+  "keywords": [
+    "ifredom"
+  ]
 }

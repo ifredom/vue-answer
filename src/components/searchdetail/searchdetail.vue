@@ -16,7 +16,7 @@
     </div>
 </template>
 <script type="text/ecmascript-6">
-import { doubanSeach, baiduSeach } from '@/api';
+import { ApiDoubanSeach, ApiBaiduSeach } from '@/api';
 export default {
     name: 'searchdetail',
     data() {
@@ -31,13 +31,13 @@ export default {
             var params = {
                 count: 10
             };
-            var res = await doubanSeach(params);
+            var res = await ApiDoubanSeach(params);
             this.tipsArr = res.subjects;
         },
         async getData(event) {
             if (event.keyCode == 13) {
                 var baiduAPi = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=0&rsv_idx=1&tn=baidu&wd=';
-                var res = await baiduSeach(this.searchKey);
+                var res = await ApiBaiduSeach(this.searchKey);
                 window.open(`${baiduAPi}${this.searchKey}`);
             }
         }

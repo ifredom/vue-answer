@@ -10,7 +10,7 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import { zhihuExplore } from "@/api";
+import { ApiZhihuExplore } from "@/api";
 import vSidebar from "@/components/sidebar/sidebar";
 import vFooter from "@/components/common/footer";
 export default {
@@ -22,7 +22,7 @@ export default {
       this.$store.dispatch('setShowSidebar', true)
     },
     getZhihuData() {
-      zhihuExplore().then(ret => {
+      ApiZhihuExplore().then(ret => {
         console.log(ret)
         if (ret) {
           this.setZhihuContent(ret)

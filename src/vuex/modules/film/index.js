@@ -1,9 +1,7 @@
 /**
- * Created by zhengguorong on 16/6/22.
+ * 物料设置全局变量管理
  */
-import * as actions from './actions'
-import * as getters from './getters'
-import mutations from './mutations'
+
 
 const state = {
   comingSoonFilms: [],
@@ -11,10 +9,19 @@ const state = {
   detail: {},
   billboards: []
 }
+// getters
+const getters = {
+}
+// mutations
+const mutations = {
+}
+// actions
+const actions = {
+}
 
-export default{
+export default {
   state,
-  actions,
   getters,
+  actions,
   mutations
 }

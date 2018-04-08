@@ -1,17 +1,16 @@
 // 模板版本: 1.3.1
 // 查看文档 http://vuejs-templates.github.io/webpack
 
-const path = require('path')
+const path = require('path');
 
 module.exports = {
   dev: {
-      assetsSubDirectory: "static",
+    assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
       '/proxyapi': {
         // 匹配所有以/api开始的路径
-        target:
-          ' http://www.easy-mock.com/mock/59a8d6c14006183e48ef9caa/answer',
+        target: ' https://www.easy-mock.com/mock/59a8d6c14006183e48ef9caa/answer',
         changeOrigin: true,
         pathRewrite: {
           '^/proxyapi': ''
@@ -79,4 +78,4 @@ module.exports = {
     productionGzipExtensions: ['js', 'css'],
     bundleAnalyzerReport: process.env.npm_config_report
   }
-}
+};

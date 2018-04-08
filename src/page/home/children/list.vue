@@ -46,7 +46,7 @@
 
 <script type="text/ecmascript-6">
 import { mapState, mapActions } from 'vuex';
-import { MockHomeList } from '@/api';
+import { ApiMockHomeList } from '@/api';
 import loading from '@/components/common/loading';
 import taTimecountdown from '@/components/timecountdown/timecountdown';
 export default {
@@ -63,7 +63,7 @@ export default {
     ...mapState(['allTime', 'useTime', 'loginState'])
   },
   created() {
-    MockHomeList({}).then(res => {
+    ApiMockHomeList({}).then(res => {
       console.log(res);
       this.cardList = res.data;
       this.record_home_list(res.data);

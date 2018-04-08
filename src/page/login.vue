@@ -32,7 +32,7 @@
 <script>
 import { mapActions, mapMutations, mapState } from 'vuex';
 import { Toast } from 'mint-ui';
-import { MockLogin } from '@/api';
+import { ApiMockLogin } from '@/api';
 
 export default {
   data() {
@@ -52,7 +52,7 @@ export default {
         username: this.loginRule.username,
         password: this.loginRule.password
       };
-      MockLogin(params).then(response => {
+      ApiMockLogin(params).then(response => {
         console.log(response);
         if (response.statusCode == '200') {
           this.set_login_state(true);
