@@ -64,7 +64,6 @@ export default {
   },
   created() {
     ApiMockHomeList({}).then(res => {
-      console.log(res);
       this.cardList = res.data;
       this.record_home_list(res.data);
     });

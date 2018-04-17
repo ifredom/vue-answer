@@ -27,7 +27,9 @@ export function formatDate (date, fmt) {
     fmt = fmt.replace(new RegExp(i + '+', 'g'), function (m) {
       var val = obj[i] + '';
       if (i === 'w') return (m.length > 2 ? '星期' : '周') + week[val];
-      for (var j = 0, len = val.length; j < m.length - len; j++) val = '0' + val;
+      for (var j = 0, len = val.length; j < m.length - len; j++) {
+        val = '0' + val;
+      }
       return m.length === 1 ? val : val.substring(val.length - m.length);
     });
   }
@@ -42,20 +44,15 @@ export function formatDate (date, fmt) {
  * @param appSecret 应用密钥
  * @returns 合法的带签名的请求参数
  */
-export function generateRequestParamsSign (appid, apiPath, token, params, appSecret) {
+export function generateRequestParamsSign (appId, token, params, appSecret) {
   var requestParams = {
-    apiPath: apiPath,
-    appId: appid,
+    appId: appId,
     params: JSON.stringify(params),
     sign: undefined,
     timeStamp: formatDate(new Date()),
     token: token
   };
   requestParams.sign = getSign(requestParams, appSecret);
-  // var requestBody = ''
-  // for (var obj in requestParams) {
-  //   requestBody += obj + '=' + requestParams[obj] + '&'
-  // }
   return requestParams;
 }
 /**
@@ -66,7 +63,6 @@ export function generateRequestParamsSign (appid, apiPath, token, params, appSec
  */
 function getSign (requestParams, appSecret) {
   var sign = appSecret;
-  console.log(sign);
   for (var obj in requestParams) {
     if (obj === 'sign') {
       continue;
@@ -74,7 +70,6 @@ function getSign (requestParams, appSecret) {
     sign += obj + requestParams[obj];
   }
   sign += appSecret;
-  console.log(sign);
   // md5
   sign = md5.hex(sign);
 
@@ -104,65 +99,3 @@ export function getToken (cookieName) {
   }
   return '';
 }
-export function getOpUser () {
-  let user = sessionStorage.getItem('user');
-  if (user) return user;
-}
-export function getOpId () {
-  let user = sessionStorage.getItem('user');
-  if (user) return user.opId;
-}
-
-export var validateNumber = (rule, value, callback) => {
-  if (value === undefined || value === null || value === '') {
-    callback();
-    return;
-  }
-  if (isNaN(value)) {
-    callback(new Error('请输入数字'));
-    return;
-  }
-  if (value < 0) {
-    callback(new Error('请输入正数'));
-    return;
-  }
-  if (!/^\d*(\.\d{1,2})?$/.test(String(value))) {
-    callback(new Error('精确到小数点后两位'));
-    return;
-  }
-  callback();
-};
-
-export var validateAlphabetAndNum = (rule, value, callback) => {
-  if (value === undefined || value === null || value === '') {
-    callback();
-    return;
-  }
-  if (!/^[0-9a-zA-Z]*$/g.test(String(value))) {
-    callback(new Error('字母,数字或字母加数字组合'));
-    return;
-  }
-  callback();
-};
-export var validateStrLength20 = (rule, value, callback) => {
-  if (String(value).length > 20) {
-    callback(new Error('最长为20个字'));
-    return;
-  }
-  callback();
-};
-
-export var validateNumLength = (rule, value, callback) => {
-  if (String(value).length > 10) {
-    callback(new Error('最长为10个字'));
-    return;
-  }
-  callback();
-};
-export const deepCopy = source => {
-  var sourceCopy = source instanceof Array ? [] : {};
-  for (var item in source) {
-    sourceCopy[item] = typeof source[item] === 'object' ? deepCopy(source[item]) : source[item];
-  }
-  return sourceCopy;
-};

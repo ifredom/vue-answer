@@ -19,16 +19,12 @@ export { Api };
 
 // 远端mock接口-登录
 export const ApiMockLogin = params => {
-    return httpMiddleware(`${base}/login`, params, 'post');
-  // return httpMiddleware(`${Api.mockApi.proxyService}/login`, params, 'post');
+  return httpMiddleware(`${base}/login`, params, 'post');
 };
-// // 本地服务器mock接口-登录
-export const ApiLocalMockLogin = params => {
-  return httpMiddleware(`${localWebpackService}/${Api.localApiBranch.login}`, params, 'post');
-};
+
 // mock接口-首页列表
 export const ApiMockHomeList = params => {
-  return httpMiddleware(`${localWebpackService}/${Api.localApiBranch.homelist}`, params, 'post');
+  return httpMiddleware(`${base}/homelist`, params, 'post');
 };
 // 知乎-发现
 export const ApiZhihuExplore = params => {

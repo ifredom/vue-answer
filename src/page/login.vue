@@ -49,13 +49,15 @@ export default {
     ...mapActions(['set_login_state']),
     login() {
       let params = {
+        apiId: 'IFR.login',
         username: this.loginRule.username,
         password: this.loginRule.password
       };
-      ApiMockLogin(params).then(response => {
-        console.log(response);
-        if (response.statusCode == '200') {
+      ApiMockLogin(params).then(res => {
+        if (res.statusCode == 200) {
           this.set_login_state(true);
+          // 存储token在storage中
+          localStorage.setItem('token', res.data.token);
           this.$router.push({ path: '/home' });
         } else {
           Toast('登录失败');
