@@ -7,6 +7,7 @@
 <script type="text/ecmascript-6">
 import { mapState, mapActions } from 'vuex';
 export default {
+    name:'ta-timecountdown',
     props: {
         autoplay: {
             type: Boolean,

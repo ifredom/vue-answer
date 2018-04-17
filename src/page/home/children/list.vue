@@ -39,7 +39,7 @@
       </figure>
     </section>
 
-    <loading v-show="showLoading"></loading>
+    <loading v-if="showLoading"></loading>
 
   </div>
 </template>
@@ -53,10 +53,10 @@ export default {
   data() {
     return {
       cardList: [], // 列表集合数据
-      dianzanClass: '',// 点赞红星class绑定
+      dianzanClass: '', // 点赞红星class绑定
       showLoading: true, // 是否显示侧边栏
-      startX: 0,// 滑动距离
-      endX: 0,
+      startX: 0, // 滑动距离
+      endX: 0
     };
   },
   computed: {

@@ -12,7 +12,7 @@ import FastClick from 'fastclick';
 import VueLazyload from 'vue-lazyload';
 import NProgress from 'nprogress';
 import './util/common/adaption/rem';
-
+import '@/components/global.js';
 // 框架
 import MintUI from 'mint-ui';
 
