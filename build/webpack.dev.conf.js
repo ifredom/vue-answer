@@ -10,6 +10,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const portfinder = require('portfinder');
 
+var os = require('os');
+var HappyPack = require('happypack');
+
 const local_server_mock = require('../local_server_mock/router');
 
 const HOST = process.env.HOST;
@@ -50,10 +53,15 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     },
     before (app) {
       // 使用webpack-dev-server作为服务器提供数据
-      local_server_mock(app)
+      local_server_mock(app);
     }
   },
   plugins: [
+    new HappyPack({
+      id: 'happybabel',
+      loaders: ['babel-loader?cacheDirectory=true'],
+      threadPool: HappyPack.ThreadPool({ size: os.cpus().length })
+    }),
     new webpack.DefinePlugin({
       'process.env': require('../config/dev.env')
     }),

@@ -34,7 +34,7 @@ module.exports = {
       },
       '/douban': {
         // 匹配所有以/douban开始的路径
-        target: 'https://api.douban.com/',
+        target: 'https://api.douban.com',
         changeOrigin: true,
         pathRewrite: {
           '^/douban': ''

@@ -2,7 +2,7 @@ import httpMiddleware from './axiosUtils';
 
 export const base = 'https://www.easy-mock.com/mock/59a8d6c14006183e48ef9caa/answer';
 export const localWebpackService = 'http://localhost:8869/mock';
-const Api = {
+export const Api = {
   mockApi: {
     proxyService: '/proxyapi',
     zhihuApi: '/zhihu',
@@ -15,7 +15,7 @@ const Api = {
     homelist: 'homelist'
   }
 };
-export { Api };
+
 
 // 远端mock接口-登录
 export const ApiMockLogin = params => {
@@ -31,7 +31,7 @@ export const ApiZhihuExplore = params => {
   return httpMiddleware(`${Api.mockApi.zhihuApi}/explore`, params, 'get');
 };
 // 豆瓣-用于搜索
-export const ApiDoubanSeach = params => {
+export const ApiDoubanSearch = params => {
   return httpMiddleware(`${Api.mockApi.doubanApi}/v2/movie/top250`, params, 'get');
 };
 // 百度-用于搜索

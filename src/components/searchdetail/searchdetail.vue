@@ -16,7 +16,7 @@
     </div>
 </template>
 <script type="text/ecmascript-6">
-import { ApiDoubanSeach, ApiBaiduSeach } from '@/api';
+import { ApiDoubanSearch, ApiBaiduSeach } from '@/api';
 export default {
     name: 'searchdetail',
     data() {
@@ -31,7 +31,8 @@ export default {
             var params = {
                 count: 10
             };
-            var res = await ApiDoubanSeach(params);
+            var res = await ApiDoubanSearch(params);
+            console.log(res)
             this.tipsArr = res.subjects;
         },
         async getData(event) {
