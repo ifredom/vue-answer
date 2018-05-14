@@ -110,7 +110,7 @@ npm i cssnano-preset-advanced --save-dev
 
 **skeleton 是什么？骨架预览页**
 
-具体效预览：打开饿了么官网（移动端），调整浏览器网速为慢速，比如 network 调整为 slow 3G，看见的页面即为骨架预览页。
+具体效果预览：打开饿了么官网（移动端），调整浏览器网速为慢速，比如 network 调整为 slow 3G，看见的页面即为骨架预览页。
 
 **有什么好处？提高用户体验**
 
@@ -119,7 +119,7 @@ npm i cssnano-preset-advanced --save-dev
 
 npm install vue-server-renderer --save-dev
 
-# 并将快捷指令添加到 package,json
+# 并将快捷指令添加到 package.json
 scripts:{
   "skeleton": "node build/webpack.skeleton.conf.js"
 }
