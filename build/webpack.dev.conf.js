@@ -31,12 +31,10 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   devServer: {
     clientLogLevel: 'warning',
     historyApiFallback: {
-      rewrites: [
-        {
-          from: /.*/,
-          to: path.posix.join(config.dev.assetsPublicPath, 'index.html')
-        }
-      ]
+      rewrites: [{
+        from: /.*/,
+        to: path.posix.join(config.dev.assetsPublicPath, 'index.html')
+      }]
     },
     hot: true,
     contentBase: false, // since we use CopyWebpackPlugin.
@@ -44,14 +42,17 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     host: HOST || config.dev.host,
     port: PORT || config.dev.port,
     open: config.dev.autoOpenBrowser,
-    overlay: config.dev.errorOverlay ? { warnings: false, errors: true } : false,
+    overlay: config.dev.errorOverlay ? {
+      warnings: false,
+      errors: true
+    } : false,
     publicPath: config.dev.assetsPublicPath,
     proxy: config.dev.proxyTable,
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
       poll: config.dev.poll
     },
-    before (app) {
+    before(app) {
       // 使用webpack-dev-server作为服务器提供数据
       local_server_mock(app);
     }
@@ -60,7 +61,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new HappyPack({
       id: 'happybabel',
       loaders: ['babel-loader?cacheDirectory=true'],
-      threadPool: HappyPack.ThreadPool({ size: os.cpus().length })
+      threadPool: HappyPack.ThreadPool({
+        size: os.cpus().length
+      })
     }),
     new webpack.DefinePlugin({
       'process.env': require('../config/dev.env')
@@ -79,16 +82,14 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       inject: true
     }),
     // copy custom static assets
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(__dirname, '../static'),
-        to: config.dev.assetsSubDirectory,
-        ignore: ['.*']
-      }
-    ])
+    new CopyWebpackPlugin([{
+      from: path.resolve(__dirname, '../static'),
+      to: config.dev.assetsSubDirectory,
+      ignore: ['.*']
+    }])
   ]
 });
-
+console.log('portfinder之前');
 module.exports = new Promise((resolve, reject) => {
   portfinder.basePort = process.env.PORT || config.dev.port;
   portfinder.getPort((err, port) => {
@@ -110,6 +111,7 @@ module.exports = new Promise((resolve, reject) => {
           onErrors: config.dev.notifyOnErrors ? utils.createNotifierCallback() : undefined
         })
       );
+      console.log('resolve之前');
 
       resolve(devWebpackConfig);
     }

@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "webpack": "webpack",
+    "skeleton": "node build/webpack.skeleton.conf.js",
     "start": "npm run dev",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
@@ -34,6 +34,7 @@
     "vue-lazyload": "^1.2.2",
     "vue-property-decorator": "^6.0.0",
     "vue-router": "^3.0.1",
+    "vue-server-renderer": "^2.5.16",
     "vuex": "^3.0.1",
     "vuex-class": "^0.3.0",
     "we-vue": "^1.6.2",
@@ -131,7 +132,8 @@
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.11.2",
-    "webpack-merge": "^4.1.2"
+    "webpack-merge": "^4.1.2",
+    "webpack-node-externals": "^1.7.2"
   },
   "engines": {
     "node": ">= 6.0.0",

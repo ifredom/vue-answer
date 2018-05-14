@@ -1,15 +1,15 @@
 # what's vue-answer？
 
 * Answer -- the classification, evaluation, and ranking of the mainstream information
-（答案-对主流信息进行分类，评价，排行）
+  （答案-对主流信息进行分类，评价，排行）
 
 * In Answer, Guide to information acquisition, all the people on the street.
   (在答案,为你推介获取正确信息的指南，也作为你披荆斩棘的引路人)
 
-* In Answer, you can easily find friends who have been in the same predicament.  all the people on the street
+* In Answer, you can easily find friends who have been in the same predicament. all the people on the street
   (在答案，你可以轻易找到曾经历相同困境的朋友,披荆斩棘的同伴)
 
-----
+---
 
 ### 使用方法 ?
 
@@ -34,40 +34,42 @@
     # 运行所有测试用例
     npm test
 
-----
+---
 
 ### UI exhibition
-  ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/1.png)
-  ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/2.png)
-  ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/3.png)
-  ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/4.png)
+
+![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/1.png)
+![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/2.png)
+![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/3.png)
+![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/4.png)
+
 ### 下载安装
-  ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/ifredom-answoe-code.png)
 
-  二维码有时效性，如果已失效，那么你可以在installpackage文件夹中找到apk安装包
+![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/ifredom-answoe-code.png)
 
-----
+二维码有时效性，如果已失效，那么你可以在 installpackage 文件夹中找到 apk 安装包
+
+---
 
 ### 开发环境
 
-  1.node v6.9.4
+1.node v6.9.4
 
-  2.cnpm v4.5.0
+2.cnpm v4.5.0
 
-  3.npm v3.10.10
+3.npm v3.10.10
 
 ### support browser
 
-  IE 10+
+IE 10+
 
-  Andorid 4.1+
+Andorid 4.1+
 
-  IOS 7+
+IOS 7+
 
-## UI开发环境系统构建（storybook）
+## UI 开发环境系统构建（storybook）
 
-``` bash
-
+```bash
 # 构建UI测试框架（参考文档 https://storybook.js.org/basics/guide-vue/）
 npm i @storybook/vue --save-dev
 npm i storybook-router --save-dev
@@ -80,14 +82,14 @@ npm i storybook-router --save-dev
 }
 
 # 添加配置文件支持别名@  .torybook/webpack.config.js
-
 ```
+
 ## 移动端适配方案构建（Flexible.js）
 
 **有什么好处？**
-**按照750px宽度出图，前端不用计算尺寸，不用管什么rem，直接使用设计稿上的px即可，移动端自动适配**
+**按照 750px 宽度出图，前端不用计算尺寸，不用管什么 rem，直接使用设计稿上的 px 即可，移动端自动适配**
 
-``` bash
+```bash
 # 第一步，使用vue-cli初始化一个项目
 vue init webpack test-flexible-layout
 # 第二步，安装依赖，以及适配方案所需包
@@ -101,18 +103,60 @@ npm i cssnano-preset-advanced --save-dev
 参见index.html。引入该CDN上的2个js文件，同时在onload中初始化
 # ps：格外注意事项 ，所有css文件一律不在入口main.js中引入，使用app根组件引入
 ```
+
 参考：https://www.w3cplus.com/mobile/vw-layout-in-vue.html
+
+## skeleton 骨架预览页生成方案
+
+**skeleton 是什么？骨架预览页**
+
+具体效预览：打开饿了么官网（移动端），调整浏览器网速为慢速，比如 network 调整为 slow 3G，看见的页面即为骨架预览页。
+
+**有什么好处？提高用户体验**
+
+```bash
+# 第一步，创建生成skeleton页面所需webpack配置文件config/webpack.skeleton.conf.js，需要安装一个npm包
+
+npm install vue-server-renderer --save-dev
+
+# 并将快捷指令添加到 package,json
+scripts:{
+  "skeleton": "node build/webpack.skeleton.conf.js"
+}
+
+# 第二步，手动新建vue后缀骨架页面，并存放在skeleton文件夹内 skeleton/skeleton.vue
+
+# 第三步，创建生成skeleton所需要的入口文件skeleton/skeleton.entry.js，
+
+# 第四步，在index.html中添加占位符<!--vue-ssr-outlet-->，最终生成的skeleton页面会在这里替换并插入index.html中。
+
+<div id="app">
+    <!--vue-ssr-outlet-->
+</div>
+```
+
+skeleton 准备工作完成后，如何运行？
+
+```bash
+# 生成skeleton页面并插入index.html
+npm run skeleton
+# 查看运行效果
+ npm run dev
+# ps:运行后，调整浏览器网速为slow就可以看见具体的效果了
+```
 
 ## 其他工具
 
-``` bash
+```bash
 # npm-check是一个检查项目依赖包的工具，非常实用
 # 安装
 npm install  -g npm-check
 # 使用
 npm-check
 ```
+
 ### project structure
+
     .
     -- build                            // 项目构建相关代码
     |   |-- build.js                     // 生产环境构建代码
