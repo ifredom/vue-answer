@@ -63,8 +63,8 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        use: 'happypack/loader?id=happybabel',
-        // loader: 'babel-loader',
+        // use: 'happypack/loader?id=happybabel',
+        loader: 'babel-loader',
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
       {

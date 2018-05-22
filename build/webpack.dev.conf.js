@@ -54,17 +54,18 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     },
     before(app) {
       // 使用webpack-dev-server作为服务器提供数据
-      local_server_mock(app);
+      // local_server_mock(app);
     }
   },
   plugins: [
-    new HappyPack({
-      id: 'happybabel',
-      loaders: ['babel-loader?cacheDirectory=true'],
-      threadPool: HappyPack.ThreadPool({
-        size: os.cpus().length
-      })
-    }),
+    // new HappyPack({
+    //   id: 'happybabel',
+    //   loaders: ['babel-loader'],
+    //   verbose:false,
+    //   threadPool: HappyPack.ThreadPool({
+    //     size: 4   // 经过试验设置为4核是最好的，而不是cpu最大个数 os.cpus().length
+    //   })
+    // }),
     new webpack.DefinePlugin({
       'process.env': require('../config/dev.env')
     }),
@@ -89,7 +90,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     }])
   ]
 });
-console.log('portfinder之前');
+
 module.exports = new Promise((resolve, reject) => {
   portfinder.basePort = process.env.PORT || config.dev.port;
   portfinder.getPort((err, port) => {
@@ -111,7 +112,6 @@ module.exports = new Promise((resolve, reject) => {
           onErrors: config.dev.notifyOnErrors ? utils.createNotifierCallback() : undefined
         })
       );
-      console.log('resolve之前');
 
       resolve(devWebpackConfig);
     }

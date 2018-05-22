@@ -51,7 +51,7 @@ module.exports = {
     },
     host: 'localhost',
     port: 8869,
-    autoOpenBrowser: true,
+    autoOpenBrowser: false,
     errorOverlay: true, // 是否开启报错提示
     notifyOnErrors: true, // 是否开启错误消息通知，类似qq通知
     poll: false, // 在NFS文件系统中可能不能起作用，到时无法查看到文件的变化情况，默认true
@@ -71,7 +71,7 @@ module.exports = {
     // => 将 build 的路径前缀修改为 ' ./ '（原本为 ' / '），
     // '/' 在服务器环境中使用
     // './' 在本地开发时使用，而build之后的文件是为了app使用，如同本地使用
-    assetsPublicPath: './',
+    assetsPublicPath: '/',
     productionSourceMap: true,
     devtool: '#source-map', // 或者使用#eval-source-map
     productionGzip: false, // 打包为app时不能开启
