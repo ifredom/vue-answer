@@ -16,7 +16,7 @@
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
     "start:dev": "nodemon --debug ./bin/www",
     "storybook": "start-storybook -p 6007 -c .storybook",
-    "dll": "webpack --progress --colors --config build/webpack.dll.conf.js"
+    "dll": "rimraf dist && webpack --progress --colors --config build/webpack.dll.conf.js"
   },
   "dependencies": {
     "axios": "^0.17.1",

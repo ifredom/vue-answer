@@ -25,7 +25,12 @@ module.exports = {
     dll: [
       'jquery',
       'fastclick',
-      'vue-lazyload'
+      'vue-lazyload',
+      'es6-promise',
+      'vue/dist/vue.esm.js',
+      'vue-router',
+      'vuex',
+      'axios'
     ],
   },
   plugins: [
@@ -55,8 +60,11 @@ module.exports = {
       from: path.resolve(__dirname, '../static'),
       to: config.dev.assetsSubDirectory,
       ignore: ['.*']
-    }])
-
+    }]),
+    // new webpack.DllReferencePlugin({
+    //   context: __dirname,
+    //   manifest: require('../static/verdor-manifest.json')
+    // })
   ],
   module: baseWebpackConfig.module, // 沿用业务代码的module配置
   resolve: baseWebpackConfig.resolve, // 沿用业务代码的resolve配置
