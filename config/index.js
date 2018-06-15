@@ -2,6 +2,7 @@
 // 查看文档 http://vuejs-templates.github.io/webpack
 
 const path = require('path');
+const dllEnv = require('./dll.env')
 
 module.exports = {
   dev: {
@@ -77,5 +78,6 @@ module.exports = {
     productionGzip: false, // 打包为app时不能开启
     productionGzipExtensions: ['js', 'css'],
     bundleAnalyzerReport: process.env.npm_config_report
-  }
+  },
+  dll: dllEnv
 };
