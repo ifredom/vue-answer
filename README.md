@@ -47,7 +47,7 @@
 
 ![image](https://github.com/ifredom/vue-answer/raw/master/test/testsrc/ifredom-answoe-code.png)
 
-二维码有时效性，如果已失效，那么你可以在 installpackage 文件夹中找到 apk 安装包
+二维码有时效性，如果已失效，那么你可以在 installpackage 文件夹中找到 apk 安卓安装包
 
 ---
 

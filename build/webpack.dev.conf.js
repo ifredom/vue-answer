@@ -70,7 +70,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     //   context: config.dll.rootDir,
     //   manifest: path.join(config.dll.buildDir, 'vendor-manifest.json'), // 指向生成的manifest.json
     //   // manifest: require('../dist/vendor-manifest.json'), // 指向生成的manifest.json
-    //   name: "[name].dll",
+    //   name: "[name]", // 当前Dll的所有内容都会存放在这个参数指定变量名的一个全局变量下，注意与DllPlugin的name参数保持一致
     // }),
     new webpack.DefinePlugin({
       'process.env': require('../config/dev.env')

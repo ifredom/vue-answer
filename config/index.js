@@ -68,10 +68,7 @@ module.exports = {
     assetsRoot: path.resolve(__dirname, '../dist'),
     // webpack编译输出的二级文件夹
     assetsSubDirectory: 'static',
-    // webpack编译输出的发布路径
-    // => 将 build 的路径前缀修改为 ' ./ '（原本为 ' / '），
-    // '/' 在服务器环境中使用
-    // './' 在本地开发时使用，而build之后的文件是为了app使用，如同本地使用
+    // webpack编译输出的发布路径。将assetsPublicPath（默认为'/'）修改为 ' ./ '，在本地浏览器中可打开使用
     assetsPublicPath: '/',
     productionSourceMap: true,
     devtool: '#source-map', // 或者使用#eval-source-map
