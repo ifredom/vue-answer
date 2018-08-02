@@ -22,7 +22,7 @@ export default {
 </script>
 <style scoped lang="stylus">
 .container {
-  background: url('../../image/books/bookbg3.png') no-repeat 0 0;
+  background: url('../../assets/image/books/bookbg3.png') no-repeat 0 0;
   background-size: 160%;
   // background-color: rgba(125,113,97,0.7);
 }

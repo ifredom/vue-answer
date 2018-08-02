@@ -6,17 +6,17 @@
           <p>{{item.title}}</p>
         </div>
         <div class="center">
-          <img src="./../../../image/adavator/person2.png" width="24" height="24" />
-          <img src="./../../../image/adavator/person3.png" width="24" height="24" />
-          <img src="./../../../image/adavator/person4.png" width="24" height="24" />
-          <img src="./../../../image/adavator/person3.png" width="24" height="24" />
+          <img src="./../../../assets/image/adavator/person2.png" width="24" height="24" />
+          <img src="./../../../assets/image/adavator/person3.png" width="24" height="24" />
+          <img src="./../../../assets/image/adavator/person4.png" width="24" height="24" />
+          <img src="./../../../assets/image/adavator/person3.png" width="24" height="24" />
         </div>
         <ta-timecountdown ref="timerbtn" autoplay :seconds="allTime-useTime"></ta-timecountdown>
         <div class="right">...</div>
       </figure>
       <div class="card-content">
         <router-link class="content-title" :to="{path:'/homedetail', query:{id:item.id, title:item.title, lang:item.lang,zan:item.zan},params:{title:item.title}}" tag="div">
-          <img src="./../../../image/books/type1.jpg" width="60" height="80" />
+          <img src="./../../../assets/image/books/type1.jpg" width="60" height="80" />
         </router-link>
         <div class="content-detail">
           <span class="content-value">#{{item.conver}}</span>{{item.content}}</div>
@@ -225,7 +225,7 @@ export default {
 }
 
 .heart {
-  background: url('../../../image/common/heart_animation.png');
+  background: url('../../../assets/image/common/heart_animation.png');
   background-position: left;
   background-repeat: no-repeat;
   height: 4rem;

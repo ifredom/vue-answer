@@ -148,11 +148,11 @@ export default {
         vertical-align: middle;
     }
     .ta-header .ta-left span.left-back1{
-        background: url('./../../image/common/back.png') no-repeat center;
+        background: url('./../../assets/image/common/back.png') no-repeat center;
         background-size: 1.1rem;
     }
     .ta-header .ta-left span.left-back2{
-        background: url('./../../image/common/back2.png') no-repeat center;
+        background: url('./../../assets/image/common/back2.png') no-repeat center;
         background-size: 1.1rem;
     }
 

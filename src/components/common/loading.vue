@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../../style/mixin';
+@import '../../assets/style/mixin';
 
 @keyframes load {
   0% {
@@ -68,7 +68,7 @@ export default {
 
 .load_img {
   wh(100%, 100%);
-  background: url('../../image/common/icon_loading.png') no-repeat 0 0;
+  background: url('../../assets/image/common/icon_loading.png') no-repeat 0 0;
   background-size: 2.5rem auto;
   transform: translateY(0px);
   animation: load 0.6s infinite ease-in-out;

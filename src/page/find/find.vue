@@ -19,16 +19,16 @@ export default {
   data() {
     return {
       nav: [
-        { imgpath: require('./../../image/adavator/person1.png'), title: '魅力城市榜' },
-        { imgpath: require('./../../image/adavator/person2.png'), title: '游戏热度榜' },
-        { imgpath: require('./../../image/adavator/person3.png'), title: '未来科技榜' },
-        { imgpath: require('./../../image/adavator/person4.png'), title: '战争狂人榜' },
+        { imgpath: require('./../../assets/image/adavator/person1.png'), title: '魅力城市榜' },
+        { imgpath: require('./../../assets/image/adavator/person2.png'), title: '游戏热度榜' },
+        { imgpath: require('./../../assets/image/adavator/person3.png'), title: '未来科技榜' },
+        { imgpath: require('./../../assets/image/adavator/person4.png'), title: '战争狂人榜' },
       ],
       other_nav: [
-        { imgpath: require('./../../image/adavator/person2.png'), title: '中国热榜' },
-        { imgpath: require('./../../image/adavator/person4.png'), title: '白皮热榜' },
-        { imgpath: require('./../../image/adavator/person3.png'), title: '西藏阿里' },
-        { imgpath: require('./../../image/adavator/person1.png'), title: '北京东城' },
+        { imgpath: require('./../../assets/image/adavator/person2.png'), title: '中国热榜' },
+        { imgpath: require('./../../assets/image/adavator/person4.png'), title: '白皮热榜' },
+        { imgpath: require('./../../assets/image/adavator/person3.png'), title: '西藏阿里' },
+        { imgpath: require('./../../assets/image/adavator/person1.png'), title: '北京东城' },
       ]
     };
   },

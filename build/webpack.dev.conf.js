@@ -66,6 +66,12 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     //     size: 4   // 经过试验设置为4核是最好的，而不是cpu最大个数 os.cpus().length
     //   })
     // }),
+    // new webpack.DllReferencePlugin({
+    //   context: config.dll.rootDir,
+    //   manifest: path.join(config.dll.buildDir, 'vendor-manifest.json'), // 指向生成的manifest.json
+    //   // manifest: require('../dist/vendor-manifest.json'), // 指向生成的manifest.json
+    //   name: "[name].dll",
+    // }),
     new webpack.DefinePlugin({
       'process.env': require('../config/dev.env')
     }),
@@ -76,13 +82,13 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
     new webpack.NoEmitOnErrorsPlugin(),
-    // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
+      // dllJsName: bundleConfig.vendor.js,
+      // libCssName:bundleConfig.vendor.css,
       inject: true
     }),
-    // copy custom static assets
     new CopyWebpackPlugin([{
       from: path.resolve(__dirname, '../static'),
       to: config.dev.assetsSubDirectory,

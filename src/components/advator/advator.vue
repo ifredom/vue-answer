@@ -1,9 +1,9 @@
 <template>
   <section class="head">
     <div class="avatar">
-      <img src="../../image/common/advator.jpg" alt="">
+      <img src="../../assets/image/common/advator.jpg" alt="">
       <div class="rzstatus" @click="clickAdvator">
-        <img src="../../image/adavator/person1.png" alt="">
+        <img src="../../assets/image/adavator/person1.png" alt="">
       </div>
     </div>
     <div class="username">糖果名：{{username}}</div>

@@ -2,7 +2,7 @@
     <div class="ta-container">
         <div class="ta-input clearfix">
             <button class="icon iconfont icon-fanhui1 back-button" @click="$router.go(-1)">
-                <!-- <img src="../../image/common/back2.png" alt=""> -->
+                <!-- <img src="../../assets/image/common/back2.png" alt=""> -->
             </button>
             <input type="text" class="ta-search-input" placeholder="搜索answer" ref="searchui" v-model="searchKey" @keyup="getData($event)">
         </div>

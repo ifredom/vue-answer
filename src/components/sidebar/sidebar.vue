@@ -7,19 +7,19 @@
 
         <ul class="menu">
           <mt-cell @click="hideSidebar" title="我">
-            <img slot="icon" src="../../image/adavator/person1.png" width="24" height="24">
+            <img slot="icon" src="../../assets/image/adavator/person1.png" width="24" height="24">
           </mt-cell>
           <mt-cell @click="hideSidebar" title="缘由边界">
-            <img slot="icon" src="../../image/adavator/person2.png" width="24" height="24">
+            <img slot="icon" src="../../assets/image/adavator/person2.png" width="24" height="24">
           </mt-cell>
           <mt-cell @click="hideSidebar" title="爱的深呼吸">
-            <img slot="icon" src="../../image/adavator/person3.png" width="24" height="24">
+            <img slot="icon" src="../../assets/image/adavator/person3.png" width="24" height="24">
           </mt-cell>
           <mt-cell @click="hideSidebar" title="配置" to="/configure">
-            <img slot="icon" src="../../image/adavator/person4.png" width="24" height="24">
+            <img slot="icon" src="../../assets/image/adavator/person4.png" width="24" height="24">
           </mt-cell>
           <mt-cell @click="signout" title="退出登录" to="/login">
-            <img slot="icon" src="../../image/adavator/person5.png" width="24" height="24">
+            <img slot="icon" src="../../assets/image/adavator/person5.png" width="24" height="24">
           </mt-cell>
         </ul>
       </section>

@@ -38,7 +38,7 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-@import './style/index.styl';
+@import './assets/style/index.styl';
 
 .child-view,
 .root-view {

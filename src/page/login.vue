@@ -1,7 +1,7 @@
 <template>
     <div class="page-login ta-login ta-form">
         <div class="ta-logo">
-            <img class="ta-logo-img" src="../image/logo.jpg" alt="logo">
+            <img class="ta-logo-img" src="../assets/image/logo.jpg" alt="logo">
             <span class="mainName">Answer</span>
             <span class="nameExprie">[找你所需]</span>
         </div>
@@ -79,7 +79,7 @@ export default {
 .ta-login {
     width: 100%;
     height: 100%;
-    background-image: url('../image/loginbg.png');
+    background-image: url('../assets/image/loginbg.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
 
