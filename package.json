@@ -29,6 +29,7 @@
     "mint-ui": "^2.2.13",
     "nprogress": "^0.2.0",
     "qs": "^6.5.1",
+    "ramda": "^0.25.0",
     "vue": "^2.5.2",
     "vue-class-component": "^6.2.0",
     "vue-ga": "^1.0.0",
