@@ -19,7 +19,7 @@
     "dll": "rimraf dist && webpack --progress --colors --config build/webpack.dll.conf.js"
   },
   "dependencies": {
-    "axios": "^0.17.1",
+    "axios": "^0.21.1",
     "es6-promise": "^4.2.4",
     "fastclick": "^1.0.6",
     "jquery": "^3.3.1",
